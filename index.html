@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arsy — Art History Flashcards</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -66,11 +66,21 @@
             </div>
             <div class="back-rule"></div>
             <div class="back-body">
-              <p class="back-facts" id="backFacts"></p>
+              <div class="info-block">
+                <p class="info-label">Key Artists</p>
+                <p class="info-value" id="backArtists"></p>
+              </div>
+              <div class="info-block">
+                <p class="info-label">Visual Philosophy</p>
+                <p class="info-value" id="backPhilosophy"></p>
+              </div>
             </div>
             <div class="back-footer">
               <div class="keywords" id="keywords"></div>
-              <p class="flip-cue flip-cue--reverse">↺ tap to return</p>
+              <div class="back-footer-row">
+                <p class="image-credit" id="imageCredit"></p>
+                <p class="flip-cue flip-cue--reverse">↺ return</p>
+              </div>
             </div>
           </div>
 
