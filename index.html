@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsy — Art History Flashcards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">◆</span>
+        <div class="brand-text">
+          <span class="brand-name">Arsy</span>
+          <span class="brand-tagline">Art History Study</span>
+        </div>
+      </div>
+      <nav class="categories" aria-label="Filter cards by category">
+        <button class="cat-btn is-active" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="Eras">Eras</button>
+        <button class="cat-btn" data-cat="Styles">Styles</button>
+        <button class="cat-btn" data-cat="Techniques">Techniques</button>
+      </nav>
+    </div>
+    <div class="progress-track-wrap" role="progressbar" aria-label="Study progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressRole">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="deck-meta">
+      <span class="deck-progress" id="progressText">Card 1 of 12</span>
+      <span class="deck-category" id="categoryLabel">All Categories</span>
+    </div>
+
+    <!-- 3D Scene -->
+    <div class="scene">
+      <div class="card" id="flashcard" tabindex="0" role="button" aria-pressed="false" aria-label="Flashcard — click or press Space to flip">
+        <div class="card-inner" id="cardInner">
+
+          <!-- ── FRONT ── -->
+          <div class="face face-front">
+            <div class="card-img-wrap">
+              <img class="card-img" id="cardImg" src="" alt="" loading="eager" />
+              <span class="cat-pill" id="frontCatPill"></span>
+            </div>
+            <div class="front-body">
+              <p class="hint-eyebrow">Hint</p>
+              <p class="hint-text" id="hintText"></p>
+              <h2 class="card-title" id="cardTitle"></h2>
+              <p class="flip-cue">tap to reveal →</p>
+            </div>
+          </div>
+
+          <!-- ── BACK ── -->
+          <div class="face face-back">
+            <div class="back-header">
+              <span class="back-cat" id="backCat"></span>
+              <h2 class="back-title" id="backTitle"></h2>
+              <p class="back-period" id="backPeriod"></p>
+            </div>
+            <div class="back-rule"></div>
+            <div class="back-body">
+              <p class="back-facts" id="backFacts"></p>
+            </div>
+            <div class="back-footer">
+              <div class="keywords" id="keywords"></div>
+              <p class="flip-cue flip-cue--reverse">↺ tap to return</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation controls -->
+    <div class="controls">
+      <button class="nav-btn" id="prevBtn" aria-label="Previous card" disabled>
+        <span class="nav-icon">←</span>
+        <span class="nav-label">Prev</span>
+      </button>
+      <span class="card-counter" id="cardCounter">1 / 12</span>
+      <button class="nav-btn nav-btn--right" id="nextBtn" aria-label="Next card">
+        <span class="nav-label">Next</span>
+        <span class="nav-icon">→</span>
+      </button>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer-hint">
+      <kbd>Space</kbd> or <kbd>Enter</kbd> to flip &nbsp;·&nbsp; <kbd>←</kbd> <kbd>→</kbd> arrows to navigate
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

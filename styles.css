@@ -1,0 +1,505 @@
+/* ── Tokens ──────────────────────────────────────── */
+:root {
+  --bg:          #F6F2EB;
+  --surface:     #FFFFFF;
+  --ink:         #1A1614;
+  --ink-2:       #5C5046;
+  --ink-3:       #A89A8E;
+  --border:      #E4D9CC;
+  --gold:        #8A6310;
+  --gold-mid:    #C49030;
+  --gold-pale:   #FBF5E6;
+  --header-h:    64px;
+  --card-w:      520px;
+  --card-h:      680px;
+  --radius:      5px;
+}
+
+/* ── Reset ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ──────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(246, 242, 235, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  font-size: 13px;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  display: block;
+  line-height: 1;
+}
+
+.brand-tagline {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: block;
+  margin-top: 3px;
+}
+
+/* Category nav */
+.categories {
+  display: flex;
+  gap: 4px;
+}
+
+.cat-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  background: none;
+  border: 1px solid transparent;
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+
+.cat-btn:hover {
+  color: var(--gold);
+  background: var(--gold-pale);
+  border-color: var(--border);
+}
+
+.cat-btn.is-active {
+  color: var(--gold);
+  border-color: var(--gold-mid);
+  background: var(--gold-pale);
+}
+
+/* Progress bar */
+.progress-track-wrap {
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-mid) 100%);
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 8.33%;
+}
+
+/* ── Main ────────────────────────────────────────── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px 44px;
+  gap: 20px;
+}
+
+/* Deck meta row */
+.deck-meta {
+  width: 100%;
+  max-width: var(--card-w);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.deck-progress {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.deck-category {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── 3D Scene ────────────────────────────────────── */
+.scene {
+  perspective: 1800px;
+  perspective-origin: 50% 38%;
+}
+
+.card {
+  width: var(--card-w);
+  height: var(--card-h);
+  cursor: pointer;
+  outline: none;
+  border-radius: var(--radius);
+}
+
+.card:focus-visible .card-inner {
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px var(--gold),
+    0 20px 60px rgba(26, 22, 20, 0.15);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.72s cubic-bezier(0.42, 0.02, 0.14, 1.0);
+  border-radius: var(--radius);
+  box-shadow:
+    0 2px 4px rgba(26, 22, 20, 0.05),
+    0 10px 28px rgba(26, 22, 20, 0.09),
+    0 40px 72px rgba(26, 22, 20, 0.08);
+}
+
+.card:hover .card-inner {
+  box-shadow:
+    0 2px 4px rgba(26, 22, 20, 0.05),
+    0 16px 40px rgba(26, 22, 20, 0.13),
+    0 48px 88px rgba(26, 22, 20, 0.11);
+}
+
+.card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Card faces */
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Front ───────────────────────────────────────── */
+.card-img-wrap {
+  position: relative;
+  flex-shrink: 0;
+  height: 54%;
+  overflow: hidden;
+  background: #EDE6DA;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .card-img {
+  transform: scale(1.035);
+}
+
+.cat-pill {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(20, 18, 16, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.front-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 26px 18px;
+}
+
+.hint-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 9px;
+}
+
+.hint-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  font-style: italic;
+  flex: 1;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 33px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: 14px;
+}
+
+.flip-cue {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 12px;
+}
+
+/* ── Back ────────────────────────────────────────── */
+.face-back {
+  transform: rotateY(180deg);
+  padding: 30px 30px 22px;
+  justify-content: flex-start;
+}
+
+.back-header { flex-shrink: 0; }
+
+.back-cat {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.back-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.back-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+}
+
+.back-rule {
+  flex-shrink: 0;
+  width: 36px;
+  height: 1px;
+  background: var(--gold-mid);
+  margin: 18px 0;
+}
+
+.back-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.back-facts {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+
+.back-footer {
+  flex-shrink: 0;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.keyword {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(138, 99, 16, 0.35);
+  background: var(--gold-pale);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.flip-cue--reverse { color: var(--ink-3); }
+
+/* ── Controls ────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+
+.nav-btn:hover:not(:disabled) {
+  color: var(--gold);
+  border-color: var(--gold-mid);
+  background: var(--gold-pale);
+}
+
+.nav-btn:disabled {
+  opacity: 0.28;
+  cursor: default;
+  pointer-events: none;
+}
+
+.nav-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.card-counter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  min-width: 56px;
+  text-align: center;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+kbd {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  background: var(--border);
+  color: var(--ink-2);
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+/* ── Card swap animation ─────────────────────────── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card--refreshing .face-front .front-body,
+.card--refreshing .card-img {
+  animation: fadeSlideIn 0.28s ease both;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 580px) {
+  :root {
+    --card-w: min(88vw, 420px);
+    --card-h: calc(var(--card-w) * 1.31);
+    --header-h: auto;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 20px;
+    height: auto;
+    gap: 10px;
+  }
+
+  .categories { flex-wrap: wrap; gap: 4px; }
+
+  .card-title  { font-size: 26px; }
+  .back-title  { font-size: 28px; }
+  .back-facts  { font-size: 13.5px; line-height: 1.62; }
+  .hint-text   { font-size: 13.5px; }
+  .front-body  { padding: 16px 18px 14px; }
+  .face-back   { padding: 22px 22px 16px; }
+
+  .main { padding: 16px 16px 32px; }
+  .controls { gap: 20px; }
+  .nav-btn { padding: 10px 14px; }
+}
