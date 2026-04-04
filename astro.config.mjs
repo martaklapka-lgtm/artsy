@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'http://localhost:3000',
+  site: 'https://martaklapka-lgtm.github.io',
+  base: '/artsy',
   output: 'static',
 });
