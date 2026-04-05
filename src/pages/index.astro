@@ -2,11 +2,12 @@
 import '../styles/global.css';
 
 const artSubcats = [
-  { id: 'eras', label: 'Eras' },
-  { id: 'styles', label: 'Art Styles' },
+  { id: 'eras',       label: 'Eras' },
+  { id: 'styles',     label: 'Art Styles' },
   { id: 'techniques', label: 'Techniques' },
 ];
 
+// Each card: summary (2-3 sentences), artists array, period string
 const artCards = [
   // ── ERAS ──────────────────────────────────────────────────────────────
   {
@@ -14,114 +15,130 @@ const artCards = [
     title: 'Ancient & Classical',
     subtitle: '3000 BCE – 500 CE',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1280px-All_Gizah_Pyramids.jpg',
-    fact: 'Ancient Egyptian art used hierarchic scale — gods and pharaohs towered over mere mortals — and a composite profile/frontal figure convention designed to convey eternal truth over optical illusion. Greek sculptors like Phidias and Polykleitos developed the ideal human form, from rigid Archaic kouroi to the contrapposto grace of the High Classical period. Roman artists fused Greek idealism with a distinctive appetite for psychological portraiture and civic narrative, seen in Trajan\'s Column and the Pantheon. Key artists: Phidias, Praxiteles, Polykleitos.',
+    summary: 'Egyptian art used hierarchic scale and composite figures to convey eternal truth over optical illusion. Greek sculptors developed the ideal human form — from rigid Archaic kouroi to the contrapposto grace of the Classical period. Rome fused Greek idealism with psychological portraiture and civic narrative.',
+    artists: ['Phidias', 'Praxiteles', 'Polykleitos'],
   },
   {
     category: 'eras',
     title: 'Medieval',
     subtitle: '500 – 1400',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Chartres-Cathedral-0006.jpg/800px-Chartres-Cathedral-0006.jpg',
-    fact: 'Byzantine artists created gold-ground mosaics and icons in which spiritual transcendence overrode naturalism — flat, frontal, hieratic figures shimmer against eternal gold at Ravenna and Constantinople. Romanesque churches were dense with carved stone biblical narratives; Gothic cathedrals dissolved heavy walls into soaring stained-glass light, as at Chartres and Sainte-Chapelle in Paris. In panel painting, Cimabue and Duccio di Buoninsegna began the transition toward three-dimensional pictorial space that would define the Renaissance. Key artists: Cimabue, Duccio di Buoninsegna.',
+    summary: 'Byzantine gold-ground mosaics and icons prioritised spiritual transcendence over naturalism. Gothic cathedrals dissolved heavy walls into soaring stained-glass light. Panel painters like Cimabue and Duccio began the gradual transition toward three-dimensional pictorial space.',
+    artists: ['Cimabue', 'Duccio di Buoninsegna', 'Giotto'],
   },
   {
     category: 'eras',
     title: 'Renaissance',
     subtitle: '1400 – 1600',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
-    fact: 'The Renaissance ("rebirth") rediscovered classical antiquity while pioneering linear perspective (Brunelleschi, Alberti) and sfumato (Leonardo). Masaccio\'s Trinity fresco in Florence (c.1427) was the first painting to apply mathematical perspective rigorously. The High Renaissance reached a serene synthesis: Leonardo\'s Mona Lisa, Michelangelo\'s Sistine ceiling, Raphael\'s School of Athens. In Northern Europe, Jan van Eyck\'s mastery of oil paint brought microscopic naturalism to Flemish altarpieces. Key artists: Leonardo da Vinci, Michelangelo, Raphael, Jan van Eyck, Dürer.',
+    summary: 'The Renaissance rediscovered classical antiquity while pioneering linear perspective and sfumato. Masaccio\'s Trinity fresco (c.1427) was the first painting to apply mathematical perspective rigorously. The High Renaissance reached a serene synthesis in Leonardo\'s Mona Lisa, Michelangelo\'s Sistine ceiling, and Raphael\'s School of Athens.',
+    artists: ['Leonardo da Vinci', 'Michelangelo', 'Raphael', 'Jan van Eyck', 'Dürer'],
   },
   {
     category: 'eras',
     title: 'Baroque',
     subtitle: '1600 – 1750',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Night_Watch_-_HD.jpg/800px-The_Night_Watch_-_HD.jpg',
-    fact: 'Baroque art emerged in Counter-Reformation Rome as the Church commissioned work of overwhelming dramatic power. Caravaggio revolutionized painting with tenebrism — stark spotlit figures against deep shadow — making biblical narratives viscerally immediate. In the Dutch Republic, Rembrandt van Rijn used light to reveal psychological interiority; Vermeer captured domestic interiors with crystalline stillness. Gian Lorenzo Bernini transformed marble into theatrical motion in works like The Ecstasy of Saint Teresa. Key artists: Caravaggio, Rembrandt, Vermeer, Rubens, Bernini, Artemisia Gentileschi.',
+    summary: 'Baroque art emerged in Counter-Reformation Rome with overwhelming dramatic power. Caravaggio\'s tenebrism — stark spotlit figures against deep shadow — made biblical scenes viscerally immediate. In the Dutch Republic, Rembrandt explored psychological interiority through light; Vermeer captured domestic stillness.',
+    artists: ['Caravaggio', 'Rembrandt', 'Vermeer', 'Rubens', 'Bernini', 'A. Gentileschi'],
   },
   {
     category: 'eras',
     title: 'Neoclassicism & Romanticism',
     subtitle: '1750 – 1850',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/800px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
-    fact: 'Neoclassicism (David, Ingres) responded to Rococo frivolity with austere virtue drawn from Greek and Roman models — David\'s "Oath of the Horatii" (1784) became the image of Republican civic resolve. Romanticism rebelled against Enlightenment rationalism: Turner dissolved ships and storms in vortices of light; Caspar David Friedrich placed solitary figures before misty infinities to express spiritual longing; Goya depicted war\'s horror in "The Disasters of War" with unflinching honesty. Delacroix brought turbulent color and gesture to historical subjects. Key artists: David, Goya, Turner, Friedrich, Delacroix, Géricault.',
+    summary: 'Neoclassicism responded to Rococo frivolity with austere virtue drawn from antiquity. Romanticism rebelled against reason: Turner dissolved storms in vortices of light; Friedrich placed solitary figures before spiritual infinities; Goya depicted war\'s horror with harrowing honesty.',
+    artists: ['David', 'Goya', 'Turner', 'Friedrich', 'Delacroix', 'Géricault'],
   },
   {
     category: 'eras',
     title: 'Impressionism & Post-Impressionism',
     subtitle: '1860 – 1910',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg',
-    fact: 'The Impressionists — Monet, Renoir, Degas, Pissarro — broke from Académie polish by painting outdoors (en plein air) with rapid, visible brushstrokes to capture fleeting light and atmosphere. Monet\'s series paintings tracked the same subject — haystacks, Rouen Cathedral — across changing seasons and light conditions. Post-Impressionists pushed further: Van Gogh\'s swirling impasto expressed raw emotional intensity; Cézanne analyzed form into proto-Cubist geometric planes; Gauguin sought "primitivism" in Tahiti; Seurat systematized color into pointillism. Key artists: Monet, Degas, Renoir, Van Gogh, Cézanne, Gauguin, Seurat.',
+    summary: 'The Impressionists broke from Académie polish by painting outdoors with rapid brushstrokes to capture fleeting light. Post-Impressionists pushed further — Van Gogh through swirling impasto, Cézanne through geometric analysis, Seurat through systematic pointillism.',
+    artists: ['Monet', 'Degas', 'Renoir', 'Van Gogh', 'Cézanne', 'Gauguin', 'Seurat'],
   },
   {
     category: 'eras',
     title: 'Modern Art',
     subtitle: '1900 – 1960',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Matissedance.jpg/1024px-Matissedance.jpg',
-    fact: 'The twentieth century\'s radical pluralism opened with Fauvism\'s pure color (Matisse), Cubism\'s fractured perspective (Picasso, Braque), and German Expressionism\'s emotional distortion (Kirchner, Nolde). The Russian avant-garde pursued pure abstraction (Malevich\'s Suprematism). Dada attacked the concept of art itself; Surrealism (Dalí, Magritte, Ernst) mined the unconscious. After World War II, Abstract Expressionism — Pollock\'s drip paintings, Rothko\'s color fields — established New York as the art world\'s new center. Key artists: Picasso, Matisse, Kandinsky, Dalí, Magritte, Pollock, Rothko.',
+    summary: 'The twentieth century opened with Fauvism\'s pure color, Cubism\'s fractured perspective, and German Expressionism\'s emotional distortion. Dada attacked art itself; Surrealism mined the unconscious. After WWII, Abstract Expressionism established New York as the art world\'s new centre.',
+    artists: ['Picasso', 'Matisse', 'Kandinsky', 'Dalí', 'Magritte', 'Pollock', 'Rothko'],
   },
   {
     category: 'eras',
     title: 'Contemporary Art',
     subtitle: '1960 – Present',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/800px-Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg',
-    fact: 'Pop Art (Warhol, Lichtenstein) appropriated mass-media imagery to interrogate consumer culture. Minimalism (Donald Judd, Dan Flavin) stripped art to industrial fact; Conceptualism (Joseph Kosuth) declared the idea itself to be the work. From the 1980s, artists like Jean-Michel Basquiat, Cindy Sherman, and Kara Walker addressed race, gender, and identity with unprecedented directness. Today\'s art world spans installation, performance, video, and AI-generated work — with no single dominant style. Key artists: Warhol, Lichtenstein, Basquiat, Sherman, Hirst, Koons, Walker.',
+    summary: 'Pop Art appropriated mass-media imagery to interrogate consumer culture. Minimalism stripped art to industrial fact; Conceptualism declared the idea itself to be the work. Today\'s art world spans installation, performance, video, and AI-generated work — with no single dominant style.',
+    artists: ['Warhol', 'Lichtenstein', 'Basquiat', 'Cindy Sherman', 'Kara Walker'],
   },
 
   // ── ART STYLES ────────────────────────────────────────────────────────
   {
     category: 'styles',
     title: 'Impressionism',
-    subtitle: 'Light & Motion',
+    subtitle: 'Light & Motion · 1860s–80s',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg',
-    fact: 'Developed in France in the 1860s–80s, Impressionism shattered academic polish through outdoor painting (en plein air) and rapid, broken brushstrokes that captured fleeting light and atmosphere. The movement\'s name derived mockingly from Monet\'s "Impression, Sunrise" (1872). Monet\'s systematic series — haystacks, Rouen Cathedral, water lilies — studied how a single subject transforms across light conditions. Degas brought Japanese-print cropping and photographic angles to scenes of ballet and modern life. Key artists: Claude Monet, Edgar Degas, Pierre-Auguste Renoir, Camille Pissarro, Berthe Morisot.',
+    summary: 'Shattered academic polish through outdoor painting (en plein air) and rapid broken brushstrokes that captured fleeting light. The movement\'s name came mockingly from Monet\'s "Impression, Sunrise" (1872). Degas brought Japanese-print cropping and photographic angles to scenes of ballet and modern life.',
+    artists: ['Claude Monet', 'Edgar Degas', 'Renoir', 'Pissarro', 'Berthe Morisot'],
   },
   {
     category: 'styles',
     title: 'Baroque',
-    subtitle: 'Drama & Chiaroscuro',
+    subtitle: 'Drama & Chiaroscuro · 1600–1750',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/800px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg',
-    fact: 'Emerging in Counter-Reformation Rome c.1600, Baroque art dramatized religious narratives through violent light contrasts (tenebrism) and surging movement. Caravaggio placed biblical figures in street-level settings illuminated by a single dramatic source; his influence swept across Europe within a decade. In the Dutch Republic, Rembrandt used chiaroscuro to explore psychological depth in portraiture and biblical narrative; Vermeer captured domestic light with extraordinary optical sensitivity. Bernini\'s marble sculptures vibrate with theatrical emotion. Key artists: Caravaggio, Rembrandt, Vermeer, Rubens, Bernini, Artemisia Gentileschi.',
+    summary: 'Dramatized religious narratives through violent light contrasts (tenebrism) and surging movement. Caravaggio placed biblical figures in street-level settings lit by a single source — his influence swept Europe within a decade. Bernini\'s marble sculptures vibrate with theatrical emotion.',
+    artists: ['Caravaggio', 'Rembrandt', 'Vermeer', 'Rubens', 'Bernini', 'A. Gentileschi'],
   },
   {
     category: 'styles',
     title: 'Cubism',
-    subtitle: 'Multiple Perspectives',
+    subtitle: 'Multiple Perspectives · 1907–1920s',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/800px-Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg',
-    fact: 'Invented by Picasso and Braque between 1907–1914, Cubism dismantled Renaissance single-point perspective by showing objects from multiple simultaneous viewpoints, creating fragmented, faceted surfaces. Picasso\'s "Les Demoiselles d\'Avignon" (1907) — influenced by African masks and Cézanne\'s geometric analysis — announced the rupture. Analytic Cubism reduced the world to near-monochrome facets; Synthetic Cubism introduced collaged newspaper and pattern. Juan Gris, Fernand Léger, and Robert Delaunay extended the vocabulary. Key artists: Pablo Picasso, Georges Braque, Juan Gris, Fernand Léger.',
+    summary: 'Dismantled Renaissance single-point perspective by showing objects from multiple simultaneous viewpoints. Picasso\'s "Les Demoiselles d\'Avignon" (1907) — influenced by African masks and Cézanne — announced the rupture. Synthetic Cubism introduced collaged newspaper and pattern.',
+    artists: ['Picasso', 'Georges Braque', 'Juan Gris', 'Fernand Léger'],
   },
   {
     category: 'styles',
     title: 'Surrealism',
-    subtitle: 'Dream Logic',
+    subtitle: 'Dream Logic · 1924–1940s',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Giorgio_de_Chirico_-_Myst%C3%A8re_et_m%C3%A9lancolie_d%27une_rue.jpg/600px-Giorgio_de_Chirico_-_Myst%C3%A8re_et_m%C3%A9lancolie_d%27une_rue.jpg',
-    fact: 'Founded by André Breton in 1924, Surrealism sought to liberate the unconscious through automatism and dream imagery, drawing on Freudian psychoanalysis. Salvador Dalí\'s meticulous hyperrealism rendered impossible scenes — melting clocks, anthropomorphic landscapes — with photographic precision. René Magritte used everyday objects in uncanny juxtapositions to undermine logic ("The Treachery of Images," 1929). Max Ernst pioneered automatic techniques (frottage, grattage). Frida Kahlo wove personal mythology with surrealist symbolism, though she resisted the label. Key artists: Dalí, Magritte, Ernst, Kahlo, de Chirico, Miró.',
+    summary: 'Founded by André Breton (1924), Surrealism liberated the unconscious through automatism and dream imagery — drawing on Freudian psychoanalysis. Dalí\'s meticulous hyperrealism rendered impossible scenes with photographic precision. Magritte used everyday objects in uncanny juxtapositions to undermine logic.',
+    artists: ['Dalí', 'Magritte', 'Max Ernst', 'Frida Kahlo', 'de Chirico', 'Miró'],
   },
   {
     category: 'styles',
     title: 'Abstract Expressionism',
-    subtitle: 'Gesture & Field',
+    subtitle: 'Gesture & Field · 1940s–50s',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Peddler_by_Jackson_Pollock.jpg/506px-Peddler_by_Jackson_Pollock.jpg',
-    fact: 'The first major American art movement, Abstract Expressionism emerged in New York in the 1940s–50s, shaped by World War II trauma and the influx of European émigrés. Jackson Pollock\'s "drip paintings" — enamel poured and flung across floor-laid canvases — embodied action painting: the work as record of bodily gesture. Mark Rothko\'s luminous color-field paintings evoke profound emotional states through slowly pulsating rectangles of light. Lee Krasner, Willem de Kooning, and Franz Kline each developed distinctive gestural vocabularies. Key artists: Pollock, Rothko, de Kooning, Krasner, Kline, Newman.',
+    summary: 'The first major American movement, shaped by WWII trauma and European émigrés. Pollock\'s drip paintings embodied action painting: the work as record of bodily gesture. Rothko\'s luminous colour-field rectangles evoke profound emotional states through slowly pulsating light.',
+    artists: ['Pollock', 'Rothko', 'de Kooning', 'Lee Krasner', 'Franz Kline'],
   },
   {
     category: 'styles',
     title: 'Romanticism',
-    subtitle: 'The Sublime',
+    subtitle: 'The Sublime · 1780–1850',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/800px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
-    fact: 'Romanticism (c.1780–1850) rebelled against Enlightenment rationalism, exalting emotion, imagination, and the awesome power of nature. J.M.W. Turner dissolved ships and storms in vortices of light and color, anticipating abstraction by 50 years. Caspar David Friedrich\'s "Wanderer above the Sea of Fog" (1818) typifies Romantic spiritual yearning — a solitary figure before an infinite, misty void. Eugène Delacroix brought turbulent color to historical subjects; Francisco Goya confronted war\'s brutality with harrowing directness in "The Third of May 1808." Key artists: Turner, Friedrich, Delacroix, Goya, Géricault, Blake.',
+    summary: 'Rebelled against Enlightenment rationalism, exalting emotion, imagination, and the awesome power of nature. Turner dissolved ships and storms in vortices of light and colour, anticipating abstraction by 50 years. Friedrich\'s "Wanderer above the Sea of Fog" (1818) typifies the movement\'s spiritual yearning.',
+    artists: ['Turner', 'Friedrich', 'Delacroix', 'Goya', 'Géricault', 'Blake'],
   },
   {
     category: 'styles',
     title: 'Fauvism',
-    subtitle: 'Pure Color',
+    subtitle: 'Pure Color · 1905–1908',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Matissedance.jpg/1024px-Matissedance.jpg',
-    fact: 'Shown at the 1905 Paris Salon d\'Automne, the Fauves ("wild beasts" — a slur by shocked critic Louis Vauxcelles) used unmixed, non-naturalistic color straight from the tube for emotional and decorative impact, independent of descriptive reality. Henri Matisse\'s "Woman with a Hat" and "The Dance" (1910) reduced form to joyous arabesque lines and flat, vibrating color planes. André Derain\'s London series applied vivid orange and green to Thames views. Short-lived as a group (1905–08), Fauvism permanently elevated the autonomy of pure color in Western art. Key artists: Matisse, Derain, Vlaminck, Dufy, Braque.',
+    summary: 'The Fauves ("wild beasts") used unmixed colour straight from the tube for emotional impact, independent of reality. Matisse\'s "The Dance" (1910) reduced form to joyous arabesque lines and flat, vibrating colour planes. Short-lived as a group, Fauvism permanently elevated the autonomy of pure colour.',
+    artists: ['Matisse', 'André Derain', 'Vlaminck', 'Raoul Dufy'],
   },
   {
     category: 'styles',
     title: 'Realism',
-    subtitle: 'Social Truth',
+    subtitle: 'Social Truth · 1840s–1880s',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg/1280px-Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg',
-    fact: 'Realism (1840s–1880s) rejected idealized history painting for honest depictions of ordinary modern life, often with political intent. Gustave Courbet\'s monumental "The Stone Breakers" (1849) and "A Burial at Ornans" (1850) placed peasants at the scale traditionally reserved for mythological heroes — a radical class statement. Jean-François Millet\'s "The Gleaners" (1857) dignified agricultural labor with quiet grandeur. Honoré Daumier\'s lithographs skewered political hypocrisy. In Russia, the Wanderers (Peredvizhniki) took art outside academic walls to expose social injustice. Key artists: Courbet, Millet, Daumier, Corot, Rosa Bonheur.',
+    summary: 'Rejected idealised history painting for honest depictions of ordinary modern life, often with political intent. Courbet\'s monumental "A Burial at Ornans" placed peasants at the scale reserved for mythological heroes — a radical class statement. Millet\'s "The Gleaners" dignified agricultural labour with quiet grandeur.',
+    artists: ['Gustave Courbet', 'Jean-François Millet', 'Honoré Daumier', 'Rosa Bonheur'],
   },
 
   // ── TECHNIQUES ────────────────────────────────────────────────────────
@@ -130,68 +147,78 @@ const artCards = [
     title: 'Chiaroscuro',
     subtitle: 'Light & Shadow',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/800px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg',
-    fact: 'From Italian "chiaro" (light) and "oscuro" (dark), chiaroscuro describes the use of strong tonal contrast to model three-dimensional form on a two-dimensional surface. Leonardo da Vinci developed subtle gradations; Caravaggio radicalized it into tenebrism — extreme darkness punctured by single spotlit figures, as in "The Calling of Saint Matthew" (1600). Rembrandt used chiaroscuro to reveal interior psychological complexity, figures emerging from warm amber shadow. The technique directly shaped the aesthetic of cinema — German Expressionist film and film noir both owe it an enormous debt. Key practitioners: Leonardo, Caravaggio, Rembrandt, Goya.',
+    summary: 'From Italian "chiaro" (light) and "oscuro" (dark) — the use of strong tonal contrast to model three-dimensional form. Caravaggio radicalized it into tenebrism: extreme darkness punctured by single spotlit figures. The technique directly shaped cinema — German Expressionist film and film noir owe it an enormous debt.',
+    artists: ['Leonardo', 'Caravaggio', 'Rembrandt', 'Goya'],
   },
   {
     category: 'techniques',
     title: 'Sfumato',
     subtitle: 'Smoky Transitions',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
-    fact: 'Leonardo da Vinci\'s own term (from Italian "fumo," smoke) for blending oil glazes so gradually that contours become imperceptible, replaced by atmospheric haze. Applied with near-transparent layers dried one by one, sfumato creates the mysterious depth of the Mona Lisa\'s smile and the receding landscape behind her — a dreamlike spatial ambiguity that no prior painter had achieved. Leonardo described it as painting "without lines or borders, in the manner of smoke or beyond the focus plane." The Mona Lisa\'s glazes may number in the dozens, each applied and cured before the next. Key practitioner: Leonardo da Vinci, with echoes in Correggio.',
+    summary: 'Leonardo\'s own term (from "fumo," smoke) for blending oil glazes so gradually that contours dissolve into atmospheric haze. Applied in dozens of near-transparent layers, it creates the mysterious depth of the Mona Lisa\'s smile. Leonardo described it as painting "without lines or borders, in the manner of smoke."',
+    artists: ['Leonardo da Vinci', 'Correggio'],
   },
   {
     category: 'techniques',
     title: 'Fresco',
     subtitle: 'Painting into Plaster',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/1280px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg',
-    fact: 'True fresco (buon fresco) involves applying pigment suspended in water directly onto fresh, wet lime plaster. As the plaster carbonates, it chemically bonds the pigment into the wall permanently. Michelangelo painted the Sistine Chapel ceiling (1508–12) this way — lying on scaffolding for four years — working in sections (giornate) that had to be completed before the plaster set. The demanding medium requires fast, confident work but rewards the painter with extraordinary durability: well-executed frescoes can outlast millennia. Key artists: Giotto, Masaccio, Michelangelo, Raphael, Diego Rivera.',
+    summary: 'Buon fresco applies pigment onto fresh wet lime plaster — as it sets, the pigment bonds chemically into the wall permanently. Michelangelo painted the Sistine ceiling this way over four years, working in daily sections (giornate) before the plaster dried. Well-executed frescoes can outlast millennia.',
+    artists: ['Giotto', 'Masaccio', 'Michelangelo', 'Raphael', 'Diego Rivera'],
   },
   {
     category: 'techniques',
     title: 'Impasto',
     subtitle: 'Sculptural Paint',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-    fact: 'Impasto (Italian: "dough" or "paste") describes oil paint applied so thickly that brushstrokes or palette-knife marks leave a sculptural, three-dimensional texture. Van Gogh\'s turbulent skies and swirling cypresses are built up in dense ridges that catch raking light dynamically, making the painted surface itself as expressive as the subject. Rembrandt used selective impasto in highlights — jewels and lace — to draw the eye. In the twentieth century, Frank Auerbach built layers to near-sculptural density over months of reworking. The technique celebrates the raw materiality of paint as subject. Key artists: Van Gogh, Rembrandt, Monet, Courbet, Auerbach.',
+    summary: 'Oil paint applied so thickly that brushstrokes leave a sculptural, three-dimensional texture. Van Gogh\'s turbulent skies are built in dense ridges that catch raking light dynamically — the painted surface itself becomes as expressive as the subject. Rembrandt used selective impasto in highlights to draw the eye.',
+    artists: ['Van Gogh', 'Rembrandt', 'Monet', 'Courbet', 'Frank Auerbach'],
   },
   {
     category: 'techniques',
     title: 'Pointillism',
-    subtitle: 'Optical Color Mixing',
+    subtitle: 'Optical Colour Mixing',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg/1280px-A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg',
-    fact: 'Developed by Georges Seurat and Paul Signac from 1886, Pointillism (also called Divisionism) applies tiny dots of pure unmixed color side by side, relying on the viewer\'s eye to blend them optically at a distance into luminous, vibrating tones. Seurat\'s "A Sunday Afternoon on the Island of La Grande Jatte" (1884–86) — nearly 10 feet wide — was constructed from thousands of touches after years of preparatory studies. The method was grounded in color science: theorists Chevreul and Rood had demonstrated that juxtaposed complementaries intensify each other. Seurat called his method "Chromoluminarism." Key artists: Georges Seurat, Paul Signac, Henri-Edmond Cross.',
+    summary: 'Tiny dots of pure unmixed colour placed side by side — the viewer\'s eye blends them optically at a distance into luminous, vibrating tones. Seurat\'s "La Grande Jatte" (1884–86) was constructed from thousands of touches over years. The method was grounded in colour science by theorists Chevreul and Rood.',
+    artists: ['Georges Seurat', 'Paul Signac', 'Henri-Edmond Cross'],
   },
   {
     category: 'techniques',
     title: 'Collage',
     subtitle: 'Assembled Fragments',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/800px-Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg',
-    fact: 'Collage (from French "coller," to glue) became a serious fine-art technique when Picasso and Braque incorporated newspaper clippings, wallpaper, and printed labels into Synthetic Cubist works around 1912, blurring the hierarchy between fine art and everyday printed matter. Kurt Schwitters elevated scavenged urban refuse into monumental "Merz" constructions. Hannah Höch and John Heartfield weaponized photomontage as political critique of Weimar Germany and rising fascism. Joseph Cornell enclosed enigmatic ephemera in dreamlike shadow boxes. Today collage thrives in both physical and digital forms. Key artists: Picasso, Braque, Schwitters, Höch, Heartfield, Cornell.',
+    summary: 'Picasso and Braque incorporated newspaper clippings and printed labels into Synthetic Cubist works (1912), blurring the line between fine art and everyday matter. Höch and Heartfield weaponized photomontage as political critique of Weimar Germany. Cornell enclosed enigmatic ephemera in dreamlike shadow boxes.',
+    artists: ['Picasso', 'Braque', 'Kurt Schwitters', 'Hannah Höch', 'Joseph Cornell'],
   },
   {
     category: 'techniques',
     title: 'Tempera',
     subtitle: 'Egg & Pigment',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Sandro_Botticelli_046.jpg/1280px-Sandro_Botticelli_046.jpg',
-    fact: 'Egg tempera — pigment suspended in egg yolk — was the dominant European panel-painting medium from the 13th through the 15th century. It dries within seconds and cannot be blended wet-in-wet; form is built through fine parallel hatching strokes, creating a crystalline, graphic surface quality. Botticelli\'s "The Birth of Venus" and "Primavera" are tempera paintings — their luminous linearity inseparable from the medium\'s character. Jan van Eyck\'s development of flexible oil paint in the 1420s gradually superseded tempera, though Andrew Wyeth\'s 20th-century works ("Christina\'s World") demonstrate its enduring power. Key artists: Giotto, Duccio, Botticelli, Piero della Francesca, Wyeth.',
+    summary: 'Egg tempera — pigment suspended in egg yolk — dominated European panel painting for two centuries. It dries in seconds and must be built through fine hatching strokes, creating a crystalline, graphic surface. Botticelli\'s "Birth of Venus" is inseparable from the medium\'s luminous linearity.',
+    artists: ['Giotto', 'Duccio', 'Botticelli', 'Piero della Francesca', 'Andrew Wyeth'],
   },
   {
     category: 'techniques',
     title: 'Encaustic',
     subtitle: 'Molten Wax',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Fayum_egyptian_funerary_portrait_1627_NAMAthens.jpg/600px-Fayum_egyptian_funerary_portrait_1627_NAMAthens.jpg',
-    fact: 'Encaustic painting uses heated beeswax mixed with pigment and resin, applied hot and fused with a heated tool to a rigid surface. The Fayum mummy portraits (1st–3rd century CE, Roman Egypt) are masterpieces of the medium: astonishingly lifelike faces of extraordinary directness and psychological immediacy that feel utterly contemporary. Encaustic lay dormant for centuries until Jasper Johns revived it in the 1950s for his "Flag" and "Target" paintings, exploiting wax\'s translucency — earlier layers visible through the surface, earlier gestures preserved like amber. Key artists: Anonymous Fayum masters, Jasper Johns.',
+    summary: 'Heated beeswax mixed with pigment and resin, applied hot and fused to a rigid surface. The Fayum mummy portraits (1st–3rd century CE) are astonishingly lifelike faces of extraordinary psychological immediacy. Jasper Johns revived encaustic in the 1950s, exploiting wax\'s translucency to layer meaning.',
+    artists: ['Anonymous Fayum masters', 'Jasper Johns'],
   },
 ];
 
+// Gallery artworks: short tagline + full description
 const artworks = [
   {
     title: 'The Starry Night',
     artist: 'Vincent van Gogh',
     year: '1889',
     medium: 'Oil on canvas',
-    location: 'Museum of Modern Art, New York',
+    location: 'MoMA, New York',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-    description: 'Painted during Van Gogh\'s voluntary stay at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, this visionary nocturne depicts a swirling night sky over a sleeping village. The turbulent cosmic energy of the cypresses and churning constellations contrasts with the quiet below — perhaps a longing for peace Van Gogh felt he could never reach. He wrote to his brother Theo of expressing "the terrible passions of humanity" through color and form alone. Overlooked in his lifetime, The Starry Night is now one of the most recognized artworks in the world.',
+    tagline: 'A swirling nocturne painted at an asylum in Saint-Rémy-de-Provence.',
+    description: 'The turbulent cosmic energy of the cypresses and churning constellations contrasts with the quiet sleeping village below — perhaps a longing for peace Van Gogh felt he could never reach. He wrote to Theo of expressing "the terrible passions of humanity" through colour and form alone. Overlooked in his lifetime, it is now one of the most recognised artworks in the world.',
   },
   {
     title: 'Girl with a Pearl Earring',
@@ -199,8 +226,9 @@ const artworks = [
     year: 'c. 1665',
     medium: 'Oil on canvas',
     location: 'Mauritshuis, The Hague',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg',
-    description: 'Often called "the Dutch Mona Lisa," this intimate tronie (character study) depicts an unidentified girl in an exotic blue-and-gold turban who turns to meet the viewer\'s gaze with a frank, slightly parted expression of astonishing immediacy. Vermeer\'s mastery of light is concentrated in the single luminous earring — likely glass rather than genuine pearl — rendered with a single brilliant highlight and no drawn outline. Unlike most of Vermeer\'s documented works, no record links this painting to a specific patron or commission, leaving her identity a permanent mystery.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/600px-Meisje_met_de_parel.jpg',
+    tagline: 'The "Dutch Mona Lisa" — an unidentified girl whose identity remains a mystery.',
+    description: 'An intimate tronie (character study) depicting a girl in an exotic blue-and-gold turban who meets the viewer\'s gaze with astonishing immediacy. Vermeer\'s mastery of light is concentrated in the single luminous earring — likely glass rather than pearl — rendered with one brilliant highlight and no drawn outline. No record links the painting to any patron or commission.',
   },
   {
     title: 'The Birth of Venus',
@@ -209,7 +237,8 @@ const artworks = [
     medium: 'Tempera on canvas',
     location: 'Uffizi Gallery, Florence',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Sandro_Botticelli_046.jpg/1280px-Sandro_Botticelli_046.jpg',
-    description: 'Commissioned by Lorenzo di Pierfrancesco de\' Medici, this large-scale mythological canvas — rare for its secular subject in 15th-century Italy — depicts Venus emerging from the sea on a shell, blown ashore by the wind gods Zephyr and Aura. Botticelli modeled Venus\'s pose on antique sculpture and Angelo Poliziano\'s poem "Stanze." Her impossibly elongated neck and floating, gravity-free stance are deliberate: anatomy is subordinated to rhythmic linear grace, creating a vision of beauty more ideal than natural. Unseen for centuries in a Medici villa, it entered the Uffizi in 1815.',
+    tagline: 'Venus emerges from the sea — anatomy subordinated to rhythmic linear grace.',
+    description: 'Commissioned by Lorenzo di Pierfrancesco de\' Medici, this mythological canvas was rare for its secular subject in 15th-century Italy. Botticelli modelled Venus\'s pose on antique sculpture and Poliziano\'s poem "Stanze." Her impossibly elongated neck and floating stance are deliberate — beauty is made more ideal than natural. Unseen for centuries in a Medici villa, it entered the Uffizi in 1815.',
   },
   {
     title: 'Las Meninas',
@@ -218,16 +247,18 @@ const artworks = [
     medium: 'Oil on canvas',
     location: 'Museo del Prado, Madrid',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Las_Meninas_01.jpg/800px-Las_Meninas_01.jpg',
-    description: 'One of art history\'s most analyzed paintings, Las Meninas ("The Ladies-in-Waiting") depicts the Infanta Margarita surrounded by her court — and, enigmatically, Velázquez himself at a large canvas. A mirror at the back wall reflects the king and queen of Spain, implying they stand in the viewer\'s position. The painting stages an extraordinary riddle of viewpoint and representation, asking: who is the subject? Who is being painted? Picasso made 58 variations on it; Michel Foucault opened "The Order of Things" (1966) with a celebrated analysis of its visual logic.',
+    tagline: 'One of art history\'s most analyzed paintings — a riddle of viewpoint.',
+    description: 'The Infanta Margarita is surrounded by her court — and Velázquez himself stands at a large canvas. A mirror at the back wall reflects the king and queen of Spain, implying they stand in the viewer\'s position. Picasso made 58 variations on it; Michel Foucault opened "The Order of Things" (1966) with a celebrated analysis of its visual logic.',
   },
   {
-    title: 'Water Lilies (Nymphéas)',
+    title: 'Water Lilies',
     artist: 'Claude Monet',
     year: '1896–1926',
     medium: 'Oil on canvas',
-    location: 'Musée de l\'Orangerie, Paris; MoMA, New York',
+    location: 'Musée de l\'Orangerie, Paris',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1280px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg',
-    description: 'Monet\'s water garden at Giverny became an obsession that consumed the final three decades of his life, producing around 250 paintings. As his eyesight deteriorated from cataracts, the late series abandoned horizons entirely, immersing the viewer in pure reflected surface where depth and sky become indistinguishable. The enormous Orangerie panels (1926), displayed in two oval rooms built to Monet\'s specifications, constitute an immersive environment that anticipates Color Field painting by 30 years. André Masson called them "the Sistine Chapel of Impressionism."',
+    tagline: 'An obsession that consumed the last 30 years of Monet\'s life — ~250 paintings.',
+    description: 'As his eyesight deteriorated, the late series abandoned horizons entirely, immersing the viewer in pure reflected surface where depth and sky become indistinguishable. The enormous Orangerie panels (1926), in two oval rooms built to Monet\'s own specifications, constitute an immersive environment that anticipates Color Field painting by 30 years. André Masson called them "the Sistine Chapel of Impressionism."',
   },
   {
     title: 'The School of Athens',
@@ -236,7 +267,8 @@ const artworks = [
     medium: 'Fresco',
     location: 'Apostolic Palace, Vatican City',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/1280px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg',
-    description: 'Painted for Pope Julius II\'s private library, the Stanza della Segnatura, this monumental fresco assembles the great philosophers of antiquity in an idealized classical hall. At the center, Plato (holding the Timaeus, pointing upward to ideal Forms) faces Aristotle (gesturing downward to empirical reality) — the two poles of Western thought. Raphael encoded portraits of contemporaries throughout: Michelangelo as the brooding Heraclitus, Leonardo as Plato. The composition radiates from the vanishing point held precisely between the two central figures — philosophically and geometrically perfect.',
+    tagline: 'All the great philosophers of antiquity gathered in one idealized hall.',
+    description: 'Plato (pointing upward to ideal Forms) faces Aristotle (gesturing downward to empirical reality) — the two poles of Western thought stand at the vanishing point. Raphael encoded portraits of contemporaries throughout: Michelangelo as the brooding Heraclitus, Leonardo as Plato. The composition is philosophically and geometrically perfect.',
   },
   {
     title: 'The Night Watch',
@@ -245,16 +277,18 @@ const artworks = [
     medium: 'Oil on canvas',
     location: 'Rijksmuseum, Amsterdam',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Night_Watch_-_HD.jpg/800px-The_Night_Watch_-_HD.jpg',
-    description: 'Rembrandt\'s largest and most celebrated work depicts Captain Frans Banninck Cocq\'s Amsterdam civic guard company in a moment of dynamic movement — a radical departure from the static group portrait customary for such militia commissions. Captain Cocq\'s dark figure steps forward against his lieutenant\'s brilliant yellow coat; a mysterious girl with a dead cockerel glows at center-left. The painting was trimmed on all four sides in the 18th century to fit a wall. Its current title — a 19th-century nickname from its darkened varnish — is a misnomer: it depicts a daytime scene.',
+    tagline: 'A militia portrait reinvented as dynamic theatre — trimmed on all sides in the 18th century.',
+    description: 'Rembrandt\'s largest work depicts Captain Cocq\'s Amsterdam civic guard in dynamic movement — a radical departure from the static group portrait. Captain Cocq\'s dark figure steps forward against his lieutenant\'s brilliant yellow coat. Its current title is a misnomer: 19th-century varnish darkened it, but it depicts a daytime scene.',
   },
   {
-    title: 'The Great Wave off Kanagawa',
+    title: 'The Great Wave',
     artist: 'Katsushika Hokusai',
     year: 'c. 1831',
     medium: 'Woodblock print (ukiyo-e)',
     location: 'Multiple collections worldwide',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1280px-Tsunami_by_hokusai_19th_century.jpg',
-    description: 'From Hokusai\'s landmark series "Thirty-six Views of Mount Fuji," this woodblock print is perhaps the single most reproduced artwork in history. The enormous hollow wave — its claw-like foam fingertips framing tiny fishing boats and distant, serene Fuji — compresses terror and beauty into the formal language of ukiyo-e: bold Prussian blue (imported from Europe), flat color areas, dynamic asymmetric composition. Hokusai was 71 when he made it. He is said to have declared at 90: "If only Heaven will give me just ten more years — just five — I will yet become a true artist."',
+    tagline: 'Perhaps the most reproduced artwork in history — made when Hokusai was 71.',
+    description: 'From "Thirty-six Views of Mount Fuji," the enormous hollow wave — with claw-like foam fingertips — frames tiny fishing boats and distant, serene Fuji. Bold Prussian blue (imported from Europe), flat colour areas, and dynamic asymmetric composition compress terror and beauty into one image. Hokusai declared at age 90: "I will yet become a true artist."',
   },
   {
     title: 'The Arnolfini Portrait',
@@ -263,7 +297,8 @@ const artworks = [
     medium: 'Oil on oak panel',
     location: 'National Gallery, London',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Van_Eyck_-_Arnolfini_Portrait.jpg/800px-Van_Eyck_-_Arnolfini_Portrait.jpg',
-    description: 'One of the most technically accomplished paintings of the 15th century, van Eyck\'s double portrait of Giovanni di Nicolao Arnolfini demonstrates the transformative optical capabilities of oil paint van Eyck helped perfect. Every surface — fur, polished bronze, mirror glass, candle flame — is rendered with microscopic fidelity. The convex mirror on the back wall reflects the room from the opposite direction, revealing two additional witnesses — one possibly the painter, whose inscription reads: "Jan van Eyck was here. 1434." Whether the painting documents a marriage contract has been debated by scholars for decades.',
+    tagline: 'Every surface rendered with microscopic fidelity — and a hidden mirror.',
+    description: 'Van Eyck\'s double portrait demonstrates the transformative capabilities of oil paint he helped perfect — fur, polished bronze, mirror glass, and candle flame all rendered with astonishing precision. The convex mirror on the back wall reflects two additional witnesses, one possibly the painter, whose inscription reads: "Jan van Eyck was here. 1434."',
   },
   {
     title: 'American Gothic',
@@ -272,204 +307,156 @@ const artworks = [
     medium: 'Oil on beaverboard',
     location: 'Art Institute of Chicago',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg/800px-Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg',
-    description: 'One of the most parodied images in American art, this painting depicts a farmer and his daughter before an Iowa Carpenter Gothic house in Eldon, Iowa — painted after Wood saw the house and "fancied the kind of people who should live in that house." His models were his sister Nan Wood Graham and his dentist, Dr. Byron McKeeby. Nan objected to being portrayed as a wife rather than a daughter. Intended as neither satire nor pure celebration, American Gothic has been read as both a dignified tribute to Depression-era rural stoicism and a deadpan critique of Midwestern puritanism.',
+    tagline: 'One of the most parodied images in American art — was it a satire or a tribute?',
+    description: 'Wood painted this after seeing a Carpenter Gothic house in Iowa and "fancied the kind of people who should live in it." His models were his sister Nan and his dentist. Nan objected to being shown as a wife rather than a daughter. Intended as neither pure satire nor celebration, the painting has been read as both dignified tribute to Depression-era stoicism and deadpan critique of Midwestern puritanism.',
   },
 ];
 
+// Philosophers: quote, keyIdeas array (bullet points), thought (closing context)
 const philosophers = [
   {
     name: 'Plato',
     dates: '428–348 BCE',
     descriptor: 'Ideal Forms & the Suspicion of Art',
     quote: 'Beauty is the splendor of truth.',
-    thought: 'For Plato, art is mimesis — a copy of a copy, twice removed from the eternal Forms that constitute true reality. Painters depict beds; beds are themselves copies of the ideal Form of Bed. Yet the "Symposium" presents beauty as the most visible of all Forms: a ladder ascending from physical to absolute Beauty itself. Plato\'s deep ambivalence — banishing poets from the Republic, yet filling his own dialogues with myth and imagery — has shaped debates about art and truth for two millennia.',
+    keyIdeas: [
+      'Art is mimesis — a copy of a copy, twice removed from eternal Forms.',
+      'Painters depict beds; beds are themselves copies of the ideal Form of Bed.',
+      'Yet the Symposium presents beauty as the most visible of all Forms.',
+      'Plato\'s ambivalence: banishing poets from the Republic while filling his dialogues with myth.',
+    ],
   },
   {
     name: 'Aristotle',
     dates: '384–322 BCE',
     descriptor: 'Mimesis, Catharsis & the Pleasure of Imitation',
     quote: 'Art represents not the outward appearance of things, but their inward significance.',
-    thought: 'In the "Poetics," Aristotle rehabilitated art from Plato\'s suspicion. Mimesis is a fundamental human pleasure: we learn even from representations of painful subjects. Tragedy — the highest art form — achieves catharsis: a clarifying purging of pity and fear through the fall of a noble protagonist. Art imitates not what is, but what could be, making it more philosophical than history. Aristotle\'s concept of catharsis has shaped every theory of drama from the Renaissance through Brecht.',
+    keyIdeas: [
+      'Mimesis is a fundamental human pleasure — we learn from representations of painful subjects.',
+      'Tragedy achieves catharsis: purging pity and fear through a noble protagonist\'s fall.',
+      'Art imitates not what is, but what could be — making it more philosophical than history.',
+      'Aristotle\'s catharsis shaped every theory of drama from the Renaissance through Brecht.',
+    ],
   },
   {
     name: 'Immanuel Kant',
     dates: '1724–1804',
     descriptor: 'Aesthetic Judgment & the Sublime',
     quote: 'The beautiful is that which pleases universally without a concept.',
-    thought: 'Kant\'s "Critique of Judgment" (1790) established the modern philosophical framework for aesthetics. The judgment "this is beautiful" is subjective yet claims universal assent — we don\'t merely like the beautiful; we demand that others find it beautiful too. Kant also distinguishes the beautiful (formal, disinterested pleasure) from the sublime: the overwhelming vastness or power that initially defeats imagination but ultimately reveals the superiority of moral reason within us. The sublime became Romanticism\'s defining obsession.',
+    keyIdeas: [
+      '"This is beautiful" is subjective yet claims universal assent from others.',
+      'Beauty gives disinterested pleasure — we appreciate it without desiring it.',
+      'The sublime differs: overwhelming power defeats imagination but reveals moral reason.',
+      'Kant\'s framework became Romanticism\'s defining philosophical foundation.',
+    ],
   },
   {
     name: 'Georg Hegel',
     dates: '1770–1831',
     descriptor: 'Art as Absolute Spirit & the End of Art',
     quote: 'Art is the sensuous shining of the Idea.',
-    thought: 'For Hegel, art, religion, and philosophy are the three forms through which Absolute Spirit comes to know itself. The history of art is Spirit progressively freeing itself from matter: Symbolic art (Egyptian — meaning exceeds form), Classical (Greek — form and content in perfect balance), Romantic (Christian — infinite spiritual content bursting finite material). Hegel provocatively declared the "end of art" — not its death, but its supersession by philosophy as the highest vehicle of self-knowledge.',
+    keyIdeas: [
+      'Art, religion, and philosophy are three forms through which Absolute Spirit knows itself.',
+      'History of art: Symbolic (Egyptian) → Classical (Greek) → Romantic (Christian).',
+      'Greek art achieved the perfect balance of form and spiritual content.',
+      'Hegel declared the "end of art" — its supersession by philosophy, not its death.',
+    ],
   },
   {
     name: 'Friedrich Nietzsche',
     dates: '1844–1900',
     descriptor: 'Apollo, Dionysus & Life-Affirming Art',
     quote: 'We have art in order not to die of the truth.',
-    thought: '"The Birth of Tragedy" (1872) proposed that Greek art arose from tension between two primal drives: the Apollonian (clarity, form, individuation — sculpture, epic) and the Dionysian (intoxication, self-dissolution — music, tragedy). Great art needs both: Apollonian form shapes Dionysian energy; Dionysian force animates Apollonian surfaces. For Nietzsche, art is the supreme life-affirming force — not a mirror of reality, but a beautifying transformation that makes existence bearable and even glorious.',
+    keyIdeas: [
+      'Greek art arose from tension: Apollonian (form, clarity) vs Dionysian (ecstasy, dissolution).',
+      'Great art needs both: form shapes energy; energy animates form.',
+      'Art is the supreme life-affirming force — it beautifies, not mirrors, existence.',
+      '"The Birth of Tragedy" (1872) profoundly influenced Wagner and 20th-century aesthetics.',
+    ],
   },
   {
     name: 'Arthur Schopenhauer',
     dates: '1788–1860',
     descriptor: 'Art as Liberation from the Will',
     quote: 'Music expresses that which cannot be said and on which it is impossible to be silent.',
-    thought: 'In "The World as Will and Representation" (1818), Schopenhauer argues that art offers temporary liberation from the relentless, suffering-causing Will underlying all existence. When we contemplate great art we become pure knowing subjects, freed momentarily from desire. Music stands apart from all other arts: while painting and poetry copy Platonic Ideas, music directly expresses the Will itself — the innermost nature of reality. This is why music moves us so profoundly. Schopenhauer\'s aesthetics profoundly influenced Wagner, Nietzsche, Proust, and Thomas Mann.',
+    keyIdeas: [
+      'Art offers temporary liberation from the suffering-causing Will underlying existence.',
+      'In contemplating great art, we become pure knowing subjects — freed from desire.',
+      'Music stands apart: it directly expresses the Will itself, the innermost nature of reality.',
+      'His aesthetics profoundly influenced Wagner, Nietzsche, Proust, and Thomas Mann.',
+    ],
   },
   {
     name: 'Walter Benjamin',
     dates: '1892–1940',
     descriptor: 'Aura, Reproduction & the Politics of Art',
     quote: 'That which withers in the age of mechanical reproduction is the aura of the work of art.',
-    thought: 'Benjamin\'s 1935 essay "The Work of Art in the Age of Mechanical Reproduction" argued that photography and film shatter art\'s unique "aura" — its quality of authentic, singular presence in time and space, rooted in ritual and place. Mechanical reproduction democratizes culture but also enables fascism\'s aestheticization of politics. His concept of aura remains the essential reference for every debate about authenticity, originality, and digital reproduction — as urgent today as when he wrote it fleeing Nazi Europe.',
+    keyIdeas: [
+      'Photography and film shatter art\'s "aura" — its authentic presence in time and place.',
+      'Mechanical reproduction democratizes culture but enables fascism\'s aestheticization of politics.',
+      '"The Work of Art in the Age of Mechanical Reproduction" (1935) remains urgently relevant.',
+      'His concept of aura frames every debate about authenticity and digital reproduction today.',
+    ],
   },
   {
     name: 'John Dewey',
     dates: '1859–1952',
     descriptor: 'Art as Experience & Democratic Aesthetics',
-    quote: 'Art is the living and concrete proof that man is capable of restoring consciously the union of sense, need, impulse and action.',
-    thought: 'Dewey\'s "Art as Experience" (1934) attacked the museum culture that places art on a pedestal, severing it from the living experience that generated it. Aesthetic experience is not a special category reserved for high art — it is the heightened form of any meaningful, fulfilling activity: cooking, a well-pitched conversation, a craftsman\'s absorbed work. Great art grows from and returns to the fabric of ordinary life. Dewey\'s pragmatist aesthetics shaped democratic education theory and participatory art movements.',
+    quote: 'Art is the living and concrete proof that man is capable of restoring the union of sense, need, impulse and action.',
+    keyIdeas: [
+      'Museum culture severs art from the living experience that generated it.',
+      'Aesthetic experience is the heightened form of any meaningful, fulfilling activity.',
+      'Great art grows from and returns to the fabric of ordinary life.',
+      'Dewey\'s pragmatist aesthetics shaped democratic education and participatory art.',
+    ],
   },
   {
     name: 'Simone de Beauvoir',
     dates: '1908–1986',
     descriptor: 'Art, Freedom & the Gendered Gaze',
     quote: 'The work of art is not a copy of reality but a reality of its own.',
-    thought: 'De Beauvoir\'s existentialist aesthetics, developed alongside her feminist analysis in "The Second Sex" (1949), examined how art has historically represented women as passive objects of the male gaze rather than active subjects. Great art, for de Beauvoir, is a project of freedom — an act through which artist and viewer transcend given conditions and assume responsibility for meaning-making. Art created from bad faith — uncritically accepting social roles — merely reflects, rather than transforms, structures of oppression.',
+    keyIdeas: [
+      'Art has historically represented women as passive objects of the male gaze.',
+      'Great art is a project of freedom — the artist transcends given conditions.',
+      'Art created from bad faith merely reflects, rather than transforms, oppressive structures.',
+      '"The Second Sex" (1949) made the gendered politics of representation unavoidable.',
+    ],
   },
   {
     name: 'Martin Heidegger',
     dates: '1889–1976',
     descriptor: 'Art as the Setting-Itself-to-Work of Truth',
     quote: 'Art is the setting-itself-to-work of truth.',
-    thought: 'Heidegger\'s lectures "The Origin of the Work of Art" (1935–36) propose that great art does not represent the world — it opens up a world. Van Gogh\'s painting of peasant shoes lets their "equipmental being" — their relation to a world of labor and earth — become visible for the first time. The work creates a strife between World (human meaning-structures) and Earth (material resistance). Architecture and poetry, for Heidegger, are the most fundamental arts: not decorations, but the founding of a human dwelling.',
+    keyIdeas: [
+      'Great art does not represent the world — it opens up a world.',
+      'Van Gogh\'s shoes painting reveals the whole world of peasant labour and earth.',
+      'Works create a strife between World (human meaning) and Earth (material resistance).',
+      'Architecture and poetry are the most fundamental arts: they found human dwelling.',
+    ],
   },
 ];
 
 const quizQuestions = [
-  {
-    category: 'Techniques',
-    q: 'Which technique did Leonardo da Vinci invent to blend oil glazes so gradually that contours dissolve into smoky haze?',
-    options: ['Chiaroscuro', 'Sfumato', 'Impasto', 'Encaustic'],
-    answer: 1,
-  },
-  {
-    category: 'Baroque',
-    q: 'Which Baroque painter revolutionized art with tenebrism — extreme darkness pierced by a single dramatic spotlight on figures?',
-    options: ['Peter Paul Rubens', 'Johannes Vermeer', 'Caravaggio', 'Rembrandt'],
-    answer: 2,
-  },
-  {
-    category: 'Impressionism',
-    q: 'The Impressionist movement got its name (mockingly) from which painting?',
-    options: ['Water Lilies', 'The Gleaners', 'Impression, Sunrise', 'The Dance'],
-    answer: 2,
-  },
-  {
-    category: 'Philosophy',
-    q: 'Which philosopher argued that art is "twice removed from truth" — a copy of a copy of eternal Forms?',
-    options: ['Aristotle', 'Immanuel Kant', 'Plato', 'Hegel'],
-    answer: 2,
-  },
-  {
-    category: 'Post-Impressionism',
-    q: 'Pointillism — applying tiny dots of pure unmixed color that blend in the eye — was developed by which artist?',
-    options: ['Vincent van Gogh', 'Paul Gauguin', 'Paul Cézanne', 'Georges Seurat'],
-    answer: 3,
-  },
-  {
-    category: 'Gallery',
-    q: '"The Starry Night" was painted while Van Gogh was staying at which location?',
-    options: ['A Paris studio', 'Amsterdam lodgings', 'An asylum in Saint-Rémy-de-Provence', 'A beach house in Arles'],
-    answer: 2,
-  },
-  {
-    category: 'Techniques',
-    q: 'Buon fresco permanently bonds pigment by painting into what material while it is still wet?',
-    options: ['Egg yolk', 'Beeswax', 'Linseed oil', 'Lime plaster'],
-    answer: 3,
-  },
-  {
-    category: 'Cubism',
-    q: 'Which two artists are credited with jointly inventing Cubism between 1907 and 1914?',
-    options: ['Matisse & Derain', 'Dalí & Miró', 'Picasso & Braque', 'Kandinsky & Klee'],
-    answer: 2,
-  },
-  {
-    category: 'Philosophy',
-    q: 'Which thinker argued that photography and film destroy art\'s unique "aura" — its authentic singular presence in time and place?',
-    options: ['Martin Heidegger', 'John Dewey', 'Walter Benjamin', 'Theodor Adorno'],
-    answer: 2,
-  },
-  {
-    category: 'Techniques',
-    q: 'The Fayum mummy portraits (1st–3rd c. CE) were made using which ancient technique that uses heated beeswax mixed with pigment?',
-    options: ['Fresco', 'Tempera', 'Oil paint', 'Encaustic'],
-    answer: 3,
-  },
-  {
-    category: 'Gallery',
-    q: 'Vermeer\'s "Girl with a Pearl Earring" is classified in Dutch painting as what type of work?',
-    options: ['History painting', 'Vanitas', 'Tronie (character study)', 'Triptych'],
-    answer: 2,
-  },
-  {
-    category: 'Philosophy',
-    q: 'Nietzsche described great art as arising from tension between the ordered Apollonian drive and which opposing force?',
-    options: ['The Socratic drive', 'The Dionysian drive', 'The Platonic drive', 'The Kantian sublime'],
-    answer: 1,
-  },
-  {
-    category: 'Renaissance',
-    q: 'Who painted the Sistine Chapel ceiling, working in sections of wet plaster over four years (1508–1512)?',
-    options: ['Leonardo da Vinci', 'Raphael', 'Botticelli', 'Michelangelo'],
-    answer: 3,
-  },
-  {
-    category: 'Gallery',
-    q: 'Raphael\'s "School of Athens" places which two philosophers at the geometric and philosophical center of the composition?',
-    options: ['Socrates & Plato', 'Aristotle & Socrates', 'Plato & Aristotle', 'Hegel & Kant'],
-    answer: 2,
-  },
-  {
-    category: 'Gallery',
-    q: '"Las Meninas" (1656), one of art history\'s most analyzed paintings, was created by which Spanish master?',
-    options: ['Francisco Goya', 'El Greco', 'Bartolomé Murillo', 'Diego Velázquez'],
-    answer: 3,
-  },
-  {
-    category: 'Philosophy',
-    q: 'Kant described aesthetic judgment as "subjective yet" doing what — which makes it unique among judgments?',
-    options: ['Always relative to culture', 'Claiming universal assent', 'Rooted purely in reason', 'Dependent on moral virtue'],
-    answer: 1,
-  },
-  {
-    category: 'Gallery',
-    q: 'The Great Wave off Kanagawa — perhaps the most reproduced artwork in history — was created by which Japanese master?',
-    options: ['Hiroshige', 'Utamaro', 'Hokusai', 'Kuniyoshi'],
-    answer: 2,
-  },
-  {
-    category: 'Fauvism',
-    q: 'Which short-lived movement (1905–08) applied pure unmixed color straight from the tube, independent of how things actually look?',
-    options: ['Cubism', 'Realism', 'Fauvism', 'Symbolism'],
-    answer: 2,
-  },
-  {
-    category: 'Gallery',
-    q: 'In van Eyck\'s Arnolfini Portrait (1434), what does the convex mirror on the back wall show?',
-    options: ['The subjects seen from behind', 'Two additional witnesses reflected in the room', 'An open window to a garden', 'A religious altarpiece'],
-    answer: 1,
-  },
-  {
-    category: 'Techniques',
-    q: 'Impasto — paint applied so thickly it leaves a sculptural surface — is most visible in whose swirling skies and cypresses?',
-    options: ['Vermeer', 'Raphael', 'Van Gogh', 'Botticelli'],
-    answer: 2,
-  },
+  { category: 'Techniques', q: 'Which technique did Leonardo da Vinci invent to blend oil glazes so gradually that contours dissolve into smoky haze?', options: ['Chiaroscuro', 'Sfumato', 'Impasto', 'Encaustic'], answer: 1 },
+  { category: 'Baroque', q: 'Which Baroque painter revolutionized art with tenebrism — extreme darkness pierced by a single dramatic spotlight?', options: ['Peter Paul Rubens', 'Johannes Vermeer', 'Caravaggio', 'Rembrandt'], answer: 2 },
+  { category: 'Impressionism', q: 'The Impressionist movement got its name (mockingly) from which painting?', options: ['Water Lilies', 'The Gleaners', 'Impression, Sunrise', 'The Dance'], answer: 2 },
+  { category: 'Philosophy', q: 'Which philosopher argued that art is "twice removed from truth" — a copy of a copy of eternal Forms?', options: ['Aristotle', 'Immanuel Kant', 'Plato', 'Hegel'], answer: 2 },
+  { category: 'Post-Impressionism', q: 'Pointillism — tiny dots of pure unmixed colour that blend in the eye — was developed by which artist?', options: ['Van Gogh', 'Paul Gauguin', 'Paul Cézanne', 'Georges Seurat'], answer: 3 },
+  { category: 'Gallery', q: '"The Starry Night" was painted while Van Gogh was staying at which location?', options: ['A Paris studio', 'Amsterdam lodgings', 'An asylum in Saint-Rémy-de-Provence', 'A beach house in Arles'], answer: 2 },
+  { category: 'Techniques', q: 'Buon fresco permanently bonds pigment by painting into what material while it is still wet?', options: ['Egg yolk', 'Beeswax', 'Linseed oil', 'Lime plaster'], answer: 3 },
+  { category: 'Cubism', q: 'Which two artists jointly invented Cubism between 1907 and 1914?', options: ['Matisse & Derain', 'Dalí & Miró', 'Picasso & Braque', 'Kandinsky & Klee'], answer: 2 },
+  { category: 'Philosophy', q: 'Which thinker argued that photography and film destroy art\'s unique "aura" — its authentic singular presence?', options: ['Martin Heidegger', 'John Dewey', 'Walter Benjamin', 'Theodor Adorno'], answer: 2 },
+  { category: 'Techniques', q: 'The Fayum mummy portraits were made using which technique that uses heated beeswax mixed with pigment?', options: ['Fresco', 'Tempera', 'Oil paint', 'Encaustic'], answer: 3 },
+  { category: 'Gallery', q: 'Vermeer\'s "Girl with a Pearl Earring" is classified in Dutch painting as what type of work?', options: ['History painting', 'Vanitas', 'Tronie (character study)', 'Triptych'], answer: 2 },
+  { category: 'Philosophy', q: 'Nietzsche described great art as arising from tension between the ordered Apollonian drive and which opposing force?', options: ['The Socratic drive', 'The Dionysian drive', 'The Platonic drive', 'The Kantian sublime'], answer: 1 },
+  { category: 'Renaissance', q: 'Who painted the Sistine Chapel ceiling, working in sections of wet plaster over four years (1508–1512)?', options: ['Leonardo da Vinci', 'Raphael', 'Botticelli', 'Michelangelo'], answer: 3 },
+  { category: 'Gallery', q: 'Raphael\'s "School of Athens" places which two philosophers at the exact centre of the composition?', options: ['Socrates & Plato', 'Aristotle & Socrates', 'Plato & Aristotle', 'Hegel & Kant'], answer: 2 },
+  { category: 'Gallery', q: '"Las Meninas" (1656), one of art history\'s most analyzed paintings, was created by which Spanish master?', options: ['Francisco Goya', 'El Greco', 'Bartolomé Murillo', 'Diego Velázquez'], answer: 3 },
+  { category: 'Philosophy', q: 'Kant described aesthetic judgment as subjective yet doing what — which makes it unique?', options: ['Always relative to culture', 'Claiming universal assent', 'Rooted purely in reason', 'Dependent on moral virtue'], answer: 1 },
+  { category: 'Gallery', q: 'The Great Wave off Kanagawa was created by which Japanese master?', options: ['Hiroshige', 'Utamaro', 'Hokusai', 'Kuniyoshi'], answer: 2 },
+  { category: 'Fauvism', q: 'Which short-lived movement (1905–08) applied pure unmixed colour straight from the tube, independent of visual reality?', options: ['Cubism', 'Realism', 'Fauvism', 'Symbolism'], answer: 2 },
+  { category: 'Gallery', q: 'In van Eyck\'s Arnolfini Portrait (1434), what does the convex mirror on the back wall show?', options: ['The subjects from behind', 'Two additional witnesses reflected in the room', 'An open window to a garden', 'A religious altarpiece'], answer: 1 },
+  { category: 'Techniques', q: 'Impasto — paint applied so thickly it leaves a sculptural surface — is most famous in whose swirling skies?', options: ['Vermeer', 'Raphael', 'Van Gogh', 'Botticelli'], answer: 2 },
 ];
 ---
 
@@ -482,22 +469,22 @@ const quizQuestions = [
   <body>
     <div class="app-shell">
 
-      <!-- ── HERO ───────────────────────────────────────────────────── -->
+      <!-- ── HERO ──────────────────────────────────────────────────── -->
       <header class="hero-panel">
-        <div>
+        <div class="hero-text">
           <p class="label">Artsy</p>
           <h1>Explore art history through vivid flashcards.</h1>
-          <p class="intro">Journey through eras, styles, and techniques — then step into the Gallery or meet the philosophers who shaped how we think about beauty.</p>
+          <p class="intro">Journey through eras, styles &amp; techniques — then step into the Gallery, meet the Philosophers, or test yourself with the Quiz.</p>
         </div>
         <div class="hero-badge">Museum-ready learning interface</div>
       </header>
 
-      <!-- ── MAIN NAVIGATION ───────────────────────────────────────── -->
+      <!-- ── MAIN NAVIGATION ────────────────────────────────────────── -->
       <nav class="main-nav" id="mainNav">
         <button class="main-tab active" data-view="art-history" type="button">Art History</button>
-        <button class="main-tab" data-view="gallery" type="button">Gallery</button>
+        <button class="main-tab" data-view="gallery"     type="button">Gallery</button>
         <button class="main-tab" data-view="philosophers" type="button">Philosophers</button>
-        <button class="main-tab" data-view="quiz" type="button">Quiz</button>
+        <button class="main-tab" data-view="quiz"        type="button">Quiz</button>
       </nav>
 
       <!-- ── VIEW: ART HISTORY ─────────────────────────────────────── -->
@@ -522,12 +509,15 @@ const quizQuestions = [
                   <div class="card-copy">
                     <p class="eyebrow">{card.subtitle}</p>
                     <h2>{card.title}</h2>
-                    <p class="flip-cue">Click to flip</p>
+                    <p class="flip-cue">Click to flip ↩</p>
                   </div>
                 </div>
-                <div class="flashcard-face flashcard-back">
-                  <p class="back-label">Key artists &amp; context</p>
-                  <p>{card.fact}</p>
+                <div class="flashcard-face flashcard-back art-back">
+                  <p class="back-label">About this {card.category === 'eras' ? 'era' : card.category === 'styles' ? 'style' : 'technique'}</p>
+                  <p class="back-summary">{card.summary}</p>
+                  <div class="artists-row">
+                    {card.artists.map((a) => <span class="artist-chip">{a}</span>)}
+                  </div>
                 </div>
               </div>
             </article>
@@ -539,20 +529,25 @@ const quizQuestions = [
       <div id="view-gallery" class="view hidden">
         <div class="view-header">
           <h2 class="view-title">Gallery</h2>
-          <p class="view-intro">Ten landmark works from Western and global art history. Click any painting to reveal its story.</p>
+          <p class="view-intro">Ten landmark works from art history. Click any painting to reveal its story.</p>
         </div>
 
-        <section class="card-grid">
+        <section class="card-grid gallery-grid">
           {artworks.map((work) => (
             <article class="flashcard artwork-card">
               <div class="flashcard-inner">
                 <div class="flashcard-face flashcard-front">
                   <div class="image-frame artwork-frame">
                     <img src={work.image} alt={work.title} loading="lazy" />
+                    <div class="image-overlay">
+                      <p class="overlay-artist">{work.artist}</p>
+                      <p class="overlay-year">{work.year}</p>
+                    </div>
                   </div>
-                  <div class="card-copy">
-                    <p class="eyebrow">{work.artist} · {work.year}</p>
+                  <div class="card-copy gallery-copy">
                     <h2>{work.title}</h2>
+                    <p class="tagline">{work.tagline}</p>
+                    <p class="flip-cue">Click to read more ↩</p>
                   </div>
                 </div>
                 <div class="flashcard-face flashcard-back artwork-back">
@@ -561,7 +556,7 @@ const quizQuestions = [
                     <span class="meta-tag">{work.location}</span>
                   </div>
                   <p class="back-label">{work.title}</p>
-                  <p>{work.description}</p>
+                  <p class="back-summary">{work.description}</p>
                 </div>
               </div>
             </article>
@@ -587,12 +582,13 @@ const quizQuestions = [
                     <p class="phil-dates">{p.dates}</p>
                     <p class="phil-descriptor">{p.descriptor}</p>
                   </div>
-                  <p class="flip-hint">Tap to reveal key ideas</p>
+                  <p class="flip-hint">Tap to reveal key ideas ↩</p>
                 </div>
                 <div class="flashcard-face flashcard-back philosopher-back">
                   <blockquote class="phil-quote">"{p.quote}"</blockquote>
-                  <div class="phil-divider"></div>
-                  <p class="phil-thought">{p.thought}</p>
+                  <ul class="phil-ideas">
+                    {p.keyIdeas.map((idea) => <li>{idea}</li>)}
+                  </ul>
                   <p class="phil-name-watermark">{p.name}</p>
                 </div>
               </div>
@@ -601,16 +597,14 @@ const quizQuestions = [
         </section>
       </div>
 
-      <!-- ── VIEW: QUIZ ───────────────────────────────────────────── -->
+      <!-- ── VIEW: QUIZ ─────────────────────────────────────────────── -->
       <div id="view-quiz" class="view hidden">
         <div class="view-header">
           <h2 class="view-title">Quiz</h2>
-          <p class="view-intro">20 questions drawn from every section of this site — eras, styles, techniques, gallery, and philosophy.</p>
+          <p class="view-intro">20 questions drawn from every section — eras, styles, techniques, gallery, and philosophy.</p>
         </div>
 
         <div class="quiz-shell" id="quizShell">
-
-          <!-- Start screen -->
           <div class="quiz-start" id="quizStart">
             <div class="quiz-start-icon">✦</div>
             <h3 class="quiz-start-title">Test your knowledge</h3>
@@ -618,7 +612,6 @@ const quizQuestions = [
             <button class="quiz-begin-btn" id="quizBeginBtn" type="button">Begin Quiz</button>
           </div>
 
-          <!-- Question screen -->
           <div class="quiz-question" id="quizQuestion" style="display:none">
             <div class="quiz-header">
               <span class="quiz-counter" id="quizCounter">Question 1 of 20</span>
@@ -626,13 +619,12 @@ const quizQuestions = [
               <span class="quiz-score-live" id="quizScoreLive">Score: 0</span>
             </div>
             <div class="quiz-body">
-              <p class="quiz-category-tag" id="quizCategoryTag">Category</p>
+              <p class="quiz-category-tag" id="quizCategoryTag"></p>
               <h3 class="quiz-question-text" id="quizQuestionText"></h3>
               <div class="quiz-options" id="quizOptions"></div>
             </div>
           </div>
 
-          <!-- Results screen -->
           <div class="quiz-results" id="quizResults" style="display:none">
             <div class="quiz-results-score" id="quizResultsScore"></div>
             <h3 class="quiz-results-title" id="quizResultsTitle"></h3>
@@ -640,16 +632,15 @@ const quizQuestions = [
             <div class="quiz-breakdown" id="quizBreakdown"></div>
             <button class="quiz-begin-btn" id="quizRestartBtn" type="button" style="margin-top:1rem">Try Again</button>
           </div>
-
         </div>
       </div>
 
     </div><!-- end app-shell -->
 
     <script type="module">
-      // ── Main tab switching ──────────────────────────────────────────
-      const mainNav = document.getElementById('mainNav');
-      const views = document.querySelectorAll('.view');
+      // ── Tab switching ─────────────────────────────────────────────
+      const mainNav  = document.getElementById('mainNav');
+      const views    = document.querySelectorAll('.view');
       const mainTabs = mainNav.querySelectorAll('.main-tab');
 
       mainNav.addEventListener('click', (e) => {
@@ -660,11 +651,11 @@ const quizQuestions = [
         views.forEach((v) => v.classList.toggle('hidden', v.id !== `view-${target}`));
       });
 
-      // ── Art History sub-category tabs ───────────────────────────────
+      // ── Art History sub-tabs ──────────────────────────────────────
       const categoryRow = document.getElementById('categoryRow');
       const artCardGrid = document.getElementById('artCardGrid');
-      const artCards = Array.from(artCardGrid.querySelectorAll('.flashcard'));
-      const catBtns = Array.from(categoryRow.querySelectorAll('button'));
+      const artCards    = Array.from(artCardGrid.querySelectorAll('.flashcard'));
+      const catBtns     = Array.from(categoryRow.querySelectorAll('button'));
       let activeCategory = 'eras';
 
       const updateCategory = (cat) => {
@@ -680,42 +671,43 @@ const quizQuestions = [
 
       updateCategory(activeCategory);
 
-      // ── Card flip (all sections) ────────────────────────────────────
+      // ── Card flip ─────────────────────────────────────────────────
       document.addEventListener('click', (e) => {
         const card = e.target.closest('.flashcard');
         if (!card) return;
+        // Don't flip if clicking a quiz option button
+        if (e.target.closest('.quiz-option, .quiz-begin-btn')) return;
         card.classList.toggle('flipped');
       });
 
-      // ── Quiz ────────────────────────────────────────────────────────
+      // ── Quiz ──────────────────────────────────────────────────────
       const QUESTIONS = JSON.parse(document.getElementById('quizData').textContent);
-
       let current = 0, score = 0, answered = false;
 
-      const elStart    = document.getElementById('quizStart');
-      const elQuestion = document.getElementById('quizQuestion');
-      const elResults  = document.getElementById('quizResults');
-      const elCounter  = document.getElementById('quizCounter');
-      const elFill     = document.getElementById('quizFill');
-      const elScoreLive= document.getElementById('quizScoreLive');
-      const elCatTag   = document.getElementById('quizCategoryTag');
-      const elQText    = document.getElementById('quizQuestionText');
-      const elOptions  = document.getElementById('quizOptions');
+      const elStart     = document.getElementById('quizStart');
+      const elQuestion  = document.getElementById('quizQuestion');
+      const elResults   = document.getElementById('quizResults');
+      const elCounter   = document.getElementById('quizCounter');
+      const elFill      = document.getElementById('quizFill');
+      const elScoreLive = document.getElementById('quizScoreLive');
+      const elCatTag    = document.getElementById('quizCategoryTag');
+      const elQText     = document.getElementById('quizQuestionText');
+      const elOptions   = document.getElementById('quizOptions');
 
       function showQuestion() {
         answered = false;
         const q = QUESTIONS[current];
-        elCounter.textContent  = `Question ${current + 1} of ${QUESTIONS.length}`;
-        elFill.style.width     = `${(current / QUESTIONS.length) * 100}%`;
-        elScoreLive.textContent= `Score: ${score}`;
-        elCatTag.textContent   = q.category;
-        elQText.textContent    = q.q;
-        elOptions.innerHTML    = '';
+        elCounter.textContent   = `Question ${current + 1} of ${QUESTIONS.length}`;
+        elFill.style.width      = `${(current / QUESTIONS.length) * 100}%`;
+        elScoreLive.textContent = `Score: ${score}`;
+        elCatTag.textContent    = q.category;
+        elQText.textContent     = q.q;
+        elOptions.innerHTML     = '';
         q.options.forEach((opt, i) => {
           const btn = document.createElement('button');
-          btn.className = 'quiz-option';
+          btn.className   = 'quiz-option';
           btn.textContent = opt;
-          btn.type = 'button';
+          btn.type        = 'button';
           btn.addEventListener('click', () => selectAnswer(i));
           elOptions.appendChild(btn);
         });
@@ -724,33 +716,21 @@ const quizQuestions = [
       function selectAnswer(i) {
         if (answered) return;
         answered = true;
-        const q = QUESTIONS[current];
+        const q    = QUESTIONS[current];
         const btns = elOptions.querySelectorAll('.quiz-option');
         btns.forEach((b) => b.disabled = true);
-        if (i === q.answer) {
-          score++;
-          btns[i].classList.add('correct');
-        } else {
-          btns[i].classList.add('wrong');
-          btns[q.answer].classList.add('correct');
-        }
+        if (i === q.answer) { score++; btns[i].classList.add('correct'); }
+        else { btns[i].classList.add('wrong'); btns[q.answer].classList.add('correct'); }
         elScoreLive.textContent = `Score: ${score}`;
-        setTimeout(() => {
-          current++;
-          if (current < QUESTIONS.length) {
-            showQuestion();
-          } else {
-            showResults();
-          }
-        }, 1100);
+        setTimeout(() => { current < QUESTIONS.length - 1 ? (current++, showQuestion()) : showResults(); }, 1100);
       }
 
       function showResults() {
-        elFill.style.width = '100%';
+        elFill.style.width      = '100%';
         elQuestion.style.display = 'none';
         elResults.style.display  = 'flex';
-        const pct = Math.round((score / QUESTIONS.length) * 100);
-        document.getElementById('quizResultsScore').textContent = `${score} / ${QUESTIONS.length}`;
+        const pct   = Math.round((score / QUESTIONS.length) * 100);
+        const tier  = pct < 40 ? 0 : pct < 60 ? 1 : pct < 75 ? 2 : pct < 95 ? 3 : 4;
         const titles = ['Keep exploring!', 'Good start!', 'Well done!', 'Impressive!', 'Masterpiece!'];
         const bodies = [
           'Wander through the flashcards and gallery — the answers are all there.',
@@ -759,24 +739,24 @@ const quizQuestions = [
           'Exceptional knowledge across eras, styles, and philosophy.',
           'A perfect score — the curators would be proud.',
         ];
-        const tier = pct < 40 ? 0 : pct < 60 ? 1 : pct < 75 ? 2 : pct < 95 ? 3 : 4;
+        document.getElementById('quizResultsScore').textContent = `${score} / ${QUESTIONS.length}`;
         document.getElementById('quizResultsTitle').textContent = titles[tier];
         document.getElementById('quizResultsBody').textContent  = bodies[tier];
-        const breakdown = document.getElementById('quizBreakdown');
-        breakdown.innerHTML = '';
-        [['Score', `${pct}%`], ['Correct', score], ['Incorrect', QUESTIONS.length - score]].forEach(([label, val]) => {
+        const bd = document.getElementById('quizBreakdown');
+        bd.innerHTML = '';
+        [['Score', `${pct}%`], ['Correct', score], ['Incorrect', QUESTIONS.length - score]].forEach(([l, v]) => {
           const chip = document.createElement('span');
-          chip.className = 'quiz-breakdown-chip';
-          chip.textContent = `${label}: ${val}`;
-          breakdown.appendChild(chip);
+          chip.className   = 'quiz-breakdown-chip';
+          chip.textContent = `${l}: ${v}`;
+          bd.appendChild(chip);
         });
       }
 
       function startQuiz() {
         current = 0; score = 0;
-        elStart.style.display   = 'none';
-        elResults.style.display = 'none';
-        elQuestion.style.display= 'flex';
+        elStart.style.display    = 'none';
+        elResults.style.display  = 'none';
+        elQuestion.style.display = 'flex';
         showQuestion();
       }
 
@@ -784,7 +764,6 @@ const quizQuestions = [
       document.getElementById('quizRestartBtn').addEventListener('click', startQuiz);
     </script>
 
-    <!-- Quiz data injected as JSON to avoid Astro template issues -->
     <script id="quizData" type="application/json" set:html={JSON.stringify(quizQuestions)}></script>
   </body>
 </html>
