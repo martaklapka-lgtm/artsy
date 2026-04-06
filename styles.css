@@ -686,3 +686,6 @@ kbd {
   .header-inner { flex-wrap: wrap; gap: 8px; }
   .categories { flex-wrap: wrap; }
 }
+
+/* ── Science tab — category filters hidden when not on art ── */
+#catFilters { display: inline-flex; gap: 4px; }

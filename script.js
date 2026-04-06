@@ -295,3 +295,282 @@ vocabDeck = shuffle(VOCAB);
 deck      = shuffle([...CARDS]);
 updateCatBtns();
 showView('cards');
+
+/* ══════════════════════════════════════════════════════
+   SCIENCE CARDS — 10 naukowców PL + EN
+   ══════════════════════════════════════════════════════ */
+const SCIENCE_CARDS = [
+  {
+    id:'sci-1',
+    category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Marie Curie',pl:'Maria Curie-Skłodowska'},
+    period:{en:'1867 – 1934',pl:'1867 – 1934'},
+    hint:{en:'First person to win two Nobel Prizes — in Physics and Chemistry. Born in Warsaw.',pl:'Pierwsza osoba z dwoma Nagrodami Nobla — z fizyki i chemii. Urodzona w Warszawie.'},
+    image:WM('Marie_Curie_c1920.jpg'),
+    imageAlt:'Marie Curie, c. 1920',
+    imageCredit:'Marie Curie · fotografia ok. 1920 · domena publiczna',
+    field:{en:'Radioactivity, Nuclear Chemistry',pl:'Radioaktywność, Chemia Jądrowa'},
+    discoveries:{en:'Discovered polonium and radium; coined the term "radioactivity"; first woman to win a Nobel Prize (Physics 1903, Chemistry 1911).',pl:'Odkryła polon i rad; ukuła termin „radioaktywność"; pierwsza kobieta z Noblem (fizyka 1903, chemia 1911).'},
+    keywords:{en:['Radioactivity','Polonium','Radium','Nobel Prize'],pl:['Radioaktywność','Polon','Rad','Nagroda Nobla']}
+  },
+  {
+    id:'sci-2',
+    category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Albert Einstein',pl:'Albert Einstein'},
+    period:{en:'1879 – 1955',pl:'1879 – 1955'},
+    hint:{en:'His 1905 "miracle year" produced four papers that each transformed a field of physics.',pl:'W swoim „cudownym roku" 1905 opublikował cztery artykuły, z których każdy odmienił dziedzinę fizyki.'},
+    image:WM('Einstein_1921_by_F_Schmutzer_-_restoration.jpg'),
+    imageAlt:'Albert Einstein, 1921',
+    imageCredit:'Albert Einstein · 1921 · F. Schmutzer · domena publiczna',
+    field:{en:'Theoretical Physics',pl:'Fizyka Teoretyczna'},
+    discoveries:{en:'Special and General Relativity (E=mc²); photoelectric effect (Nobel 1921); Brownian motion; laid foundations for quantum mechanics.',pl:'Szczególna i ogólna teoria względności (E=mc²); efekt fotoelektryczny (Nobel 1921); ruch Browna; podstawy mechaniki kwantowej.'},
+    keywords:{en:['Relativity','E=mc²','Spacetime','Photoelectric Effect'],pl:['Względność','E=mc²','Czasoprzestrzeń','Efekt fotoelektryczny']}
+  },
+  {
+    id:'sci-3',
+    category:{en:'Biology',pl:'Biologia'},
+    title:{en:'Charles Darwin',pl:'Karol Darwin'},
+    period:{en:'1809 – 1882',pl:'1809 – 1882'},
+    hint:{en:'His five-year voyage on HMS Beagle collecting specimens from the Galápagos changed our understanding of life.',pl:'Pięcioletnia podróż na HMS Beagle i okazy z Galapagos zmieniły nasze rozumienie życia.'},
+    image:WM('Charles_Darwin_by_Julia_Margaret_Cameron,_1868.jpg'),
+    imageAlt:'Charles Darwin, 1868',
+    imageCredit:'Charles Darwin · 1868 · Julia Margaret Cameron · domena publiczna',
+    field:{en:'Evolutionary Biology, Natural History',pl:'Biologia Ewolucyjna, Historia Naturalna'},
+    discoveries:{en:'"On the Origin of Species" (1859): natural selection drives evolution; common ancestry of all life on Earth.',pl:'„O powstawaniu gatunków" (1859): dobór naturalny napędza ewolucję; wspólne pochodzenie całego życia na Ziemi.'},
+    keywords:{en:['Natural Selection','Evolution','Adaptation','Galapagos'],pl:['Dobór naturalny','Ewolucja','Adaptacja','Galapagos']}
+  },
+  {
+    id:'sci-4',
+    category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Isaac Newton',pl:'Izaak Newton'},
+    period:{en:'1643 – 1727',pl:'1643 – 1727'},
+    hint:{en:'Developed calculus independently from Leibniz and wrote his three laws of motion during a plague lockdown.',pl:'Opracował rachunek różniczkowy niezależnie od Leibniza i sformułował trzy prawa ruchu podczas lockdownu z powodu dżumy.'},
+    image:WM('GodfreyKneller-IsaacNewton-1689.jpg'),
+    imageAlt:'Isaac Newton, 1689, by Godfrey Kneller',
+    imageCredit:'Isaac Newton · 1689 · Godfrey Kneller · domena publiczna',
+    field:{en:'Classical Mechanics, Optics, Mathematics',pl:'Mechanika Klasyczna, Optyka, Matematyka'},
+    discoveries:{en:'Three laws of motion; universal gravitation; calculus; decomposed white light into spectrum with a prism.',pl:'Trzy prawa ruchu; grawitacja powszechna; rachunek różniczkowy; rozkład białego światła na widmo za pomocą pryzmatu.'},
+    keywords:{en:['Gravity','Laws of Motion','Calculus','Optics'],pl:['Grawitacja','Prawa ruchu','Rachunek różniczkowy','Optyka']}
+  },
+  {
+    id:'sci-5',
+    category:{en:'Astronomy',pl:'Astronomia'},
+    title:{en:'Nicolaus Copernicus',pl:'Mikołaj Kopernik'},
+    period:{en:'1473 – 1543',pl:'1473 – 1543'},
+    hint:{en:'A Polish canon who quietly revolutionised astronomy — his heliocentric model dethroned Earth from the centre of the universe.',pl:'Polski kanonik, który po cichu zrewolucjonizował astronomię — jego model heliocentryczny obalił Ziemię z centrum wszechświata.'},
+    image:WM('Nikolaus_Kopernikus.jpg'),
+    imageAlt:'Mikołaj Kopernik, portret ok. 1530',
+    imageCredit:'Mikołaj Kopernik · portret ok. 1530 · domena publiczna',
+    field:{en:'Astronomy, Mathematics',pl:'Astronomia, Matematyka'},
+    discoveries:{en:'"De revolutionibus orbium coelestium" (1543): Sun — not Earth — is at the centre of the solar system. Launched the Copernican Revolution.',pl:'„De revolutionibus orbium coelestium" (1543): Słońce — nie Ziemia — jest centrum układu słonecznego. Zapoczątkował rewolucję kopernikańską.'},
+    keywords:{en:['Heliocentrism','Solar System','Copernican Revolution','Astronomy'],pl:['Heliocentryzm','Układ słoneczny','Rewolucja kopernikańska','Astronomia']}
+  },
+  {
+    id:'sci-6',
+    category:{en:'Mathematics',pl:'Matematyka'},
+    title:{en:'Leonhard Euler',pl:'Leonhard Euler'},
+    period:{en:'1707 – 1783',pl:'1707 – 1783'},
+    hint:{en:'Produced mathematical papers even after going completely blind — he dictated them from memory.',pl:'Tworzył prace matematyczne nawet po całkowitej utracie wzroku — dyktował je z pamięci.'},
+    image:WM('Leonhard_Euler_-_edit1.jpg'),
+    imageAlt:'Leonhard Euler, portret ok. 1753',
+    imageCredit:'Leonhard Euler · ok. 1753 · domena publiczna',
+    field:{en:'Mathematics, Physics, Astronomy',pl:'Matematyka, Fizyka, Astronomia'},
+    discoveries:{en:"Euler's identity (e^iπ + 1 = 0); graph theory (Königsberg bridges); notation f(x), Σ, i, e, π; prolific author of ~92 volumes.",pl:'Wzór Eulera (e^iπ + 1 = 0); teoria grafów (mosty królewieckie); notacje f(x), Σ, i, e, π; ok. 92 tomy prac.'},
+    keywords:{en:["Euler's Identity",'Graph Theory','Number Theory','Mathematical Notation'],pl:['Wzór Eulera','Teoria grafów','Teoria liczb','Notacja matematyczna']}
+  },
+  {
+    id:'sci-7',
+    category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Dmitri Mendeleev',pl:'Dmitrij Mendelejew'},
+    period:{en:'1834 – 1907',pl:'1834 – 1907'},
+    hint:{en:'He dreamed of the complete periodic table and was able to predict the properties of elements not yet discovered.',pl:'Przyśniła mu się kompletna tablica układu okresowego — był w stanie przewidzieć właściwości jeszcze nieodkrytych pierwiastków.'},
+    image:WM('Mendeleev_by_repin.jpg'),
+    imageAlt:'Dmitri Mendeleev, portret Ilji Repina, 1885',
+    imageCredit:'Dmitrij Mendelejew · 1885 · Ilja Repin · domena publiczna',
+    field:{en:'Chemistry',pl:'Chemia'},
+    discoveries:{en:'Created the Periodic Table of Elements (1869), organising 63 known elements by atomic weight and predicting undiscovered ones (gallium, germanium, scandium).',pl:'Stworzył układ okresowy pierwiastków (1869), porządkując 63 znane pierwiastki według masy atomowej i przewidując nieodkryte (gal, german, skandium).'},
+    keywords:{en:['Periodic Table','Elements','Atomic Mass','Prediction'],pl:['Układ okresowy','Pierwiastki','Masa atomowa','Przepowiednia']}
+  },
+  {
+    id:'sci-8',
+    category:{en:'Biology',pl:'Biologia'},
+    title:{en:'Gregor Mendel',pl:'Gregor Mendel'},
+    period:{en:'1822 – 1884',pl:'1822 – 1884'},
+    hint:{en:'An Augustinian friar who discovered the laws of inheritance by patiently crossbreeding 29,000 pea plants in his monastery garden.',pl:'Augustiański zakonnik, który odkrył prawa dziedziczenia, krzyżując cierpliwie 29 000 roślin grochu w klasztornym ogrodzie.'},
+    image:WM('Gregor_Mendel_2.jpg'),
+    imageAlt:'Gregor Mendel, ok. 1880',
+    imageCredit:'Gregor Mendel · ok. 1880 · domena publiczna',
+    field:{en:'Genetics, Botany',pl:'Genetyka, Botanika'},
+    discoveries:{en:'Laws of Segregation and Independent Assortment (1866) — the foundation of classical genetics. Discovered dominant and recessive traits.',pl:'Prawa segregacji i niezależnego rozdziału (1866) — fundament klasycznej genetyki. Odkrył cechy dominujące i recesywne.'},
+    keywords:{en:['Genetics','Heredity','Dominant & Recessive','Pea Plants'],pl:['Genetyka','Dziedziczność','Dominujące i recesywne','Rośliny grochu']}
+  },
+  {
+    id:'sci-9',
+    category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Nikola Tesla',pl:'Nikola Tesla'},
+    period:{en:'1856 – 1943',pl:'1856 – 1943'},
+    hint:{en:'Held over 300 patents and envisioned wireless global communication in 1900 — over a century before Wi-Fi.',pl:'Posiadał ponad 300 patentów i w 1900 roku wyobraził sobie bezprzewodową komunikację globalną — na ponad wiek przed Wi-Fi.'},
+    image:WM('N.Tesla.JPG'),
+    imageAlt:'Nikola Tesla, ok. 1890',
+    imageCredit:'Nikola Tesla · ok. 1890 · domena publiczna',
+    field:{en:'Electrical Engineering, Physics',pl:'Inżynieria Elektryczna, Fizyka'},
+    discoveries:{en:'Alternating current (AC) electrical system; induction motor; Tesla coil; early radio patents; rotating magnetic field.',pl:'System prądu przemiennego (AC); silnik indukcyjny; cewka Tesli; wczesne patenty radiowe; wirujące pole magnetyczne.'},
+    keywords:{en:['Alternating Current','Induction Motor','Tesla Coil','AC Power'],pl:['Prąd przemienny','Silnik indukcyjny','Cewka Tesli','Energia AC']}
+  },
+  {
+    id:'sci-10',
+    category:{en:'Computer Science',pl:'Informatyka'},
+    title:{en:'Ada Lovelace',pl:'Ada Lovelace'},
+    period:{en:'1815 – 1852',pl:'1815 – 1852'},
+    hint:{en:'Daughter of Lord Byron, she wrote the world\'s first computer algorithm — for a machine that was never built.',pl:'Córka Lorda Byrona — napisała pierwszy na świecie algorytm komputerowy dla maszyny, która nigdy nie powstała.'},
+    image:WM('Ada_Lovelace_portrait.jpg'),
+    imageAlt:'Ada Lovelace, ok. 1840',
+    imageCredit:'Ada Lovelace · ok. 1840 · domena publiczna',
+    field:{en:'Mathematics, Computer Science',pl:'Matematyka, Informatyka'},
+    discoveries:{en:"Wrote the first algorithm intended for Babbage's Analytical Engine (1843); foresaw computers as general-purpose machines far beyond mere calculation.",pl:'Napisała pierwszy algorytm dla Maszyny Analitycznej Babbage\'a (1843); przewidziała komputery jako maszyny ogólnego przeznaczenia, daleko poza zwykłymi obliczeniami.'},
+    keywords:{en:['First Algorithm','Analytical Engine','Programming','Visionary'],pl:['Pierwszy algorytm','Maszyna analityczna','Programowanie','Wizjonerka']}
+  }
+];
+
+/* ── Science state ───────────────────────────────────── */
+let sciDeck    = [];
+let sciIndex   = 0;
+let sciFlipped = false;
+
+/* ── Science DOM refs ────────────────────────────────── */
+const sciCard      = document.getElementById('sciCard');
+const sciCardInner = document.getElementById('sciCardInner');
+const sciImg       = document.getElementById('sciImg');
+const sciPill      = document.getElementById('sciPill');
+const sciHint      = document.getElementById('sciHint');
+const sciTitle     = document.getElementById('sciTitle');
+const sciBackCat   = document.getElementById('sciBackCat');
+const sciBackTitle = document.getElementById('sciBackTitle');
+const sciBackPeriod= document.getElementById('sciBackPeriod');
+const sciField     = document.getElementById('sciField');
+const sciDisc      = document.getElementById('sciDisc');
+const sciKeywords  = document.getElementById('sciKeywords');
+const sciCredit    = document.getElementById('sciCredit');
+const sciProgress  = document.getElementById('sciProgress');
+const sciCounter   = document.getElementById('sciCounter');
+const sciPrev      = document.getElementById('sciPrev');
+const sciNext      = document.getElementById('sciNext');
+const sciFieldLabel= document.getElementById('sciFieldLabel');
+const sciDiscLabel = document.getElementById('sciDiscLabel');
+const scienceView  = document.getElementById('scienceView');
+const scienceTabBtn= document.getElementById('scienceTabBtn');
+
+/* ── Render science card ─────────────────────────────── */
+function renderSci(animate) {
+  if (!sciDeck.length) return;
+  const card = sciDeck[sciIndex];
+  const L    = lang;
+  const ui   = UI[L];
+
+  if (animate) {
+    sciCard.classList.add('card--refreshing');
+    void sciCard.offsetWidth;
+    setTimeout(() => sciCard.classList.remove('card--refreshing'), 350);
+  }
+
+  sciImg.src          = card.image;
+  sciImg.alt          = card.imageAlt;
+  sciPill.textContent = card.category[L];
+  sciHint.textContent = card.hint[L];
+  sciTitle.textContent= card.title[L];
+
+  sciBackCat.textContent    = card.category[L];
+  sciBackTitle.textContent  = card.title[L];
+  sciBackPeriod.textContent = card.period[L];
+  sciField.textContent      = card.field[L];
+  sciDisc.textContent       = card.discoveries[L];
+  sciCredit.textContent     = card.imageCredit;
+
+  if (sciFieldLabel) sciFieldLabel.textContent = L === 'pl' ? 'Dziedzina' : 'Field';
+  if (sciDiscLabel)  sciDiscLabel.textContent  = L === 'pl' ? 'Odkrycia'  : 'Discoveries';
+
+  sciKeywords.innerHTML = '';
+  card.keywords[L].forEach(kw => {
+    const s = document.createElement('span');
+    s.className = 'keyword'; s.textContent = kw;
+    sciKeywords.appendChild(s);
+  });
+
+  const pct = ((sciIndex + 1) / sciDeck.length) * 100;
+  progressFill.style.width = pct + '%';
+  progressRole.setAttribute('aria-valuenow', Math.round(pct));
+  sciProgress.textContent = L === 'pl'
+    ? `Karta ${sciIndex + 1} z ${sciDeck.length}`
+    : `Card ${sciIndex + 1} of ${sciDeck.length}`;
+  sciCounter.textContent = `${sciIndex + 1} / ${sciDeck.length}`;
+
+  sciPrev.disabled = (sciIndex === 0);
+  sciNext.disabled = (sciIndex === sciDeck.length - 1);
+
+  setSciFlipped(false, false);
+}
+
+function setSciFlipped(state, animate) {
+  if (!animate) {
+    sciCardInner.style.transition = 'none';
+    sciCard.classList.toggle('is-flipped', state);
+    void sciCardInner.offsetWidth;
+    sciCardInner.style.transition = '';
+  } else {
+    sciCard.classList.toggle('is-flipped', state);
+  }
+  sciFlipped = state;
+}
+
+/* ── Patch showView to include science ───────────────── */
+const _origShowView = showView;
+// Override showView entirely
+showView = function(v) {
+  view = v;
+  document.getElementById('cardsView').classList.toggle('view-hidden', v !== 'cards');
+  document.getElementById('vocabView').classList.toggle('view-hidden',  v !== 'vocab');
+  scienceView.classList.toggle('view-hidden', v !== 'science');
+
+  document.getElementById('cardsTabBtn').classList.toggle('tab-active',   v === 'cards');
+  scienceTabBtn.classList.toggle('tab-active',  v === 'science');
+  document.getElementById('vocabTabBtn').classList.toggle('tab-active',   v === 'vocab');
+
+  // show/hide category filters
+  const catFilters = document.getElementById('catFilters');
+  if (catFilters) catFilters.style.display = (v === 'cards') ? '' : 'none';
+
+  if (v === 'science') renderSci(false);
+  else if (v === 'vocab') renderVocab(false);
+  else render(false);
+};
+
+/* ── Patch toggleLang to include science ─────────────── */
+const _origToggleLang = toggleLang;
+toggleLang = function() {
+  lang = lang === 'pl' ? 'en' : 'pl';
+  document.getElementById('langBtn').textContent = lang === 'pl' ? 'EN' : 'PL';
+  updateCatBtns();
+  if (view === 'cards') render(false);
+  else if (view === 'science') renderSci(false);
+  else renderVocab(false);
+};
+
+/* ── Science events ──────────────────────────────────── */
+sciCard.addEventListener('click', () => setSciFlipped(!sciFlipped, true));
+sciPrev.addEventListener('click', () => { if (sciIndex > 0)                    { sciIndex--; renderSci(true); } });
+sciNext.addEventListener('click', () => { if (sciIndex < sciDeck.length - 1)   { sciIndex++; renderSci(true); } });
+scienceTabBtn.addEventListener('click', () => showView('science'));
+
+/* ── Science keyboard (patch keydown) ───────────────── */
+document.addEventListener('keydown', e => {
+  if (view !== 'science') return;
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); setSciFlipped(!sciFlipped, true); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); if (sciIndex < sciDeck.length - 1) { sciIndex++; renderSci(true); } }
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); if (sciIndex > 0)                  { sciIndex--; renderSci(true); } }
+}, true);
+
+/* ── Science init ────────────────────────────────────── */
+sciDeck = shuffle(SCIENCE_CARDS);
+
+/* Re-run showView to init cat filter visibility */
+showView('cards');
