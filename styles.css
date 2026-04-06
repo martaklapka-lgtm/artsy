@@ -533,3 +533,156 @@ kbd {
   .controls { gap: 20px; }
   .nav-btn { padding: 10px 14px; }
 }
+
+/* ── Language toggle button ──────────────────────────── */
+.lang-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: none;
+  border: 1px solid var(--gold-mid);
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.18s, background 0.18s, border-color 0.18s;
+}
+.lang-btn:hover {
+  background: var(--gold-pale);
+  color: var(--gold);
+}
+
+/* ── Tab active state (view tabs) ────────────────────── */
+.tab-active {
+  color: var(--ink) !important;
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  color: #fff !important;
+}
+
+/* ── Nav divider ─────────────────────────────────────── */
+.nav-divider {
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  margin: 0 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* ── View toggle ─────────────────────────────────────── */
+.view-hidden {
+  display: none !important;
+}
+
+/* ── Vocab meta row ──────────────────────────────────── */
+.vocab-meta {
+  width: 100%;
+  max-width: var(--card-w);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.vocab-reshuffle {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s;
+}
+.vocab-reshuffle:hover {
+  color: var(--gold);
+  border-color: var(--gold-mid);
+}
+
+/* ── Vocab card faces ────────────────────────────────── */
+.vocab-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 36px;
+  background: var(--surface);
+  text-align: center;
+  position: relative;
+}
+
+.vocab-lang-badge {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+.vocab-front-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.vocab-term {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.vocab-term-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+
+.vocab-back {
+  transform: rotateY(180deg);
+  padding: 40px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: var(--surface);
+}
+
+.vocab-def {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* ── Responsive (vocab) ──────────────────────────────── */
+@media (max-width: 580px) {
+  .vocab-term  { font-size: 38px; }
+  .vocab-def   { font-size: 16px; }
+  .vocab-front { padding: 28px 22px; }
+  .vocab-back  { padding: 28px 22px 22px; }
+  .header-inner { flex-wrap: wrap; gap: 8px; }
+  .categories { flex-wrap: wrap; }
+}
