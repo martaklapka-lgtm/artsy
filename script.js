@@ -259,6 +259,7 @@ function setKws(containerId, kws) {
 const S = {
   lang:          'en',
   view:          'cards',
+  navDir:        0,
   // art cards
   deck:          [],
   idx:           0,
@@ -278,7 +279,33 @@ const S = {
   quizScore:     0,
   quizSel:       new Set(),
   quizAnswered:  false,
+  // favourites
+  favs:          new Set(JSON.parse(localStorage.getItem('luma_favs') || '[]')),
 };
+
+/* ── Favourites helpers ──────────────────────────────── */
+function saveFavs() {
+  localStorage.setItem('luma_favs', JSON.stringify([...S.favs]));
+}
+function artKey(card)   { return 'art:'   + card.title.en; }
+function sciKey(card)   { return 'sci:'   + card.title.en; }
+function vocabKey(term) { return 'vocab:' + term.term.en;  }
+
+function setFavBtn(btnEl, active) {
+  if (!btnEl) return;
+  btnEl.textContent = active ? '♥' : '♡';
+  btnEl.classList.toggle('is-fav', active);
+}
+function toggleFav(key, btnEl) {
+  if (S.favs.has(key)) S.favs.delete(key); else S.favs.add(key);
+  saveFavs();
+  setFavBtn(btnEl, S.favs.has(key));
+  btnEl.classList.remove('pop');
+  void btnEl.offsetWidth;
+  btnEl.classList.add('pop');
+  // refresh saved chip label count
+  updateCatChips();
+}
 
 /* ── i18n ────────────────────────────────────────────── */
 const UI = {
@@ -375,6 +402,9 @@ const DOM = {
   quizBackBtn:   $('quizBackBtn'),
   // global
   langBtn:       $('langBtn'),     catFilters:    $('catFilters'),
+  // fav buttons
+  favBtn:        $('favBtn'),      sciFavBtn:     $('sciFavBtn'),
+  vocabFavBtn:   $('vocabFavBtn'),
 };
 
 /* ── Generic card flip ───────────────────────────────── */
@@ -392,9 +422,12 @@ function flipCard(cardEl, innerEl, stateKey, val, animate) {
 }
 
 function animateCard(cardEl) {
-  cardEl.classList.add('card--refresh');
+  const cls = S.navDir > 0 ? 'card--slide-fwd' : S.navDir < 0 ? 'card--slide-bwd' : 'card--refresh';
+  S.navDir = 0;
+  cardEl.classList.remove('card--slide-fwd', 'card--slide-bwd', 'card--refresh');
   void cardEl.offsetWidth;
-  setTimeout(() => cardEl.classList.remove('card--refresh'), 320);
+  cardEl.classList.add(cls);
+  setTimeout(() => cardEl.classList.remove(cls), 320);
 }
 
 function setProgress(current, total) {
@@ -405,7 +438,16 @@ function setProgress(current, total) {
 
 /* ── Render: art cards ───────────────────────────────── */
 function render(animate = false) {
-  if (!S.deck.length) return;
+  if (!S.deck.length) {
+    DOM.cardTitle.textContent = L()==='pl' ? 'Brak zapisanych kart' : 'No saved cards yet';
+    DOM.hintText.textContent  = L()==='pl' ? 'Kliknij ♡ na karcie, by zapisać' : 'Tap ♡ on any card to save it';
+    DOM.cardImg.src = ''; DOM.frontCatPill.textContent = ''; DOM.flipCueFront.textContent = '';
+    DOM.cardCounter.textContent = '0 / 0'; DOM.progressText.textContent = '';
+    DOM.prevBtn.disabled = true; DOM.nextBtn.disabled = true;
+    setFavBtn(DOM.favBtn, false);
+    setProgress(0, 1);
+    return;
+  }
   const card = S.deck[S.idx];
   const u = ui(); const l = L();
   if (animate) animateCard(DOM.flashcard);
@@ -433,6 +475,7 @@ function render(animate = false) {
   setProgress(S.idx + 1, S.deck.length);
   DOM.prevBtn.disabled = S.idx === 0;
   DOM.nextBtn.disabled = S.idx === S.deck.length - 1;
+  setFavBtn(DOM.favBtn, S.favs.has(artKey(card)));
   flipCard(DOM.flashcard, DOM.cardInner, 'flipped', false, false);
 }
 
@@ -462,6 +505,7 @@ function renderSci(animate = false) {
   setProgress(S.sciIdx + 1, S.sciDeck.length);
   DOM.sciPrev.disabled = S.sciIdx === 0;
   DOM.sciNext.disabled = S.sciIdx === S.sciDeck.length - 1;
+  setFavBtn(DOM.sciFavBtn, S.favs.has(sciKey(card)));
   flipCard(DOM.sciCard, DOM.sciCardInner, 'sciFlipped', false, false);
 }
 
@@ -484,6 +528,7 @@ function renderVocab(animate = false) {
   DOM.vocabPrev.disabled = S.vocabIdx === 0;
   DOM.vocabNext.disabled = S.vocabIdx === S.vocabDeck.length - 1;
   setProgress(S.vocabIdx + 1, S.vocabDeck.length);
+  setFavBtn(DOM.vocabFavBtn, S.favs.has(vocabKey(term)));
   flipCard(DOM.vocabCard, DOM.vocabCardInner, 'vocabFlipped', false, false);
 }
 
@@ -511,9 +556,14 @@ function showView(v) {
 
 /* ── Language toggle ─────────────────────────────────── */
 function updateCatChips() {
+  const artFavCount = CARDS.filter(c => S.favs.has(artKey(c))).length;
   const map = {
-    all:{pl:'Wszystkie',en:'All'}, Eras:{pl:'Epoki',en:'Eras'},
-    Styles:{pl:'Style',en:'Styles'}, Techniques:{pl:'Techniki',en:'Techniques'}
+    all:   {pl:'Wszystkie', en:'All'},
+    Eras:  {pl:'Epoki',     en:'Eras'},
+    Styles:{pl:'Style',     en:'Styles'},
+    Techniques:{pl:'Techniki',en:'Techniques'},
+    favs:  {pl:`♥ Zapisane${artFavCount ? ' '+artFavCount : ''}`,
+            en:`♥ Saved${artFavCount ? ' '+artFavCount : ''}`},
   };
   document.querySelectorAll('.chip[data-cat]').forEach(btn => {
     const k = btn.dataset.cat;
@@ -534,6 +584,7 @@ function toggleLang() {
 
 /* ── Navigation ──────────────────────────────────────── */
 function go(dir) {
+  S.navDir = dir;
   if (S.view === 'cards') {
     const ni = S.idx + dir;
     if (ni >= 0 && ni < S.deck.length) { S.idx = ni; render(true); }
@@ -549,7 +600,11 @@ function go(dir) {
 function setCat(cat) {
   S.activeCat = cat;
   S.idx = 0;
-  S.deck = cat === 'all' ? shuffle([...CARDS]) : CARDS.filter(c => c.category.en === cat);
+  if (cat === 'favs') {
+    S.deck = CARDS.filter(c => S.favs.has(artKey(c)));
+  } else {
+    S.deck = cat === 'all' ? shuffle([...CARDS]) : CARDS.filter(c => c.category.en === cat);
+  }
   render(false);
 }
 
@@ -735,23 +790,40 @@ document.querySelectorAll('.chip[data-cat]').forEach(btn => {
 // Lang toggle
 DOM.langBtn.addEventListener('click', toggleLang);
 
-// Art flip / nav
+// Art flip / nav / fav
 DOM.flashcard.addEventListener('click', () =>
   flipCard(DOM.flashcard, DOM.cardInner, 'flipped', !S.flipped, true));
 DOM.prevBtn.addEventListener('click', () => go(-1));
 DOM.nextBtn.addEventListener('click', () => go(1));
+DOM.favBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  const card = S.deck[S.idx];
+  if (card) toggleFav(artKey(card), DOM.favBtn);
+  // if viewing favs and just un-faved, refresh deck
+  if (S.activeCat === 'favs') { setCat('favs'); }
+});
 
-// Science flip / nav
+// Science flip / nav / fav
 DOM.sciCard.addEventListener('click', () =>
   flipCard(DOM.sciCard, DOM.sciCardInner, 'sciFlipped', !S.sciFlipped, true));
 DOM.sciPrev.addEventListener('click', () => go(-1));
 DOM.sciNext.addEventListener('click', () => go(1));
+DOM.sciFavBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  const card = S.sciDeck[S.sciIdx];
+  if (card) toggleFav(sciKey(card), DOM.sciFavBtn);
+});
 
-// Vocab flip / nav / reshuffle
+// Vocab flip / nav / reshuffle / fav
 DOM.vocabCard.addEventListener('click', () =>
   flipCard(DOM.vocabCard, DOM.vocabCardInner, 'vocabFlipped', !S.vocabFlipped, true));
 DOM.vocabPrev.addEventListener('click', () => go(-1));
 DOM.vocabNext.addEventListener('click', () => go(1));
+DOM.vocabFavBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  const term = S.vocabDeck[S.vocabIdx];
+  if (term) toggleFav(vocabKey(term), DOM.vocabFavBtn);
+});
 DOM.vocabReshuffle.addEventListener('click', () => {
   S.vocabDeck = shuffle([...VOCAB]);
   S.vocabIdx  = 0;

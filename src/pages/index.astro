@@ -32,10 +32,11 @@ import '../styles/global.css';
 
       <div class="header-actions">
         <div id="catFilters" class="cat-filters">
-          <button class="chip active" data-cat="all">Wszystkie</button>
-          <button class="chip" data-cat="Eras">Epoki</button>
-          <button class="chip" data-cat="Styles">Style</button>
-          <button class="chip" data-cat="Techniques">Techniki</button>
+          <button class="chip active" data-cat="all">All</button>
+          <button class="chip" data-cat="Eras">Eras</button>
+          <button class="chip" data-cat="Styles">Styles</button>
+          <button class="chip" data-cat="Techniques">Techniques</button>
+          <button class="chip chip--fav" data-cat="favs">♡ Saved</button>
         </div>
         <button class="lang-btn" id="langBtn" aria-label="Switch language">PL</button>
       </div>
@@ -60,6 +61,7 @@ import '../styles/global.css';
               <div class="card-img-wrap">
                 <img id="cardImg" class="card-img" src="" alt="" loading="eager" />
                 <span class="cat-badge" id="frontCatPill"></span>
+                <button class="fav-btn" id="favBtn" aria-label="Save to favourites">♡</button>
               </div>
               <div class="front-body">
                 <p class="eyebrow" id="hintEyebrow">Wskazówka</p>
@@ -116,6 +118,7 @@ import '../styles/global.css';
               <div class="card-img-wrap">
                 <img id="sciImg" class="card-img" src="" alt="" loading="lazy" />
                 <span class="cat-badge" id="sciPill"></span>
+                <button class="fav-btn" id="sciFavBtn" aria-label="Save to favourites">♡</button>
               </div>
               <div class="front-body">
                 <p class="eyebrow">Wskazówka</p>
@@ -169,6 +172,7 @@ import '../styles/global.css';
         <article class="card vocab-card" id="vocabCard" tabindex="0" role="button" aria-pressed="false">
           <div class="card-inner" id="vocabCardInner">
             <div class="face face-front vocab-face-front">
+              <button class="fav-btn fav-btn--vocab" id="vocabFavBtn" aria-label="Save to favourites">♡</button>
               <p class="vocab-badge">PL ↔ EN</p>
               <p class="eyebrow" id="vocabTermLabel">Termin</p>
               <h2 class="vocab-term" id="vocabTermText"></h2>

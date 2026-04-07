@@ -303,9 +303,13 @@ button { font:inherit; border:none; background:none; cursor:pointer; color:inher
 
 .front-body {
   flex:1;
-  padding:20px 24px 16px;
+  padding:20px 28px 18px;
   display:flex;
   flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:10px;
   overflow:hidden;
 }
 .eyebrow {
@@ -319,22 +323,20 @@ button { font:inherit; border:none; background:none; cursor:pointer; color:inher
 }
 .hint-text {
   font-family:'Cormorant Garamond', Georgia, serif;
-  font-size:15px;
+  font-size:14.5px;
   line-height:1.55;
   color:var(--text-2);
   font-style:italic;
-  flex:1;
+  max-height:80px;
   overflow:hidden;
 }
 .card-title {
   font-family:'Cormorant Garamond', Georgia, serif;
-  font-size:32px;
+  font-size:34px;
   font-weight:600;
   line-height:1.05;
   letter-spacing:-0.01em;
   color:var(--text);
-  margin-top:12px;
-  flex-shrink:0;
 }
 .flip-cue {
   font-family:'DM Mono', monospace;
@@ -342,8 +344,6 @@ button { font:inherit; border:none; background:none; cursor:pointer; color:inher
   letter-spacing:0.12em;
   text-transform:uppercase;
   color:var(--muted);
-  margin-top:10px;
-  flex-shrink:0;
 }
 .flip-cue--rev { color:var(--muted); }
 
@@ -443,6 +443,60 @@ button { font:inherit; border:none; background:none; cursor:pointer; color:inher
   padding-right:12px;
 }
 
+/* ── Favourite button ────────────────────────────────── */
+.fav-btn {
+  position:absolute;
+  top:10px; right:12px;
+  width:34px; height:34px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  display:flex; align-items:center; justify-content:center;
+  font-size:17px;
+  line-height:1;
+  color:rgba(255,255,255,0.55);
+  transition:color 0.2s, transform 0.2s var(--spring), background 0.2s;
+  z-index:3;
+}
+.fav-btn:hover {
+  transform:scale(1.18);
+  color:rgba(255,255,255,0.9);
+  background:rgba(0,0,0,0.65);
+}
+.fav-btn.is-fav { color:#e86060; }
+.fav-btn.is-fav:hover { color:#ff8080; }
+
+.fav-btn--vocab {
+  position:absolute;
+  top:14px; right:14px;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+}
+
+@keyframes heartPop {
+  0%   { transform:scale(1); }
+  35%  { transform:scale(1.5); }
+  65%  { transform:scale(0.88); }
+  100% { transform:scale(1); }
+}
+.fav-btn.pop { animation:heartPop 0.38s var(--spring) both; }
+
+.chip--fav { color:rgba(232,96,96,0.75); border-color:rgba(232,96,96,0.25); }
+.chip--fav.active { color:#e86060; border-color:rgba(232,96,96,0.5); background:rgba(232,96,96,0.1); }
+
+/* ── Navigation animations ───────────────────────────── */
+@keyframes slideFromRight {
+  from { opacity:0; transform:translateX(24px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes slideFromLeft {
+  from { opacity:0; transform:translateX(-24px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+.card--slide-fwd .face-front { animation:slideFromRight 0.28s var(--ease) both; }
+.card--slide-bwd .face-front { animation:slideFromLeft  0.28s var(--ease) both; }
+
 /* Card refresh animation */
 @keyframes cardIn {
   from { opacity:0; transform:translateY(6px); }
@@ -533,6 +587,9 @@ button { font:inherit; border:none; background:none; cursor:pointer; color:inher
 .vocab-face-back {
   padding:44px 40px 36px;
   gap:16px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 .vocab-def {
   font-family:'Cormorant Garamond', Georgia, serif;
@@ -540,7 +597,6 @@ button { font:inherit; border:none; background:none; cursor:pointer; color:inher
   line-height:1.7;
   color:var(--text-2);
   font-style:italic;
-  flex:1;
 }
 
 .ghost-btn {
