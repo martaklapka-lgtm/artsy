@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scrolly — Nauka i Sztuka</title>
+  <title>Luma — Nauka i Sztuka</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,62 +13,62 @@
   <header class="header">
     <div class="header-inner">
       <div class="brand">
-        <span class="brand-mark" aria-hidden="true">◆</span>
-        <div class="brand-text">
-          <span class="brand-name">Scrolly</span>
-          <span class="brand-tagline">Nauka i Sztuka</span>
-        </div>
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor" opacity=".9"/>
+          <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
+          <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width=".6" opacity=".15"/>
+        </svg>
+        <span class="brand-name">Luma</span>
       </div>
 
-      <nav class="categories" aria-label="Nawigacja">
-        <button class="cat-btn tab-active" id="cardsTabBtn">Sztuka</button>
-        <button class="cat-btn" id="scienceTabBtn">Nauka</button>
-        <button class="cat-btn" id="vocabTabBtn">Słownik</button>
-        <button class="cat-btn" id="quizTabBtn">Quiz</button>
-
-        <span class="nav-divider" aria-hidden="true"></span>
-
-        <span id="catFilters">
-          <button class="cat-btn is-active" data-cat="all">Wszystkie</button>
-          <button class="cat-btn" data-cat="Eras">Epoki</button>
-          <button class="cat-btn" data-cat="Styles">Style</button>
-          <button class="cat-btn" data-cat="Techniques">Techniki</button>
-        </span>
+      <nav class="nav" role="navigation" aria-label="Główna nawigacja">
+        <button class="nav-tab active" data-view="cards">Sztuka</button>
+        <button class="nav-tab" data-view="science">Nauka</button>
+        <button class="nav-tab" data-view="vocab">Słownik</button>
+        <button class="nav-tab" data-view="quiz">Quiz</button>
       </nav>
 
-      <button class="lang-btn" id="langBtn">EN</button>
+      <div class="header-actions">
+        <div id="catFilters" class="cat-filters">
+          <button class="chip active" data-cat="all">Wszystkie</button>
+          <button class="chip" data-cat="Eras">Epoki</button>
+          <button class="chip" data-cat="Styles">Style</button>
+          <button class="chip" data-cat="Techniques">Techniki</button>
+        </div>
+        <button class="lang-btn" id="langBtn" aria-label="Switch language">EN</button>
+      </div>
     </div>
-    <div class="progress-track-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressRole">
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressRole">
       <div class="progress-fill" id="progressFill"></div>
     </div>
   </header>
 
   <main class="main">
 
-    <!-- ══════════ ART FLASHCARDS ══════════ -->
-    <div id="cardsView" class="view-panel">
+    <!-- ═══ ART CARDS ═══ -->
+    <div id="cardsView" class="view">
       <div class="deck-meta">
-        <span class="deck-progress" id="progressText">Karta 1 z 12</span>
-        <span class="deck-category" id="categoryLabel">Wszystkie kategorie</span>
+        <span id="progressText" class="meta-count"></span>
+        <span id="categoryLabel" class="meta-cat"></span>
       </div>
       <div class="scene">
-        <div class="card" id="flashcard" tabindex="0" role="button" aria-pressed="false">
+        <article class="card" id="flashcard" tabindex="0" role="button" aria-pressed="false">
           <div class="card-inner" id="cardInner">
             <div class="face face-front">
               <div class="card-img-wrap">
-                <img class="card-img" id="cardImg" src="" alt="" loading="eager" />
-                <span class="cat-pill" id="frontCatPill"></span>
+                <img id="cardImg" class="card-img" src="" alt="" loading="eager" />
+                <span class="cat-badge" id="frontCatPill"></span>
               </div>
               <div class="front-body">
-                <p class="hint-eyebrow">Wskazówka</p>
+                <p class="eyebrow" id="hintEyebrow">Wskazówka</p>
                 <p class="hint-text" id="hintText"></p>
                 <h2 class="card-title" id="cardTitle"></h2>
-                <p class="flip-cue">kliknij, by odkryć →</p>
+                <p class="flip-cue" id="flipCueFront">kliknij, by odkryć →</p>
               </div>
             </div>
             <div class="face face-back">
-              <div class="back-header">
-                <span class="back-cat" id="backCat"></span>
+              <div class="back-top">
+                <span class="back-badge" id="backCat"></span>
                 <h2 class="back-title" id="backTitle"></h2>
                 <p class="back-period" id="backPeriod"></p>
               </div>
@@ -84,47 +84,47 @@
                 </div>
               </div>
               <div class="back-footer">
-                <div class="keywords" id="keywords"></div>
-                <div class="back-footer-row">
-                  <p class="image-credit" id="imageCredit"></p>
-                  <p class="flip-cue flip-cue--reverse">↺ wróć</p>
+                <div class="tag-row" id="keywords"></div>
+                <div class="credit-row">
+                  <p class="credit" id="imageCredit"></p>
+                  <p class="flip-cue flip-cue--rev">↺ wróć</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
       <div class="controls">
-        <button class="nav-btn" id="prevBtn" disabled><span class="nav-icon">←</span><span class="nav-label">Poprzednia</span></button>
-        <span class="card-counter" id="cardCounter">1 / 12</span>
-        <button class="nav-btn nav-btn--right" id="nextBtn"><span class="nav-label">Następna</span><span class="nav-icon">→</span></button>
+        <button class="ctrl-btn" id="prevBtn" disabled><span>←</span> <span class="ctrl-label">Poprzednia</span></button>
+        <span class="counter" id="cardCounter">1 / 12</span>
+        <button class="ctrl-btn ctrl-btn--r" id="nextBtn"><span class="ctrl-label">Następna</span> <span>→</span></button>
       </div>
     </div>
 
-    <!-- ══════════ SCIENCE VIEW ══════════ -->
-    <div id="scienceView" class="view-panel view-hidden">
+    <!-- ═══ SCIENCE ═══ -->
+    <div id="scienceView" class="view hidden">
       <div class="deck-meta">
-        <span class="deck-progress" id="sciProgress">Karta 1 z 30</span>
-        <span class="deck-category" id="sciCategory"></span>
+        <span id="sciProgress" class="meta-count"></span>
+        <span id="sciCategory" class="meta-cat"></span>
       </div>
       <div class="scene">
-        <div class="card" id="sciCard" tabindex="0" role="button" aria-pressed="false">
+        <article class="card" id="sciCard" tabindex="0" role="button" aria-pressed="false">
           <div class="card-inner" id="sciCardInner">
             <div class="face face-front">
               <div class="card-img-wrap">
-                <img class="card-img" id="sciImg" src="" alt="" loading="lazy" />
-                <span class="cat-pill" id="sciPill"></span>
+                <img id="sciImg" class="card-img" src="" alt="" loading="lazy" />
+                <span class="cat-badge" id="sciPill"></span>
               </div>
               <div class="front-body">
-                <p class="hint-eyebrow">Wskazówka</p>
+                <p class="eyebrow">Wskazówka</p>
                 <p class="hint-text" id="sciHint"></p>
                 <h2 class="card-title" id="sciTitle"></h2>
                 <p class="flip-cue">kliknij, by odkryć →</p>
               </div>
             </div>
             <div class="face face-back">
-              <div class="back-header">
-                <span class="back-cat" id="sciBackCat"></span>
+              <div class="back-top">
+                <span class="back-badge" id="sciBackCat"></span>
                 <h2 class="back-title" id="sciBackTitle"></h2>
                 <p class="back-period" id="sciBackPeriod"></p>
               </div>
@@ -140,98 +140,88 @@
                 </div>
               </div>
               <div class="back-footer">
-                <div class="keywords" id="sciKeywords"></div>
-                <div class="back-footer-row">
-                  <p class="image-credit" id="sciCredit"></p>
-                  <p class="flip-cue flip-cue--reverse">↺ wróć</p>
+                <div class="tag-row" id="sciKeywords"></div>
+                <div class="credit-row">
+                  <p class="credit" id="sciCredit"></p>
+                  <p class="flip-cue flip-cue--rev">↺ wróć</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
       <div class="controls">
-        <button class="nav-btn" id="sciPrev" disabled><span class="nav-icon">←</span><span class="nav-label">Poprzednia</span></button>
-        <span class="card-counter" id="sciCounter">1 / 30</span>
-        <button class="nav-btn nav-btn--right" id="sciNext"><span class="nav-label">Następna</span><span class="nav-icon">→</span></button>
+        <button class="ctrl-btn" id="sciPrev" disabled><span>←</span> <span class="ctrl-label">Poprzednia</span></button>
+        <span class="counter" id="sciCounter">1 / 30</span>
+        <button class="ctrl-btn ctrl-btn--r" id="sciNext"><span class="ctrl-label">Następna</span> <span>→</span></button>
       </div>
     </div>
 
-    <!-- ══════════ VOCAB VIEW ══════════ -->
-    <div id="vocabView" class="view-panel view-hidden">
+    <!-- ═══ VOCAB ═══ -->
+    <div id="vocabView" class="view hidden">
       <div class="vocab-meta">
-        <span class="deck-progress" id="vocabCounter">Termin 1 z 20</span>
-        <button class="vocab-reshuffle" id="vocabReshuffle">Przetasuj</button>
+        <span id="vocabCounter" class="meta-count"></span>
+        <button id="vocabReshuffle" class="ghost-btn">⇄ <span id="reshuffleLabel">Przetasuj</span></button>
       </div>
       <div class="scene">
-        <div class="card" id="vocabCard" tabindex="0" role="button" aria-pressed="false">
+        <article class="card vocab-card" id="vocabCard" tabindex="0" role="button" aria-pressed="false">
           <div class="card-inner" id="vocabCardInner">
-            <div class="face face-front vocab-front">
-              <div class="vocab-lang-badge">PL ↔ EN</div>
-              <div class="vocab-front-body">
-                <p class="hint-eyebrow" id="vocabTermLabel">Termin</p>
-                <h2 class="vocab-term" id="vocabTermText"></h2>
-                <p class="vocab-term-sub" id="vocabTermSub"></p>
-                <p class="flip-cue">kliknij, by odkryć →</p>
-              </div>
+            <div class="face face-front vocab-face-front">
+              <p class="vocab-badge">PL ↔ EN</p>
+              <p class="eyebrow" id="vocabTermLabel">Termin</p>
+              <h2 class="vocab-term" id="vocabTermText"></h2>
+              <p class="vocab-sub" id="vocabTermSub"></p>
+              <p class="flip-cue">kliknij, by odkryć →</p>
             </div>
-            <div class="face face-back vocab-back">
-              <p class="info-label" id="vocabDefLabel">Definicja</p>
+            <div class="face face-back vocab-face-back">
+              <p class="eyebrow" id="vocabDefLabel">Definicja</p>
               <p class="vocab-def" id="vocabDefText"></p>
-              <p class="flip-cue flip-cue--reverse" style="margin-top:auto">↺ wróć</p>
+              <p class="flip-cue flip-cue--rev" style="margin-top:auto">↺ wróć</p>
             </div>
           </div>
-        </div>
+        </article>
       </div>
       <div class="controls">
-        <button class="nav-btn" id="vocabPrev" disabled><span class="nav-icon">←</span><span class="nav-label">Poprzedni</span></button>
-        <span class="card-counter" id="vocabCounterNav">· · ·</span>
-        <button class="nav-btn nav-btn--right" id="vocabNext"><span class="nav-label">Następny</span><span class="nav-icon">→</span></button>
+        <button class="ctrl-btn" id="vocabPrev" disabled><span>←</span> <span class="ctrl-label">Poprzedni</span></button>
+        <span class="counter" id="vocabCounterNav">· · ·</span>
+        <button class="ctrl-btn ctrl-btn--r" id="vocabNext"><span class="ctrl-label">Następny</span> <span>→</span></button>
       </div>
     </div>
 
-    <!-- ══════════ QUIZ VIEW ══════════ -->
-    <div id="quizView" class="view-panel view-hidden">
+    <!-- ═══ QUIZ ═══ -->
+    <div id="quizView" class="view hidden">
 
-      <!-- Category picker (shown before quiz starts) -->
       <div id="quizSetup" class="quiz-setup">
-        <h2 class="quiz-setup-title" id="quizSetupTitle">Wybierz kategorie quizu</h2>
-        <p class="quiz-setup-sub" id="quizSetupSub">Możesz wybrać jedną lub więcej kategorii</p>
-
-        <div class="quiz-cat-grid" id="quizCatGrid">
-          <!-- populated by JS -->
-        </div>
-
-        <button class="quiz-start-btn" id="quizStartBtn">Rozpocznij Quiz →</button>
+        <h2 class="quiz-heading" id="quizSetupTitle">Wybierz kategorie</h2>
+        <p class="quiz-sub" id="quizSetupSub">Możesz wybrać jedną lub więcej</p>
+        <div class="quiz-grid" id="quizCatGrid"></div>
+        <button class="primary-btn" id="quizStartBtn" disabled>Rozpocznij →</button>
       </div>
 
-      <!-- Active quiz -->
-      <div id="quizActive" class="view-hidden">
-        <div class="quiz-top">
-          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgressFill"></div></div>
-          <div class="quiz-meta">
-            <span id="qCounter">1 / 10</span>
-            <span id="qScore">✓ 0</span>
-          </div>
+      <div id="quizActive" class="quiz-active hidden">
+        <div class="quiz-bar">
+          <div class="quiz-bar-fill" id="qProgressFill"></div>
         </div>
-
+        <div class="quiz-status">
+          <span id="qCounter" class="meta-count"></span>
+          <span id="qScore" class="quiz-score-live">✓ 0</span>
+        </div>
         <div class="quiz-card">
-          <p class="quiz-cat-badge" id="qCatBadge"></p>
-          <h3 class="quiz-question" id="qQuestion"></h3>
-          <div class="quiz-options" id="qOptions"></div>
-          <div class="quiz-feedback" id="qFeedback"></div>
-          <button class="quiz-next-btn view-hidden" id="qNextBtn">Dalej →</button>
+          <p class="cat-badge quiz-cat" id="qCatBadge"></p>
+          <h3 class="quiz-q" id="qQuestion"></h3>
+          <div class="quiz-opts" id="qOptions"></div>
+          <p class="quiz-fb hidden" id="qFeedback"></p>
+          <button class="primary-btn quiz-next hidden" id="qNextBtn">Dalej →</button>
         </div>
       </div>
 
-      <!-- Result screen -->
-      <div id="quizResult" class="quiz-result view-hidden">
-        <div class="quiz-result-inner">
-          <p class="quiz-result-label" id="qResultLabel">Wynik</p>
-          <div class="quiz-score-big" id="qResultScore">0 / 0</div>
-          <div class="quiz-score-pct" id="qResultPct">0%</div>
-          <button class="quiz-start-btn" id="quizRestartBtn">Zagraj ponownie</button>
-          <button class="quiz-back-btn" id="quizBackBtn">Zmień kategorie</button>
+      <div id="quizResult" class="quiz-result hidden">
+        <div class="result-card">
+          <p class="eyebrow" id="qResultLabel">Twój wynik</p>
+          <div class="result-score" id="qResultScore">0 / 0</div>
+          <div class="result-pct" id="qResultPct">0%</div>
+          <button class="primary-btn" id="quizRestartBtn">Zagraj ponownie</button>
+          <button class="ghost-btn" id="quizBackBtn">← Zmień kategorie</button>
         </div>
       </div>
 
@@ -240,9 +230,9 @@
   </main>
 
   <footer class="footer">
-    <p class="footer-hint">
-      <kbd>Spacja</kbd> / <kbd>Enter</kbd> — obróć &nbsp;·&nbsp; <kbd>←</kbd> <kbd>→</kbd> — nawiguj
-    </p>
+    <span><kbd>Spacja</kbd> obróć</span>
+    <span class="footer-dot">·</span>
+    <span><kbd>←</kbd><kbd>→</kbd> nawiguj</span>
   </footer>
 
   <script src="script.js"></script>
