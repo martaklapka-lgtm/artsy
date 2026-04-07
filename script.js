@@ -574,3 +574,158 @@ sciDeck = shuffle(SCIENCE_CARDS);
 
 /* Re-run showView to init cat filter visibility */
 showView('cards');
+
+/* ══════════════════════════════════════════════════════
+   EXTRA SCIENCE CARDS — Chemia i Technologia
+   Źródła: Wikipedia, Britannica, Nobel Prize official records
+   ══════════════════════════════════════════════════════ */
+SCIENCE_CARDS.push(
+
+  /* ── CHEMIA ──────────────────────────────────────── */
+
+  {
+    id:'sci-11',
+    category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Antoine Lavoisier',pl:'Antoine Lavoisier'},
+    period:{en:'1743 – 1794',pl:'1743 – 1794'},
+    hint:{en:'Proved that burning is a chemical reaction with oxygen — not the release of a mysterious substance called phlogiston.',pl:'Udowodnił, że spalanie to reakcja chemiczna z tlenem — a nie uwolnienie tajemniczej substancji zwanej flogistonem.'},
+    image:WM('David_-_Portrait_of_Monsieur_Lavoisier_and_His_Wife.jpg'),
+    imageAlt:'Lavoisier i jego żona, portret Jacques-Louis Davida, 1788',
+    imageCredit:'J.-L. David · Lavoisier i jego żona · 1788 · Metropolitan Museum of Art',
+    field:{en:'Chemistry, Biology',pl:'Chemia, Biologia'},
+    discoveries:{en:'Named oxygen (1778) and hydrogen; formulated the law of conservation of mass; established modern chemical nomenclature; proved combustion requires oxygen, disproving phlogiston theory.',pl:'Nazwał tlen (1778) i wodór; sformułował prawo zachowania masy; opracował nowoczesną nomenklaturę chemiczną; obalił teorię flogistonu, dowodząc że spalanie wymaga tlenu.'},
+    keywords:{en:['Oxygen','Conservation of Mass','Combustion','Chemical Nomenclature'],pl:['Tlen','Zachowanie masy','Spalanie','Nomenklatura chemiczna']}
+  },
+
+  {
+    id:'sci-12',
+    category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Dmitri Mendeleev (Periodic Law)',pl:'Prawo Okresowe Mendelejewa'},
+    period:{en:'Published 1869',pl:'Opublikowano 1869'},
+    hint:{en:'He left gaps in his table for undiscovered elements and correctly predicted their properties — including gallium and germanium.',pl:'Pozostawił luki w tabeli dla jeszcze nieodkrytych pierwiastków i poprawnie przewidział ich właściwości — m.in. galu i germanu.'},
+    image:WM('Periodic_table_large.svg'),
+    imageAlt:'Współczesny układ okresowy pierwiastków',
+    imageCredit:'Układ Okresowy Pierwiastków · domena publiczna',
+    field:{en:'Inorganic Chemistry, Classification of Elements',pl:'Chemia Nieorganiczna, Klasyfikacja Pierwiastków'},
+    discoveries:{en:'Periodic Law: properties of elements repeat periodically when arranged by atomic mass. Predicted 8 undiscovered elements. Foundation of all modern chemistry.',pl:'Prawo Okresowe: właściwości pierwiastków powtarzają się periodycznie przy uporządkowaniu według masy atomowej. Przewidział 8 nieodkrytych pierwiastków. Fundament całej nowoczesnej chemii.'},
+    keywords:{en:['Periodic Law','Elements','Prediction','Atomic Mass'],pl:['Prawo Okresowe','Pierwiastki','Przepowiednia','Masa atomowa']}
+  },
+
+  {
+    id:'sci-13',
+    category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Dorothy Hodgkin',pl:'Dorothy Hodgkin'},
+    period:{en:'1910 – 1994',pl:'1910 – 1994'},
+    hint:{en:'She used X-rays to photograph the structure of penicillin, vitamin B12, and insulin — molecules too complex for anyone else to solve.',pl:'Używała promieni X do fotografowania struktury penicyliny, witaminy B12 i insuliny — cząsteczek zbyt złożonych, by ktokolwiek inny je rozwiązał.'},
+    image:WM('Dorothy_Hodgkin_Nobel.jpg'),
+    imageAlt:'Dorothy Hodgkin, zdjęcie noblowskie, 1964',
+    imageCredit:'Dorothy Hodgkin · Nobel Prize portrait · 1964',
+    field:{en:'X-ray Crystallography, Biochemistry',pl:'Krystalografia Rentgenowska, Biochemia'},
+    discoveries:{en:'Nobel Prize in Chemistry 1964. Determined 3D structures of penicillin (1945), vitamin B12 (1956), and insulin (1969) using X-ray crystallography — enabling modern drug design.',pl:'Nobel z chemii 1964. Określiła trójwymiarowe struktury penicyliny (1945), witaminy B12 (1956) i insuliny (1969) metodą krystalografii rentgenowskiej — umożliwiając nowoczesne projektowanie leków.'},
+    keywords:{en:['X-ray Crystallography','Penicillin','Insulin','Nobel 1964'],pl:['Krystalografia rentgenowska','Penicylina','Insulina','Nobel 1964']}
+  },
+
+  {
+    id:'sci-14',
+    category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Fritz Haber',pl:'Fritz Haber'},
+    period:{en:'1868 – 1934',pl:'1868 – 1934'},
+    hint:{en:'His process for pulling nitrogen from the air to make fertiliser now feeds roughly half of all people on Earth.',pl:'Jego proces wychwytywania azotu z powietrza do produkcji nawozów dziś wyżywia mniej więcej połowę ludzkości.'},
+    image:WM('Fritz_Haber.png'),
+    imageAlt:'Fritz Haber, ok. 1918',
+    imageCredit:'Fritz Haber · ok. 1918 · domena publiczna',
+    field:{en:'Physical Chemistry, Industrial Chemistry',pl:'Chemia Fizyczna, Chemia Przemysłowa'},
+    discoveries:{en:'Haber–Bosch process (1909): synthesis of ammonia from atmospheric nitrogen and hydrogen under high pressure and temperature. Nobel Prize in Chemistry 1918. Enabled mass production of fertilisers.',pl:'Proces Habera–Boscha (1909): synteza amoniaku z azotu atmosferycznego i wodoru pod wysokim ciśnieniem i temperaturą. Nobel z chemii 1918. Umożliwił masową produkcję nawozów sztucznych.'},
+    keywords:{en:['Ammonia Synthesis','Nitrogen Fixation','Haber–Bosch','Fertilisers'],pl:['Synteza amoniaku','Wiązanie azotu','Proces Habera–Boscha','Nawozy sztuczne']}
+  },
+
+  {
+    id:'sci-15',
+    category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Rosalind Franklin',pl:'Rosalind Franklin'},
+    period:{en:'1920 – 1958',pl:'1920 – 1958'},
+    hint:{en:'Her X-ray photograph "Photo 51" showed the helical structure of DNA — the critical evidence Watson and Crick used without her knowledge.',pl:'Jej zdjęcie rentgenowskie „Photo 51" ukazało spiralną strukturę DNA — kluczowy dowód, z którego Watson i Crick skorzystali bez jej wiedzy.'},
+    image:WM('Rosalind_Franklin_(1920-1958).jpg'),
+    imageAlt:'Rosalind Franklin, ok. 1955',
+    imageCredit:'Rosalind Franklin · ok. 1955 · MRC Laboratory of Molecular Biology',
+    field:{en:'X-ray Crystallography, Biophysics',pl:'Krystalografia Rentgenowska, Biofizyka'},
+    discoveries:{en:'"Photo 51" (1952): the sharpest X-ray diffraction image of DNA, revealing its double-helix structure. Also determined the structure of coal microstructure and tobacco mosaic virus.',pl:'„Photo 51" (1952): najostrzejsze rentgenowskie zdjęcie dyfrakcyjne DNA, ujawniające jego podwójną helisę. Określiła też mikrostrukturę węgla i wirusa mozaiki tytoniowej.'},
+    keywords:{en:['Photo 51','DNA Double Helix','X-ray Diffraction','Biophysics'],pl:['Photo 51','Podwójna helisa DNA','Dyfrakcja rentgenowska','Biofizyka']}
+  },
+
+  {
+    id:'sci-16',
+    category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Robert Boyle',pl:'Robert Boyle'},
+    period:{en:'1627 – 1691',pl:'1627 – 1691'},
+    hint:{en:'He distinguished between mixtures, compounds, and elements — and proved that air has weight by pumping it out of a sealed jar.',pl:'Rozróżnił mieszaniny, związki i pierwiastki — i udowodnił, że powietrze ma wagę, wypompowując je ze szczelnego słoja.'},
+    image:WM('Robert_Boyle_0001.jpg'),
+    imageAlt:'Robert Boyle, portret ok. 1689',
+    imageCredit:'Robert Boyle · ok. 1689 · domena publiczna',
+    field:{en:'Chemistry, Physics',pl:'Chemia, Fizyka'},
+    discoveries:{en:"Boyle's Law (1662): at constant temperature, pressure and volume of a gas are inversely proportional (PV = constant). First modern definition of a chemical element. Pioneer of the scientific method in chemistry.",pl:'Prawo Boyle\'a-Mariotte\'a (1662): w stałej temperaturze ciśnienie i objętość gazu są odwrotnie proporcjonalne (PV = const). Pierwsza nowoczesna definicja pierwiastka chemicznego. Pionier metody naukowej w chemii.'},
+    keywords:{en:["Boyle's Law",'Gas Laws','Chemical Element','Scientific Method'],pl:['Prawo Boyle\'a','Prawa gazowe','Pierwiastek chemiczny','Metoda naukowa']}
+  },
+
+  /* ── TECHNOLOGIA ─────────────────────────────────── */
+
+  {
+    id:'sci-17',
+    category:{en:'Technology',pl:'Technologia'},
+    title:{en:'Alan Turing',pl:'Alan Turing'},
+    period:{en:'1912 – 1954',pl:'1912 – 1954'},
+    hint:{en:'His theoretical "Turing machine" (1936) described the logical foundation for all modern computers — before computers existed.',pl:'Jego teoretyczna „maszyna Turinga" (1936) opisała logiczny fundament wszystkich nowoczesnych komputerów — zanim komputery istniały.'},
+    image:WM('Alan_Turing_Aged_16.jpg'),
+    imageAlt:'Alan Turing, wiek 16 lat, ok. 1928',
+    imageCredit:'Alan Turing · ok. 1928 · Sherborne School Archives',
+    field:{en:'Computer Science, Mathematics, Cryptanalysis',pl:'Informatyka, Matematyka, Kryptanaliza'},
+    discoveries:{en:'Turing Machine (1936): universal model of computation. Broke the Enigma cipher at Bletchley Park (WWII). Turing Test (1950): criterion for machine intelligence. Father of computer science and artificial intelligence.',pl:'Maszyna Turinga (1936): uniwersalny model obliczeń. Złamał szyfr Enigma w Bletchley Park (II WŚ). Test Turinga (1950): kryterium inteligencji maszynowej. Ojciec informatyki i sztucznej inteligencji.'},
+    keywords:{en:['Turing Machine','Enigma','Artificial Intelligence','Turing Test'],pl:['Maszyna Turinga','Enigma','Sztuczna inteligencja','Test Turinga']}
+  },
+
+  {
+    id:'sci-18',
+    category:{en:'Technology',pl:'Technologia'},
+    title:{en:'Michael Faraday',pl:'Michael Faraday'},
+    period:{en:'1791 – 1867',pl:'1791 – 1867'},
+    hint:{en:'A bookbinder\'s apprentice with almost no formal education who discovered the principle behind every electric motor and generator.',pl:'Czeladnik introligatora prawie bez formalnego wykształcenia, który odkrył zasadę działania każdego silnika elektrycznego i generatora.'},
+    image:WM('Michael_Faraday_001.jpg'),
+    imageAlt:'Michael Faraday, portret ok. 1861',
+    imageCredit:'Michael Faraday · ok. 1861 · John Watkins · domena publiczna',
+    field:{en:'Electromagnetism, Electrochemistry',pl:'Elektromagnetyzm, Elektrochemia'},
+    discoveries:{en:'Electromagnetic induction (1831): changing magnetic fields generate electric current — the principle of every generator and transformer. Invented the electric motor. Laws of electrolysis. Discovered benzene.',pl:'Indukcja elektromagnetyczna (1831): zmieniające się pole magnetyczne generuje prąd elektryczny — zasada każdego generatora i transformatora. Wynalazł silnik elektryczny. Prawa elektrolizy. Odkrył benzen.'},
+    keywords:{en:['Electromagnetic Induction','Electric Motor','Electrolysis','Faraday Cage'],pl:['Indukcja elektromagnetyczna','Silnik elektryczny','Elektroliza','Klatka Faradaya']}
+  },
+
+  {
+    id:'sci-19',
+    category:{en:'Technology',pl:'Technologia'},
+    title:{en:'James Watt',pl:'James Watt'},
+    period:{en:'1736 – 1819',pl:'1736 – 1819'},
+    hint:{en:'He didn\'t invent the steam engine — but his improvements made it efficient enough to power the entire Industrial Revolution.',pl:'Nie wynalazł silnika parowego — ale jego ulepszenia sprawiły, że był wystarczająco wydajny, by napędzić całą rewolucję przemysłową.'},
+    image:WM('James_Watt_by_Henry_Howard.jpg'),
+    imageAlt:'James Watt, portret Henry Howarda, ok. 1800',
+    imageCredit:'James Watt · ok. 1800 · Henry Howard · domena publiczna',
+    field:{en:'Mechanical Engineering, Thermodynamics',pl:'Inżynieria Mechaniczna, Termodynamika'},
+    discoveries:{en:'Separate condenser (1765): made steam engines 4× more efficient. Rotary motion conversion (1781). Invented the concept of horsepower. The SI unit of power (watt) is named after him.',pl:'Osobny skraplacz (1765): uczynił silniki parowe 4× wydajniejszymi. Przekształcenie ruchu posuwisto-zwrotnego w obrotowy (1781). Wprowadził pojęcie konia mechanicznego (KM). Jednostka mocy wat nosi jego imię.'},
+    keywords:{en:['Steam Engine','Condenser','Horsepower','Industrial Revolution'],pl:['Silnik parowy','Skraplacz','Koń mechaniczny','Rewolucja przemysłowa']}
+  },
+
+  {
+    id:'sci-20',
+    category:{en:'Technology',pl:'Technologia'},
+    title:{en:'Tim Berners-Lee',pl:'Tim Berners-Lee'},
+    period:{en:'b. 1955',pl:'ur. 1955'},
+    hint:{en:'He invented the Web in 1989 at CERN and gave it to the world for free — refusing to patent it so everyone could use it.',pl:'Wynalazł sieć WWW w 1989 roku w CERN-ie i podarował ją światu za darmo — odmówił opatentowania, by każdy mógł z niej korzystać.'},
+    image:WM('Tim_Berners-Lee_2012.jpg'),
+    imageAlt:'Tim Berners-Lee, 2012',
+    imageCredit:'Tim Berners-Lee · 2012 · Paul Clarke · CC BY-SA 4.0',
+    field:{en:'Computer Science, Information Technology',pl:'Informatyka, Technologie Informacyjne'},
+    discoveries:{en:'Invented the World Wide Web (1989): HTML (markup language), HTTP (transfer protocol), and URL (addressing system). Wrote the first web browser and server. Founded W3C to maintain open web standards.',pl:'Wynalazł World Wide Web (1989): HTML (język znaczników), HTTP (protokół transferu) i URL (system adresowania). Napisał pierwszą przeglądarkę i serwer WWW. Założył W3C do utrzymania otwartych standardów sieci.'},
+    keywords:{en:['World Wide Web','HTML','HTTP','Open Standards'],pl:['World Wide Web','HTML','HTTP','Otwarte standardy']}
+  }
+
+);
+
+/* Update sciDeck after push */
+sciDeck = shuffle(SCIENCE_CARDS);
