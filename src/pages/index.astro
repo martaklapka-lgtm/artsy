@@ -1,853 +1,242 @@
 ---
 import '../styles/global.css';
-
-const artSubcats = [
-  { id: 'eras',       label: 'Eras' },
-  { id: 'styles',     label: 'Art Styles' },
-  { id: 'techniques', label: 'Techniques' },
-];
-
-// Each card: summary (2-3 sentences), artists array, period string
-const artCards = [
-  // ── ERAS ──────────────────────────────────────────────────────────────
-  {
-    category: 'eras',
-    title: 'Ancient & Classical',
-    subtitle: '3000 BCE – 500 CE',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1280px-All_Gizah_Pyramids.jpg',
-    summary: 'Egyptian art used hierarchic scale and composite figures to convey eternal truth over optical illusion. Greek sculptors developed the ideal human form — from rigid Archaic kouroi to the contrapposto grace of the Classical period. Rome fused Greek idealism with psychological portraiture and civic narrative.',
-    artists: ['Phidias', 'Praxiteles', 'Polykleitos'],
-  },
-  {
-    category: 'eras',
-    title: 'Medieval',
-    subtitle: '500 – 1400',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Chartres-Cathedral-0006.jpg/960px-Chartres-Cathedral-0006.jpg',
-    summary: 'Byzantine gold-ground mosaics and icons prioritised spiritual transcendence over naturalism. Gothic cathedrals dissolved heavy walls into soaring stained-glass light. Panel painters like Cimabue and Duccio began the gradual transition toward three-dimensional pictorial space.',
-    artists: ['Cimabue', 'Duccio di Buoninsegna', 'Giotto'],
-  },
-  {
-    category: 'eras',
-    title: 'Renaissance',
-    subtitle: '1400 – 1600',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/960px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
-    summary: 'The Renaissance rediscovered classical antiquity while pioneering linear perspective and sfumato. Masaccio\'s Trinity fresco (c.1427) was the first painting to apply mathematical perspective rigorously. The High Renaissance reached a serene synthesis in Leonardo\'s Mona Lisa, Michelangelo\'s Sistine ceiling, and Raphael\'s School of Athens.',
-    artists: ['Leonardo da Vinci', 'Michelangelo', 'Raphael', 'Jan van Eyck', 'Dürer'],
-  },
-  {
-    category: 'eras',
-    title: 'Baroque',
-    subtitle: '1600 – 1750',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Night_Watch_-_HD.jpg/960px-The_Night_Watch_-_HD.jpg',
-    summary: 'Baroque art emerged in Counter-Reformation Rome with overwhelming dramatic power. Caravaggio\'s tenebrism — stark spotlit figures against deep shadow — made biblical scenes viscerally immediate. In the Dutch Republic, Rembrandt explored psychological interiority through light; Vermeer captured domestic stillness.',
-    artists: ['Caravaggio', 'Rembrandt', 'Vermeer', 'Rubens', 'Bernini', 'A. Gentileschi'],
-  },
-  {
-    category: 'eras',
-    title: 'Neoclassicism & Romanticism',
-    subtitle: '1750 – 1850',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/960px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
-    summary: 'Neoclassicism responded to Rococo frivolity with austere virtue drawn from antiquity. Romanticism rebelled against reason: Turner dissolved storms in vortices of light; Friedrich placed solitary figures before spiritual infinities; Goya depicted war\'s horror with harrowing honesty.',
-    artists: ['David', 'Goya', 'Turner', 'Friedrich', 'Delacroix', 'Géricault'],
-  },
-  {
-    category: 'eras',
-    title: 'Impressionism & Post-Impressionism',
-    subtitle: '1860 – 1910',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg',
-    summary: 'The Impressionists broke from Académie polish by painting outdoors with rapid brushstrokes to capture fleeting light. Post-Impressionists pushed further — Van Gogh through swirling impasto, Cézanne through geometric analysis, Seurat through systematic pointillism.',
-    artists: ['Monet', 'Degas', 'Renoir', 'Van Gogh', 'Cézanne', 'Gauguin', 'Seurat'],
-  },
-  {
-    category: 'eras',
-    title: 'Modern Art',
-    subtitle: '1900 – 1960',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Matissedance.jpg/960px-Matissedance.jpg',
-    summary: 'The twentieth century opened with Fauvism\'s pure color, Cubism\'s fractured perspective, and German Expressionism\'s emotional distortion. Dada attacked art itself; Surrealism mined the unconscious. After WWII, Abstract Expressionism established New York as the art world\'s new centre.',
-    artists: ['Picasso', 'Matisse', 'Kandinsky', 'Dalí', 'Magritte', 'Pollock', 'Rothko'],
-  },
-  {
-    category: 'eras',
-    title: 'Contemporary Art',
-    subtitle: '1960 – Present',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/960px-Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg',
-    summary: 'Pop Art appropriated mass-media imagery to interrogate consumer culture. Minimalism stripped art to industrial fact; Conceptualism declared the idea itself to be the work. Today\'s art world spans installation, performance, video, and AI-generated work — with no single dominant style.',
-    artists: ['Warhol', 'Lichtenstein', 'Basquiat', 'Cindy Sherman', 'Kara Walker'],
-  },
-
-  // ── ART STYLES ────────────────────────────────────────────────────────
-  {
-    category: 'styles',
-    title: 'Impressionism',
-    subtitle: 'Light & Motion · 1860s–80s',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg',
-    summary: 'Shattered academic polish through outdoor painting (en plein air) and rapid broken brushstrokes that captured fleeting light. The movement\'s name came mockingly from Monet\'s "Impression, Sunrise" (1872). Degas brought Japanese-print cropping and photographic angles to scenes of ballet and modern life.',
-    artists: ['Claude Monet', 'Edgar Degas', 'Renoir', 'Pissarro', 'Berthe Morisot'],
-  },
-  {
-    category: 'styles',
-    title: 'Baroque',
-    subtitle: 'Drama & Chiaroscuro · 1600–1750',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/960px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg',
-    summary: 'Dramatized religious narratives through violent light contrasts (tenebrism) and surging movement. Caravaggio placed biblical figures in street-level settings lit by a single source — his influence swept Europe within a decade. Bernini\'s marble sculptures vibrate with theatrical emotion.',
-    artists: ['Caravaggio', 'Rembrandt', 'Vermeer', 'Rubens', 'Bernini', 'A. Gentileschi'],
-  },
-  {
-    category: 'styles',
-    title: 'Cubism',
-    subtitle: 'Multiple Perspectives · 1907–1920s',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/960px-Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg',
-    summary: 'Dismantled Renaissance single-point perspective by showing objects from multiple simultaneous viewpoints. Picasso\'s "Les Demoiselles d\'Avignon" (1907) — influenced by African masks and Cézanne — announced the rupture. Synthetic Cubism introduced collaged newspaper and pattern.',
-    artists: ['Picasso', 'Georges Braque', 'Juan Gris', 'Fernand Léger'],
-  },
-  {
-    category: 'styles',
-    title: 'Surrealism',
-    subtitle: 'Dream Logic · 1924–1940s',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Giorgio_de_Chirico_-_Myst%C3%A8re_et_m%C3%A9lancolie_d%27une_rue.jpg/500px-Giorgio_de_Chirico_-_Myst%C3%A8re_et_m%C3%A9lancolie_d%27une_rue.jpg',
-    summary: 'Founded by André Breton (1924), Surrealism liberated the unconscious through automatism and dream imagery — drawing on Freudian psychoanalysis. Dalí\'s meticulous hyperrealism rendered impossible scenes with photographic precision. Magritte used everyday objects in uncanny juxtapositions to undermine logic.',
-    artists: ['Dalí', 'Magritte', 'Max Ernst', 'Frida Kahlo', 'de Chirico', 'Miró'],
-  },
-  {
-    category: 'styles',
-    title: 'Abstract Expressionism',
-    subtitle: 'Gesture & Field · 1940s–50s',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Peddler_by_Jackson_Pollock.jpg/500px-Peddler_by_Jackson_Pollock.jpg',
-    summary: 'The first major American movement, shaped by WWII trauma and European émigrés. Pollock\'s drip paintings embodied action painting: the work as record of bodily gesture. Rothko\'s luminous colour-field rectangles evoke profound emotional states through slowly pulsating light.',
-    artists: ['Pollock', 'Rothko', 'de Kooning', 'Lee Krasner', 'Franz Kline'],
-  },
-  {
-    category: 'styles',
-    title: 'Romanticism',
-    subtitle: 'The Sublime · 1780–1850',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/960px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
-    summary: 'Rebelled against Enlightenment rationalism, exalting emotion, imagination, and the awesome power of nature. Turner dissolved ships and storms in vortices of light and colour, anticipating abstraction by 50 years. Friedrich\'s "Wanderer above the Sea of Fog" (1818) typifies the movement\'s spiritual yearning.',
-    artists: ['Turner', 'Friedrich', 'Delacroix', 'Goya', 'Géricault', 'Blake'],
-  },
-  {
-    category: 'styles',
-    title: 'Fauvism',
-    subtitle: 'Pure Color · 1905–1908',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Matissedance.jpg/960px-Matissedance.jpg',
-    summary: 'The Fauves ("wild beasts") used unmixed colour straight from the tube for emotional impact, independent of reality. Matisse\'s "The Dance" (1910) reduced form to joyous arabesque lines and flat, vibrating colour planes. Short-lived as a group, Fauvism permanently elevated the autonomy of pure colour.',
-    artists: ['Matisse', 'André Derain', 'Vlaminck', 'Raoul Dufy'],
-  },
-  {
-    category: 'styles',
-    title: 'Realism',
-    subtitle: 'Social Truth · 1840s–1880s',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg/1280px-Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg',
-    summary: 'Rejected idealised history painting for honest depictions of ordinary modern life, often with political intent. Courbet\'s monumental "A Burial at Ornans" placed peasants at the scale reserved for mythological heroes — a radical class statement. Millet\'s "The Gleaners" dignified agricultural labour with quiet grandeur.',
-    artists: ['Gustave Courbet', 'Jean-François Millet', 'Honoré Daumier', 'Rosa Bonheur'],
-  },
-
-  // ── TECHNIQUES ────────────────────────────────────────────────────────
-  {
-    category: 'techniques',
-    title: 'Chiaroscuro',
-    subtitle: 'Light & Shadow',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/960px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg',
-    summary: 'From Italian "chiaro" (light) and "oscuro" (dark) — the use of strong tonal contrast to model three-dimensional form. Caravaggio radicalized it into tenebrism: extreme darkness punctured by single spotlit figures. The technique directly shaped cinema — German Expressionist film and film noir owe it an enormous debt.',
-    artists: ['Leonardo', 'Caravaggio', 'Rembrandt', 'Goya'],
-  },
-  {
-    category: 'techniques',
-    title: 'Sfumato',
-    subtitle: 'Smoky Transitions',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/960px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
-    summary: 'Leonardo\'s own term (from "fumo," smoke) for blending oil glazes so gradually that contours dissolve into atmospheric haze. Applied in dozens of near-transparent layers, it creates the mysterious depth of the Mona Lisa\'s smile. Leonardo described it as painting "without lines or borders, in the manner of smoke."',
-    artists: ['Leonardo da Vinci', 'Correggio'],
-  },
-  {
-    category: 'techniques',
-    title: 'Fresco',
-    subtitle: 'Painting into Plaster',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/1280px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg',
-    summary: 'Buon fresco applies pigment onto fresh wet lime plaster — as it sets, the pigment bonds chemically into the wall permanently. Michelangelo painted the Sistine ceiling this way over four years, working in daily sections (giornate) before the plaster dried. Well-executed frescoes can outlast millennia.',
-    artists: ['Giotto', 'Masaccio', 'Michelangelo', 'Raphael', 'Diego Rivera'],
-  },
-  {
-    category: 'techniques',
-    title: 'Impasto',
-    subtitle: 'Sculptural Paint',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-    summary: 'Oil paint applied so thickly that brushstrokes leave a sculptural, three-dimensional texture. Van Gogh\'s turbulent skies are built in dense ridges that catch raking light dynamically — the painted surface itself becomes as expressive as the subject. Rembrandt used selective impasto in highlights to draw the eye.',
-    artists: ['Van Gogh', 'Rembrandt', 'Monet', 'Courbet', 'Frank Auerbach'],
-  },
-  {
-    category: 'techniques',
-    title: 'Pointillism',
-    subtitle: 'Optical Colour Mixing',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg/1280px-A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg',
-    summary: 'Tiny dots of pure unmixed colour placed side by side — the viewer\'s eye blends them optically at a distance into luminous, vibrating tones. Seurat\'s "La Grande Jatte" (1884–86) was constructed from thousands of touches over years. The method was grounded in colour science by theorists Chevreul and Rood.',
-    artists: ['Georges Seurat', 'Paul Signac', 'Henri-Edmond Cross'],
-  },
-  {
-    category: 'techniques',
-    title: 'Collage',
-    subtitle: 'Assembled Fragments',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/960px-Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg',
-    summary: 'Picasso and Braque incorporated newspaper clippings and printed labels into Synthetic Cubist works (1912), blurring the line between fine art and everyday matter. Höch and Heartfield weaponized photomontage as political critique of Weimar Germany. Cornell enclosed enigmatic ephemera in dreamlike shadow boxes.',
-    artists: ['Picasso', 'Braque', 'Kurt Schwitters', 'Hannah Höch', 'Joseph Cornell'],
-  },
-  {
-    category: 'techniques',
-    title: 'Tempera',
-    subtitle: 'Egg & Pigment',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Sandro_Botticelli_046.jpg/1280px-Sandro_Botticelli_046.jpg',
-    summary: 'Egg tempera — pigment suspended in egg yolk — dominated European panel painting for two centuries. It dries in seconds and must be built through fine hatching strokes, creating a crystalline, graphic surface. Botticelli\'s "Birth of Venus" is inseparable from the medium\'s luminous linearity.',
-    artists: ['Giotto', 'Duccio', 'Botticelli', 'Piero della Francesca', 'Andrew Wyeth'],
-  },
-  {
-    category: 'techniques',
-    title: 'Encaustic',
-    subtitle: 'Molten Wax',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Fayum_egyptian_funerary_portrait_1627_NAMAthens.jpg/500px-Fayum_egyptian_funerary_portrait_1627_NAMAthens.jpg',
-    summary: 'Heated beeswax mixed with pigment and resin, applied hot and fused to a rigid surface. The Fayum mummy portraits (1st–3rd century CE) are astonishingly lifelike faces of extraordinary psychological immediacy. Jasper Johns revived encaustic in the 1950s, exploiting wax\'s translucency to layer meaning.',
-    artists: ['Anonymous Fayum masters', 'Jasper Johns'],
-  },
-];
-
-// Gallery artworks: short tagline + full description
-const artworks = [
-  {
-    title: 'The Starry Night',
-    artist: 'Vincent van Gogh',
-    year: '1889',
-    medium: 'Oil on canvas',
-    location: 'MoMA, New York',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-    tagline: 'A swirling nocturne painted at an asylum in Saint-Rémy-de-Provence.',
-    description: 'The turbulent cosmic energy of the cypresses and churning constellations contrasts with the quiet sleeping village below — perhaps a longing for peace Van Gogh felt he could never reach. He wrote to Theo of expressing "the terrible passions of humanity" through colour and form alone. Overlooked in his lifetime, it is now one of the most recognised artworks in the world.',
-  },
-  {
-    title: 'Girl with a Pearl Earring',
-    artist: 'Johannes Vermeer',
-    year: 'c. 1665',
-    medium: 'Oil on canvas',
-    location: 'Mauritshuis, The Hague',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/500px-Meisje_met_de_parel.jpg',
-    tagline: 'The "Dutch Mona Lisa" — an unidentified girl whose identity remains a mystery.',
-    description: 'An intimate tronie (character study) depicting a girl in an exotic blue-and-gold turban who meets the viewer\'s gaze with astonishing immediacy. Vermeer\'s mastery of light is concentrated in the single luminous earring — likely glass rather than pearl — rendered with one brilliant highlight and no drawn outline. No record links the painting to any patron or commission.',
-  },
-  {
-    title: 'The Birth of Venus',
-    artist: 'Sandro Botticelli',
-    year: 'c. 1484–1486',
-    medium: 'Tempera on canvas',
-    location: 'Uffizi Gallery, Florence',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Sandro_Botticelli_046.jpg/1280px-Sandro_Botticelli_046.jpg',
-    tagline: 'Venus emerges from the sea — anatomy subordinated to rhythmic linear grace.',
-    description: 'Commissioned by Lorenzo di Pierfrancesco de\' Medici, this mythological canvas was rare for its secular subject in 15th-century Italy. Botticelli modelled Venus\'s pose on antique sculpture and Poliziano\'s poem "Stanze." Her impossibly elongated neck and floating stance are deliberate — beauty is made more ideal than natural. Unseen for centuries in a Medici villa, it entered the Uffizi in 1815.',
-  },
-  {
-    title: 'Las Meninas',
-    artist: 'Diego Velázquez',
-    year: '1656',
-    medium: 'Oil on canvas',
-    location: 'Museo del Prado, Madrid',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Las_Meninas_01.jpg/960px-Las_Meninas_01.jpg',
-    tagline: 'One of art history\'s most analyzed paintings — a riddle of viewpoint.',
-    description: 'The Infanta Margarita is surrounded by her court — and Velázquez himself stands at a large canvas. A mirror at the back wall reflects the king and queen of Spain, implying they stand in the viewer\'s position. Picasso made 58 variations on it; Michel Foucault opened "The Order of Things" (1966) with a celebrated analysis of its visual logic.',
-  },
-  {
-    title: 'Water Lilies',
-    artist: 'Claude Monet',
-    year: '1896–1926',
-    medium: 'Oil on canvas',
-    location: 'Musée de l\'Orangerie, Paris',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1280px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg',
-    tagline: 'An obsession that consumed the last 30 years of Monet\'s life — ~250 paintings.',
-    description: 'As his eyesight deteriorated, the late series abandoned horizons entirely, immersing the viewer in pure reflected surface where depth and sky become indistinguishable. The enormous Orangerie panels (1926), in two oval rooms built to Monet\'s own specifications, constitute an immersive environment that anticipates Color Field painting by 30 years. André Masson called them "the Sistine Chapel of Impressionism."',
-  },
-  {
-    title: 'The School of Athens',
-    artist: 'Raphael',
-    year: '1509–1511',
-    medium: 'Fresco',
-    location: 'Apostolic Palace, Vatican City',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/1280px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg',
-    tagline: 'All the great philosophers of antiquity gathered in one idealized hall.',
-    description: 'Plato (pointing upward to ideal Forms) faces Aristotle (gesturing downward to empirical reality) — the two poles of Western thought stand at the vanishing point. Raphael encoded portraits of contemporaries throughout: Michelangelo as the brooding Heraclitus, Leonardo as Plato. The composition is philosophically and geometrically perfect.',
-  },
-  {
-    title: 'The Night Watch',
-    artist: 'Rembrandt van Rijn',
-    year: '1642',
-    medium: 'Oil on canvas',
-    location: 'Rijksmuseum, Amsterdam',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Night_Watch_-_HD.jpg/960px-The_Night_Watch_-_HD.jpg',
-    tagline: 'A militia portrait reinvented as dynamic theatre — trimmed on all sides in the 18th century.',
-    description: 'Rembrandt\'s largest work depicts Captain Cocq\'s Amsterdam civic guard in dynamic movement — a radical departure from the static group portrait. Captain Cocq\'s dark figure steps forward against his lieutenant\'s brilliant yellow coat. Its current title is a misnomer: 19th-century varnish darkened it, but it depicts a daytime scene.',
-  },
-  {
-    title: 'The Great Wave',
-    artist: 'Katsushika Hokusai',
-    year: 'c. 1831',
-    medium: 'Woodblock print (ukiyo-e)',
-    location: 'Multiple collections worldwide',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1280px-Tsunami_by_hokusai_19th_century.jpg',
-    tagline: 'Perhaps the most reproduced artwork in history — made when Hokusai was 71.',
-    description: 'From "Thirty-six Views of Mount Fuji," the enormous hollow wave — with claw-like foam fingertips — frames tiny fishing boats and distant, serene Fuji. Bold Prussian blue (imported from Europe), flat colour areas, and dynamic asymmetric composition compress terror and beauty into one image. Hokusai declared at age 90: "I will yet become a true artist."',
-  },
-  {
-    title: 'The Arnolfini Portrait',
-    artist: 'Jan van Eyck',
-    year: '1434',
-    medium: 'Oil on oak panel',
-    location: 'National Gallery, London',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Van_Eyck_-_Arnolfini_Portrait.jpg/960px-Van_Eyck_-_Arnolfini_Portrait.jpg',
-    tagline: 'Every surface rendered with microscopic fidelity — and a hidden mirror.',
-    description: 'Van Eyck\'s double portrait demonstrates the transformative capabilities of oil paint he helped perfect — fur, polished bronze, mirror glass, and candle flame all rendered with astonishing precision. The convex mirror on the back wall reflects two additional witnesses, one possibly the painter, whose inscription reads: "Jan van Eyck was here. 1434."',
-  },
-  {
-    title: 'American Gothic',
-    artist: 'Grant Wood',
-    year: '1930',
-    medium: 'Oil on beaverboard',
-    location: 'Art Institute of Chicago',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg/960px-Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg',
-    tagline: 'One of the most parodied images in American art — was it a satire or a tribute?',
-    description: 'Wood painted this after seeing a Carpenter Gothic house in Iowa and "fancied the kind of people who should live in it." His models were his sister Nan and his dentist. Nan objected to being shown as a wife rather than a daughter. Intended as neither pure satire nor celebration, the painting has been read as both dignified tribute to Depression-era stoicism and deadpan critique of Midwestern puritanism.',
-  },
-];
-
-// Philosophers: quote, keyIdeas array (bullet points), thought (closing context)
-const philosophers = [
-  {
-    name: 'Plato',
-    dates: '428–348 BCE',
-    descriptor: 'Ideal Forms & the Suspicion of Art',
-    quote: 'Beauty is the splendor of truth.',
-    keyIdeas: [
-      'Art is mimesis — a copy of a copy, twice removed from eternal Forms.',
-      'Painters depict beds; beds are themselves copies of the ideal Form of Bed.',
-      'Yet the Symposium presents beauty as the most visible of all Forms.',
-      'Plato\'s ambivalence: banishing poets from the Republic while filling his dialogues with myth.',
-    ],
-  },
-  {
-    name: 'Aristotle',
-    dates: '384–322 BCE',
-    descriptor: 'Mimesis, Catharsis & the Pleasure of Imitation',
-    quote: 'Art represents not the outward appearance of things, but their inward significance.',
-    keyIdeas: [
-      'Mimesis is a fundamental human pleasure — we learn from representations of painful subjects.',
-      'Tragedy achieves catharsis: purging pity and fear through a noble protagonist\'s fall.',
-      'Art imitates not what is, but what could be — making it more philosophical than history.',
-      'Aristotle\'s catharsis shaped every theory of drama from the Renaissance through Brecht.',
-    ],
-  },
-  {
-    name: 'Immanuel Kant',
-    dates: '1724–1804',
-    descriptor: 'Aesthetic Judgment & the Sublime',
-    quote: 'The beautiful is that which pleases universally without a concept.',
-    keyIdeas: [
-      '"This is beautiful" is subjective yet claims universal assent from others.',
-      'Beauty gives disinterested pleasure — we appreciate it without desiring it.',
-      'The sublime differs: overwhelming power defeats imagination but reveals moral reason.',
-      'Kant\'s framework became Romanticism\'s defining philosophical foundation.',
-    ],
-  },
-  {
-    name: 'Georg Hegel',
-    dates: '1770–1831',
-    descriptor: 'Art as Absolute Spirit & the End of Art',
-    quote: 'Art is the sensuous shining of the Idea.',
-    keyIdeas: [
-      'Art, religion, and philosophy are three forms through which Absolute Spirit knows itself.',
-      'History of art: Symbolic (Egyptian) → Classical (Greek) → Romantic (Christian).',
-      'Greek art achieved the perfect balance of form and spiritual content.',
-      'Hegel declared the "end of art" — its supersession by philosophy, not its death.',
-    ],
-  },
-  {
-    name: 'Friedrich Nietzsche',
-    dates: '1844–1900',
-    descriptor: 'Apollo, Dionysus & Life-Affirming Art',
-    quote: 'We have art in order not to die of the truth.',
-    keyIdeas: [
-      'Greek art arose from tension: Apollonian (form, clarity) vs Dionysian (ecstasy, dissolution).',
-      'Great art needs both: form shapes energy; energy animates form.',
-      'Art is the supreme life-affirming force — it beautifies, not mirrors, existence.',
-      '"The Birth of Tragedy" (1872) profoundly influenced Wagner and 20th-century aesthetics.',
-    ],
-  },
-  {
-    name: 'Arthur Schopenhauer',
-    dates: '1788–1860',
-    descriptor: 'Art as Liberation from the Will',
-    quote: 'Music expresses that which cannot be said and on which it is impossible to be silent.',
-    keyIdeas: [
-      'Art offers temporary liberation from the suffering-causing Will underlying existence.',
-      'In contemplating great art, we become pure knowing subjects — freed from desire.',
-      'Music stands apart: it directly expresses the Will itself, the innermost nature of reality.',
-      'His aesthetics profoundly influenced Wagner, Nietzsche, Proust, and Thomas Mann.',
-    ],
-  },
-  {
-    name: 'Walter Benjamin',
-    dates: '1892–1940',
-    descriptor: 'Aura, Reproduction & the Politics of Art',
-    quote: 'That which withers in the age of mechanical reproduction is the aura of the work of art.',
-    keyIdeas: [
-      'Photography and film shatter art\'s "aura" — its authentic presence in time and place.',
-      'Mechanical reproduction democratizes culture but enables fascism\'s aestheticization of politics.',
-      '"The Work of Art in the Age of Mechanical Reproduction" (1935) remains urgently relevant.',
-      'His concept of aura frames every debate about authenticity and digital reproduction today.',
-    ],
-  },
-  {
-    name: 'John Dewey',
-    dates: '1859–1952',
-    descriptor: 'Art as Experience & Democratic Aesthetics',
-    quote: 'Art is the living and concrete proof that man is capable of restoring the union of sense, need, impulse and action.',
-    keyIdeas: [
-      'Museum culture severs art from the living experience that generated it.',
-      'Aesthetic experience is the heightened form of any meaningful, fulfilling activity.',
-      'Great art grows from and returns to the fabric of ordinary life.',
-      'Dewey\'s pragmatist aesthetics shaped democratic education and participatory art.',
-    ],
-  },
-  {
-    name: 'Simone de Beauvoir',
-    dates: '1908–1986',
-    descriptor: 'Art, Freedom & the Gendered Gaze',
-    quote: 'The work of art is not a copy of reality but a reality of its own.',
-    keyIdeas: [
-      'Art has historically represented women as passive objects of the male gaze.',
-      'Great art is a project of freedom — the artist transcends given conditions.',
-      'Art created from bad faith merely reflects, rather than transforms, oppressive structures.',
-      '"The Second Sex" (1949) made the gendered politics of representation unavoidable.',
-    ],
-  },
-  {
-    name: 'Martin Heidegger',
-    dates: '1889–1976',
-    descriptor: 'Art as the Setting-Itself-to-Work of Truth',
-    quote: 'Art is the setting-itself-to-work of truth.',
-    keyIdeas: [
-      'Great art does not represent the world — it opens up a world.',
-      'Van Gogh\'s shoes painting reveals the whole world of peasant labour and earth.',
-      'Works create a strife between World (human meaning) and Earth (material resistance).',
-      'Architecture and poetry are the most fundamental arts: they found human dwelling.',
-    ],
-  },
-];
-
-const quizQuestions = [
-  { category: 'Techniques', q: 'Which technique did Leonardo da Vinci invent to blend oil glazes so gradually that contours dissolve into smoky haze?', options: ['Chiaroscuro', 'Sfumato', 'Impasto', 'Encaustic'], answer: 1 },
-  { category: 'Baroque', q: 'Which Baroque painter revolutionized art with tenebrism — extreme darkness pierced by a single dramatic spotlight?', options: ['Peter Paul Rubens', 'Johannes Vermeer', 'Caravaggio', 'Rembrandt'], answer: 2 },
-  { category: 'Impressionism', q: 'The Impressionist movement got its name (mockingly) from which painting?', options: ['Water Lilies', 'The Gleaners', 'Impression, Sunrise', 'The Dance'], answer: 2 },
-  { category: 'Philosophy', q: 'Which philosopher argued that art is "twice removed from truth" — a copy of a copy of eternal Forms?', options: ['Aristotle', 'Immanuel Kant', 'Plato', 'Hegel'], answer: 2 },
-  { category: 'Post-Impressionism', q: 'Pointillism — tiny dots of pure unmixed colour that blend in the eye — was developed by which artist?', options: ['Van Gogh', 'Paul Gauguin', 'Paul Cézanne', 'Georges Seurat'], answer: 3 },
-  { category: 'Gallery', q: '"The Starry Night" was painted while Van Gogh was staying at which location?', options: ['A Paris studio', 'Amsterdam lodgings', 'An asylum in Saint-Rémy-de-Provence', 'A beach house in Arles'], answer: 2 },
-  { category: 'Techniques', q: 'Buon fresco permanently bonds pigment by painting into what material while it is still wet?', options: ['Egg yolk', 'Beeswax', 'Linseed oil', 'Lime plaster'], answer: 3 },
-  { category: 'Cubism', q: 'Which two artists jointly invented Cubism between 1907 and 1914?', options: ['Matisse & Derain', 'Dalí & Miró', 'Picasso & Braque', 'Kandinsky & Klee'], answer: 2 },
-  { category: 'Philosophy', q: 'Which thinker argued that photography and film destroy art\'s unique "aura" — its authentic singular presence?', options: ['Martin Heidegger', 'John Dewey', 'Walter Benjamin', 'Theodor Adorno'], answer: 2 },
-  { category: 'Techniques', q: 'The Fayum mummy portraits were made using which technique that uses heated beeswax mixed with pigment?', options: ['Fresco', 'Tempera', 'Oil paint', 'Encaustic'], answer: 3 },
-  { category: 'Gallery', q: 'Vermeer\'s "Girl with a Pearl Earring" is classified in Dutch painting as what type of work?', options: ['History painting', 'Vanitas', 'Tronie (character study)', 'Triptych'], answer: 2 },
-  { category: 'Philosophy', q: 'Nietzsche described great art as arising from tension between the ordered Apollonian drive and which opposing force?', options: ['The Socratic drive', 'The Dionysian drive', 'The Platonic drive', 'The Kantian sublime'], answer: 1 },
-  { category: 'Renaissance', q: 'Who painted the Sistine Chapel ceiling, working in sections of wet plaster over four years (1508–1512)?', options: ['Leonardo da Vinci', 'Raphael', 'Botticelli', 'Michelangelo'], answer: 3 },
-  { category: 'Gallery', q: 'Raphael\'s "School of Athens" places which two philosophers at the exact centre of the composition?', options: ['Socrates & Plato', 'Aristotle & Socrates', 'Plato & Aristotle', 'Hegel & Kant'], answer: 2 },
-  { category: 'Gallery', q: '"Las Meninas" (1656), one of art history\'s most analyzed paintings, was created by which Spanish master?', options: ['Francisco Goya', 'El Greco', 'Bartolomé Murillo', 'Diego Velázquez'], answer: 3 },
-  { category: 'Philosophy', q: 'Kant described aesthetic judgment as subjective yet doing what — which makes it unique?', options: ['Always relative to culture', 'Claiming universal assent', 'Rooted purely in reason', 'Dependent on moral virtue'], answer: 1 },
-  { category: 'Gallery', q: 'The Great Wave off Kanagawa was created by which Japanese master?', options: ['Hiroshige', 'Utamaro', 'Hokusai', 'Kuniyoshi'], answer: 2 },
-  { category: 'Fauvism', q: 'Which short-lived movement (1905–08) applied pure unmixed colour straight from the tube, independent of visual reality?', options: ['Cubism', 'Realism', 'Fauvism', 'Symbolism'], answer: 2 },
-  { category: 'Gallery', q: 'In van Eyck\'s Arnolfini Portrait (1434), what does the convex mirror on the back wall show?', options: ['The subjects from behind', 'Two additional witnesses reflected in the room', 'An open window to a garden', 'A religious altarpiece'], answer: 1 },
-  { category: 'Techniques', q: 'Impasto — paint applied so thickly it leaves a sculptural surface — is most famous in whose swirling skies?', options: ['Vermeer', 'Raphael', 'Van Gogh', 'Botticelli'], answer: 2 },
-];
 ---
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luma — Nauka i Sztuka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artsy · Learn Art History</title>
-  </head>
-  <body>
-    <!-- Custom cursor -->
-    <div id="cursor-dot"></div>
-    <div id="cursor-ring"></div>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor" opacity=".9"/>
+          <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
+          <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width=".6" opacity=".15"/>
+        </svg>
+        <span class="brand-name">Luma</span>
+      </div>
 
-    <div class="app-shell">
-
-      <!-- ── HERO ──────────────────────────────────────────────────── -->
-      <header class="hero-panel">
-        <div class="hero-text">
-          <p class="label">Artsy</p>
-          <h1>Explore art history through vivid flashcards.</h1>
-          <p class="intro">Journey through eras, styles &amp; techniques — then step into the Gallery, meet the Philosophers, or test yourself with the Quiz.</p>
-        </div>
-        <div class="hero-badge">Museum-ready learning interface</div>
-      </header>
-
-      <!-- ── MAIN NAVIGATION ────────────────────────────────────────── -->
-      <nav class="main-nav" id="mainNav">
-        <button class="main-tab active" data-view="art-history" type="button">Art History</button>
-        <button class="main-tab" data-view="gallery"     type="button">Gallery</button>
-        <button class="main-tab" data-view="philosophers" type="button">Philosophers</button>
-        <button class="main-tab" data-view="quiz"        type="button">Quiz</button>
+      <nav class="nav" role="navigation" aria-label="Główna nawigacja">
+        <button class="nav-tab active" data-view="cards">Sztuka</button>
+        <button class="nav-tab" data-view="science">Nauka</button>
+        <button class="nav-tab" data-view="vocab">Słownik</button>
+        <button class="nav-tab" data-view="quiz">Quiz</button>
       </nav>
 
-      <!-- ── VIEW: ART HISTORY ─────────────────────────────────────── -->
-      <div id="view-art-history" class="view">
-        <section class="controls">
-          <p class="section-title">Choose a category</p>
-          <div class="pill-row" id="categoryRow">
-            {artSubcats.map((item) => (
-              <button class="pill" data-category={item.id} type="button">{item.label}</button>
-            ))}
-          </div>
-        </section>
-
-        <section class="card-grid" id="artCardGrid">
-          {artCards.map((card, index) => (
-            <article class="flashcard reveal" data-category={card.category} data-index={index}>
-              <div class="flashcard-inner">
-                <div class="flashcard-face flashcard-front">
-                  <div class="image-frame">
-                    <img src={card.image} alt={card.title} loading="lazy" />
-                  </div>
-                  <div class="card-copy">
-                    <p class="eyebrow">{card.subtitle}</p>
-                    <h2>{card.title}</h2>
-                    <p class="flip-cue">Click to flip ↩</p>
-                  </div>
-                </div>
-                <div class="flashcard-face flashcard-back art-back">
-                  <p class="back-label">About this {card.category === 'eras' ? 'era' : card.category === 'styles' ? 'style' : 'technique'}</p>
-                  <p class="back-summary">{card.summary}</p>
-                  <div class="artists-row">
-                    {card.artists.map((a) => <span class="artist-chip">{a}</span>)}
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
-        </section>
-      </div>
-
-      <!-- ── VIEW: GALLERY ─────────────────────────────────────────── -->
-      <div id="view-gallery" class="view hidden">
-        <div class="view-header">
-          <h2 class="view-title">Gallery</h2>
-          <p class="view-intro">Ten landmark works from art history. Click any painting to reveal its story.</p>
+      <div class="header-actions">
+        <div id="catFilters" class="cat-filters">
+          <button class="chip active" data-cat="all">Wszystkie</button>
+          <button class="chip" data-cat="Eras">Epoki</button>
+          <button class="chip" data-cat="Styles">Style</button>
+          <button class="chip" data-cat="Techniques">Techniki</button>
         </div>
-
-        <section class="card-grid gallery-grid">
-          {artworks.map((work) => (
-            <article class="flashcard artwork-card reveal">
-              <div class="flashcard-inner">
-                <div class="flashcard-face flashcard-front">
-                  <div class="image-frame artwork-frame">
-                    <img src={work.image} alt={work.title} loading="lazy" />
-                    <div class="image-overlay">
-                      <p class="overlay-artist">{work.artist}</p>
-                      <p class="overlay-year">{work.year}</p>
-                    </div>
-                  </div>
-                  <div class="card-copy gallery-copy">
-                    <h2>{work.title}</h2>
-                    <p class="tagline">{work.tagline}</p>
-                    <p class="flip-cue">Click to read more ↩</p>
-                  </div>
-                </div>
-                <div class="flashcard-face flashcard-back artwork-back">
-                  <div class="artwork-meta">
-                    <span class="meta-tag">{work.medium}</span>
-                    <span class="meta-tag">{work.location}</span>
-                  </div>
-                  <p class="back-label">{work.title}</p>
-                  <p class="back-summary">{work.description}</p>
-                </div>
-              </div>
-            </article>
-          ))}
-        </section>
+        <button class="lang-btn" id="langBtn" aria-label="Switch language">EN</button>
       </div>
+    </div>
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressRole">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </header>
 
-      <!-- ── VIEW: PHILOSOPHERS ────────────────────────────────────── -->
-      <div id="view-philosophers" class="view hidden">
-        <div class="view-header">
-          <h2 class="view-title">Philosophers</h2>
-          <p class="view-intro">Ten thinkers who shaped how we understand art, beauty, and meaning. Click a card to reveal their key ideas.</p>
-        </div>
+  <main class="main">
 
-        <section class="card-grid philosophers-grid">
-          {philosophers.map((p, i) => (
-            <article class="flashcard philosopher-card reveal" data-index={i}>
-              <div class="flashcard-inner">
-                <div class="flashcard-face flashcard-front philosopher-front" data-initial={p.name[0]}>
-                  <div class="phil-number">{String(i + 1).padStart(2, '0')}</div>
-                  <div class="phil-identity">
-                    <h2 class="phil-name">{p.name}</h2>
-                    <p class="phil-dates">{p.dates}</p>
-                    <p class="phil-descriptor">{p.descriptor}</p>
-                  </div>
-                  <p class="flip-hint">Tap to reveal key ideas ↩</p>
-                </div>
-                <div class="flashcard-face flashcard-back philosopher-back">
-                  <blockquote class="phil-quote">"{p.quote}"</blockquote>
-                  <ul class="phil-ideas">
-                    {p.keyIdeas.map((idea) => <li>{idea}</li>)}
-                  </ul>
-                  <p class="phil-name-watermark">{p.name}</p>
-                </div>
-              </div>
-            </article>
-          ))}
-        </section>
+    <!-- ART CARDS -->
+    <div id="cardsView" class="view">
+      <div class="deck-meta">
+        <span id="progressText" class="meta-count"></span>
+        <span id="categoryLabel" class="meta-cat"></span>
       </div>
-
-      <!-- ── VIEW: QUIZ ─────────────────────────────────────────────── -->
-      <div id="view-quiz" class="view hidden">
-        <div class="view-header">
-          <h2 class="view-title">Quiz</h2>
-          <p class="view-intro">20 questions drawn from every section — eras, styles, techniques, gallery, and philosophy.</p>
-        </div>
-
-        <div class="quiz-shell" id="quizShell">
-          <div class="quiz-start" id="quizStart">
-            <div class="quiz-start-icon">✦</div>
-            <h3 class="quiz-start-title">Test your knowledge</h3>
-            <p class="quiz-start-body">20 multiple-choice questions on art history, gallery works, painting techniques, and the philosophers who shaped how we think about beauty.</p>
-            <button class="quiz-begin-btn" id="quizBeginBtn" type="button">Begin Quiz</button>
-          </div>
-
-          <div class="quiz-question" id="quizQuestion" style="display:none">
-            <div class="quiz-header">
-              <span class="quiz-counter" id="quizCounter">Question 1 of 20</span>
-              <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizFill"></div></div>
-              <span class="quiz-score-live" id="quizScoreLive">Score: 0</span>
+      <div class="scene">
+        <article class="card" id="flashcard" tabindex="0" role="button" aria-pressed="false">
+          <div class="card-inner" id="cardInner">
+            <div class="face face-front">
+              <div class="card-img-wrap">
+                <img id="cardImg" class="card-img" src="" alt="" loading="eager" />
+                <span class="cat-badge" id="frontCatPill"></span>
+              </div>
+              <div class="front-body">
+                <p class="eyebrow" id="hintEyebrow">Wskazówka</p>
+                <p class="hint-text" id="hintText"></p>
+                <h2 class="card-title" id="cardTitle"></h2>
+                <p class="flip-cue" id="flipCueFront">kliknij, by odkryć →</p>
+              </div>
             </div>
-            <div class="quiz-body">
-              <p class="quiz-category-tag" id="quizCategoryTag"></p>
-              <h3 class="quiz-question-text" id="quizQuestionText"></h3>
-              <div class="quiz-options" id="quizOptions"></div>
+            <div class="face face-back">
+              <div class="back-top">
+                <span class="back-badge" id="backCat"></span>
+                <h2 class="back-title" id="backTitle"></h2>
+                <p class="back-period" id="backPeriod"></p>
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-body">
+                <div class="info-block">
+                  <p class="info-label" id="artistsLabel">Kluczowi artyści</p>
+                  <p class="info-value" id="backArtists"></p>
+                </div>
+                <div class="info-block">
+                  <p class="info-label" id="philLabel">Filozofia wizualna</p>
+                  <p class="info-value" id="backPhilosophy"></p>
+                </div>
+              </div>
+              <div class="back-footer">
+                <div class="tag-row" id="keywords"></div>
+                <div class="credit-row">
+                  <p class="credit" id="imageCredit"></p>
+                  <p class="flip-cue flip-cue--rev">↺ wróć</p>
+                </div>
+              </div>
             </div>
           </div>
+        </article>
+      </div>
+      <div class="controls">
+        <button class="ctrl-btn" id="prevBtn" disabled><span>←</span> <span class="ctrl-label">Poprzednia</span></button>
+        <span class="counter" id="cardCounter">1 / 12</span>
+        <button class="ctrl-btn ctrl-btn--r" id="nextBtn"><span class="ctrl-label">Następna</span> <span>→</span></button>
+      </div>
+    </div>
 
-          <div class="quiz-results" id="quizResults" style="display:none">
-            <div class="quiz-results-score" id="quizResultsScore"></div>
-            <h3 class="quiz-results-title" id="quizResultsTitle"></h3>
-            <p class="quiz-results-body" id="quizResultsBody"></p>
-            <div class="quiz-breakdown" id="quizBreakdown"></div>
-            <button class="quiz-begin-btn" id="quizRestartBtn" type="button" style="margin-top:1rem">Try Again</button>
+    <!-- SCIENCE -->
+    <div id="scienceView" class="view hidden">
+      <div class="deck-meta">
+        <span id="sciProgress" class="meta-count"></span>
+        <span id="sciCategory" class="meta-cat"></span>
+      </div>
+      <div class="scene">
+        <article class="card" id="sciCard" tabindex="0" role="button" aria-pressed="false">
+          <div class="card-inner" id="sciCardInner">
+            <div class="face face-front">
+              <div class="card-img-wrap">
+                <img id="sciImg" class="card-img" src="" alt="" loading="lazy" />
+                <span class="cat-badge" id="sciPill"></span>
+              </div>
+              <div class="front-body">
+                <p class="eyebrow">Wskazówka</p>
+                <p class="hint-text" id="sciHint"></p>
+                <h2 class="card-title" id="sciTitle"></h2>
+                <p class="flip-cue">kliknij, by odkryć →</p>
+              </div>
+            </div>
+            <div class="face face-back">
+              <div class="back-top">
+                <span class="back-badge" id="sciBackCat"></span>
+                <h2 class="back-title" id="sciBackTitle"></h2>
+                <p class="back-period" id="sciBackPeriod"></p>
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-body">
+                <div class="info-block">
+                  <p class="info-label" id="sciFieldLabel">Dziedzina</p>
+                  <p class="info-value" id="sciField"></p>
+                </div>
+                <div class="info-block">
+                  <p class="info-label" id="sciDiscLabel">Odkrycia</p>
+                  <p class="info-value" id="sciDisc"></p>
+                </div>
+              </div>
+              <div class="back-footer">
+                <div class="tag-row" id="sciKeywords"></div>
+                <div class="credit-row">
+                  <p class="credit" id="sciCredit"></p>
+                  <p class="flip-cue flip-cue--rev">↺ wróć</p>
+                </div>
+              </div>
+            </div>
           </div>
+        </article>
+      </div>
+      <div class="controls">
+        <button class="ctrl-btn" id="sciPrev" disabled><span>←</span> <span class="ctrl-label">Poprzednia</span></button>
+        <span class="counter" id="sciCounter">1 / 30</span>
+        <button class="ctrl-btn ctrl-btn--r" id="sciNext"><span class="ctrl-label">Następna</span> <span>→</span></button>
+      </div>
+    </div>
+
+    <!-- VOCAB -->
+    <div id="vocabView" class="view hidden">
+      <div class="vocab-meta">
+        <span id="vocabCounter" class="meta-count"></span>
+        <button id="vocabReshuffle" class="ghost-btn">⇄ <span id="reshuffleLabel">Przetasuj</span></button>
+      </div>
+      <div class="scene">
+        <article class="card vocab-card" id="vocabCard" tabindex="0" role="button" aria-pressed="false">
+          <div class="card-inner" id="vocabCardInner">
+            <div class="face face-front vocab-face-front">
+              <p class="vocab-badge">PL ↔ EN</p>
+              <p class="eyebrow" id="vocabTermLabel">Termin</p>
+              <h2 class="vocab-term" id="vocabTermText"></h2>
+              <p class="vocab-sub" id="vocabTermSub"></p>
+              <p class="flip-cue">kliknij, by odkryć →</p>
+            </div>
+            <div class="face face-back vocab-face-back">
+              <p class="eyebrow" id="vocabDefLabel">Definicja</p>
+              <p class="vocab-def" id="vocabDefText"></p>
+              <p class="flip-cue flip-cue--rev" style="margin-top:auto">↺ wróć</p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="controls">
+        <button class="ctrl-btn" id="vocabPrev" disabled><span>←</span> <span class="ctrl-label">Poprzedni</span></button>
+        <span class="counter" id="vocabCounterNav">· · ·</span>
+        <button class="ctrl-btn ctrl-btn--r" id="vocabNext"><span class="ctrl-label">Następny</span> <span>→</span></button>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quizView" class="view hidden">
+
+      <div id="quizSetup" class="quiz-setup">
+        <h2 class="quiz-heading" id="quizSetupTitle">Wybierz kategorie</h2>
+        <p class="quiz-sub" id="quizSetupSub">Możesz wybrać jedną lub więcej</p>
+        <div class="quiz-grid" id="quizCatGrid"></div>
+        <button class="primary-btn" id="quizStartBtn" disabled>Rozpocznij →</button>
+      </div>
+
+      <div id="quizActive" class="quiz-active hidden">
+        <div class="quiz-bar">
+          <div class="quiz-bar-fill" id="qProgressFill"></div>
+        </div>
+        <div class="quiz-status">
+          <span id="qCounter" class="meta-count"></span>
+          <span id="qScore" class="quiz-score-live">✓ 0</span>
+        </div>
+        <div class="quiz-card">
+          <p class="cat-badge quiz-cat" id="qCatBadge"></p>
+          <h3 class="quiz-q" id="qQuestion"></h3>
+          <div class="quiz-opts" id="qOptions"></div>
+          <p class="quiz-fb hidden" id="qFeedback"></p>
+          <button class="primary-btn quiz-next hidden" id="qNextBtn">Dalej →</button>
         </div>
       </div>
 
-    </div><!-- end app-shell -->
+      <div id="quizResult" class="quiz-result hidden">
+        <div class="result-card">
+          <p class="eyebrow" id="qResultLabel">Twój wynik</p>
+          <div class="result-score" id="qResultScore">0 / 0</div>
+          <div class="result-pct" id="qResultPct">0%</div>
+          <button class="primary-btn" id="quizRestartBtn">Zagraj ponownie</button>
+          <button class="ghost-btn" id="quizBackBtn">← Zmień kategorie</button>
+        </div>
+      </div>
 
-    <script type="module">
-      // ── Custom cursor ─────────────────────────────────────────────
-      const dot  = document.getElementById('cursor-dot');
-      const ring = document.getElementById('cursor-ring');
-      let mx = -100, my = -100, rx = -100, ry = -100;
+    </div>
 
-      document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
-      (function animateCursor() {
-        rx += (mx - rx) * 0.12;
-        ry += (my - ry) * 0.12;
-        if (dot)  { dot.style.left  = mx + 'px'; dot.style.top  = my + 'px'; }
-        if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-        requestAnimationFrame(animateCursor);
-      })();
+  </main>
 
-      document.querySelectorAll('button, a, .flashcard, .pill, .main-tab').forEach((el) => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-      });
-      document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
-      document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
+  <footer class="footer">
+    <span><kbd>Spacja</kbd> obróć</span>
+    <span class="footer-dot">·</span>
+    <span><kbd>←</kbd><kbd>→</kbd> nawiguj</span>
+  </footer>
 
-      // ── Hero text word-by-word reveal ─────────────────────────────
-      const h1 = document.querySelector('.hero-panel h1');
-      if (h1) {
-        const words = h1.textContent.trim().split(/\s+/);
-        h1.innerHTML = words.map(w =>
-          `<span class="hero-word"><span class="hero-word-inner">${w}</span></span>`
-        ).join(' ');
-        const inners = h1.querySelectorAll('.hero-word-inner');
-        inners.forEach((el, i) => setTimeout(() => el.classList.add('shown'), 120 + i * 90));
-      }
-
-      // ── Scroll reveal (Intersection Observer) ────────────────────
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-      // Re-run on tab switch
-      function revealVisible() {
-        document.querySelectorAll('.reveal:not(.visible)').forEach((el) => observer.observe(el));
-      }
-
-      // ── 3D tilt on cards ──────────────────────────────────────────
-      function addTilt(card) {
-        card.addEventListener('mousemove', (e) => {
-          if (card.classList.contains('flipped')) return;
-          const r = card.getBoundingClientRect();
-          const x = ((e.clientX - r.left) / r.width  - 0.5) * 12;
-          const y = ((e.clientY - r.top)  / r.height - 0.5) * -12;
-          card.querySelector('.flashcard-inner').style.transform =
-            `perspective(1400px) rotateX(${y}deg) rotateY(${x}deg) scale(1.02)`;
-        });
-        card.addEventListener('mouseleave', () => {
-          if (card.classList.contains('flipped')) return;
-          card.querySelector('.flashcard-inner').style.transform = '';
-        });
-      }
-      document.querySelectorAll('.flashcard').forEach(addTilt);
-
-      // ── Tab switching ─────────────────────────────────────────────
-      const mainNav  = document.getElementById('mainNav');
-      const views    = document.querySelectorAll('.view');
-      const mainTabs = mainNav.querySelectorAll('.main-tab');
-
-      mainNav.addEventListener('click', (e) => {
-        const btn = e.target.closest('.main-tab[data-view]');
-        if (!btn) return;
-        const target = btn.dataset.view;
-        mainTabs.forEach((t) => t.classList.toggle('active', t.dataset.view === target));
-        views.forEach((v) => v.classList.toggle('hidden', v.id !== `view-${target}`));
-        setTimeout(revealVisible, 60);
-      });
-
-      // ── Art History sub-tabs ──────────────────────────────────────
-      const categoryRow = document.getElementById('categoryRow');
-      const artCardGrid = document.getElementById('artCardGrid');
-      const artCards    = Array.from(artCardGrid.querySelectorAll('.flashcard'));
-      const catBtns     = Array.from(categoryRow.querySelectorAll('button'));
-      let activeCategory = 'eras';
-
-      const updateCategory = (cat) => {
-        activeCategory = cat;
-        catBtns.forEach((b) => b.classList.toggle('active', b.dataset.category === cat));
-        artCards.forEach((c) => {
-          const hide = c.dataset.category !== cat;
-          c.classList.toggle('hidden', hide);
-          if (!hide) { c.classList.remove('visible'); observer.observe(c); }
-        });
-      };
-
-      categoryRow.addEventListener('click', (e) => {
-        const btn = e.target.closest('button[data-category]');
-        if (btn) updateCategory(btn.dataset.category);
-      });
-      updateCategory(activeCategory);
-
-      // ── Card flip ─────────────────────────────────────────────────
-      document.addEventListener('click', (e) => {
-        const card = e.target.closest('.flashcard');
-        if (!card) return;
-        if (e.target.closest('.quiz-option, .quiz-begin-btn')) return;
-        card.classList.toggle('flipped');
-        // Reset tilt when flipping
-        const inner = card.querySelector('.flashcard-inner');
-        if (inner) inner.style.transform = '';
-      });
-
-      // ── Quiz ──────────────────────────────────────────────────────
-      const QUESTIONS = JSON.parse(document.getElementById('quizData').textContent);
-      let current = 0, score = 0, answered = false;
-
-      const elStart     = document.getElementById('quizStart');
-      const elQuestion  = document.getElementById('quizQuestion');
-      const elResults   = document.getElementById('quizResults');
-      const elCounter   = document.getElementById('quizCounter');
-      const elFill      = document.getElementById('quizFill');
-      const elScoreLive = document.getElementById('quizScoreLive');
-      const elCatTag    = document.getElementById('quizCategoryTag');
-      const elQText     = document.getElementById('quizQuestionText');
-      const elOptions   = document.getElementById('quizOptions');
-
-      function showQuestion() {
-        answered = false;
-        const q = QUESTIONS[current];
-        elCounter.textContent   = `Question ${current + 1} of ${QUESTIONS.length}`;
-        elFill.style.width      = `${(current / QUESTIONS.length) * 100}%`;
-        elScoreLive.textContent = `Score: ${score}`;
-        elCatTag.textContent    = q.category;
-        elQText.textContent     = q.q;
-        elQText.classList.remove('entering');
-        void elQText.offsetWidth; // reflow
-        elQText.classList.add('entering');
-        elOptions.innerHTML = '';
-        q.options.forEach((opt, i) => {
-          const btn = document.createElement('button');
-          btn.className   = 'quiz-option';
-          btn.textContent = opt;
-          btn.type        = 'button';
-          btn.style.animationDelay = `${i * 0.07}s`;
-          btn.addEventListener('click', () => selectAnswer(i));
-          btn.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-          btn.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-          elOptions.appendChild(btn);
-        });
-      }
-
-      function selectAnswer(i) {
-        if (answered) return;
-        answered = true;
-        const q    = QUESTIONS[current];
-        const btns = elOptions.querySelectorAll('.quiz-option');
-        btns.forEach((b) => b.disabled = true);
-        if (i === q.answer) { score++; btns[i].classList.add('correct'); }
-        else { btns[i].classList.add('wrong'); btns[q.answer].classList.add('correct'); }
-        elScoreLive.textContent = `Score: ${score}`;
-        setTimeout(() => {
-          current < QUESTIONS.length - 1 ? (current++, showQuestion()) : showResults();
-        }, 1100);
-      }
-
-      function showResults() {
-        elFill.style.width       = '100%';
-        elQuestion.style.display = 'none';
-        elResults.style.display  = 'flex';
-        const pct  = Math.round((score / QUESTIONS.length) * 100);
-        const tier = pct < 40 ? 0 : pct < 60 ? 1 : pct < 75 ? 2 : pct < 95 ? 3 : 4;
-        const titles = ['Keep exploring!', 'Good start!', 'Well done!', 'Impressive!', 'Masterpiece!'];
-        const bodies = [
-          'Wander through the flashcards and gallery — the answers are all there.',
-          'A solid foundation. Review the Eras and Techniques tabs to sharpen up.',
-          'You know your art history. A few more rounds and you\'ll be unstoppable.',
-          'Exceptional knowledge across eras, styles, and philosophy.',
-          'A perfect score — the curators would be proud.',
-        ];
-        document.getElementById('quizResultsScore').textContent = `${score} / ${QUESTIONS.length}`;
-        document.getElementById('quizResultsTitle').textContent = titles[tier];
-        document.getElementById('quizResultsBody').textContent  = bodies[tier];
-        const bd = document.getElementById('quizBreakdown');
-        bd.innerHTML = '';
-        [['Score', `${pct}%`], ['Correct', score], ['Incorrect', QUESTIONS.length - score]].forEach(([l, v]) => {
-          const chip = document.createElement('span');
-          chip.className   = 'quiz-breakdown-chip';
-          chip.textContent = `${l}: ${v}`;
-          bd.appendChild(chip);
-        });
-      }
-
-      function startQuiz() {
-        current = 0; score = 0;
-        elStart.style.display    = 'none';
-        elResults.style.display  = 'none';
-        elQuestion.style.display = 'flex';
-        showQuestion();
-      }
-
-      document.getElementById('quizBeginBtn').addEventListener('click', startQuiz);
-      document.getElementById('quizRestartBtn').addEventListener('click', startQuiz);
-    </script>
-
-    <script id="quizData" type="application/json" set:html={JSON.stringify(quizQuestions)}></script>
-  </body>
+  <script src="/artsy/script.js" is:inline></script>
+</body>
 </html>
