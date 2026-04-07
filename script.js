@@ -729,3 +729,450 @@ SCIENCE_CARDS.push(
 
 /* Update sciDeck after push */
 sciDeck = shuffle(SCIENCE_CARDS);
+
+/* ══════════════════════════════════════════════════════
+   CIEKAWOSTKI — Prawa Fizyki, Ziemia, Wszechświat
+   Źródła: NASA, ESA, Britannica, Wikipedia
+   ══════════════════════════════════════════════════════ */
+SCIENCE_CARDS.push(
+
+  {
+    id:'sci-21',
+    category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'The Big Bang',pl:'Wielki Wybuch'},
+    period:{en:'~13.8 billion years ago',pl:'~13,8 mld lat temu'},
+    hint:{en:'The universe began not from an explosion in space, but as an expansion of space itself — from a state of infinite density called a singularity.',pl:'Wszechświat nie powstał w eksplozji w przestrzeni, lecz jako rozszerzanie się samej przestrzeni — ze stanu nieskończonej gęstości zwanego osobliwością.'},
+    image:WM('Planck_CMB_2013_vs_2015_-_warming-up.png'),
+    imageAlt:'Mapa mikrofalowego promieniowania tła (CMB) misji Planck ESA',
+    imageCredit:'ESA / Planck Collaboration · Cosmic Microwave Background · 2015',
+    field:{en:'Cosmology, Astrophysics',pl:'Kosmologia, Astrofizyka'},
+    discoveries:{en:'Universe is 13.8 billion years old (NASA/ESA Planck 2015). Within the first second: all fundamental particles formed. After 380,000 yrs: atoms formed, releasing the Cosmic Microwave Background (CMB) — still detectable today.',pl:'Wszechświat ma 13,8 mld lat (NASA/ESA Planck 2015). W pierwszej sekundzie: wszystkie cząstki elementarne. Po 380 tys. lat: powstały atomy, emitując kosmiczne promieniowanie tła (CMB) — wykrywalne do dziś.'},
+    keywords:{en:['Big Bang','CMB','Singularity','13.8 Billion Years'],pl:['Wielki Wybuch','CMB','Osobliwość','13,8 mld lat']}
+  },
+
+  {
+    id:'sci-22',
+    category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'Dark Matter & Dark Energy',pl:'Ciemna Materia i Energia'},
+    period:{en:'Concept developed 1930s–1990s',pl:'Koncepcja rozwinięta 1930–1990'},
+    hint:{en:'95% of the universe is made of things we cannot see, detect directly, or fully explain — dark matter and dark energy.',pl:'95% wszechświata zbudowane jest z czegoś, czego nie możemy zobaczyć, bezpośrednio wykryć ani w pełni wyjaśnić — ciemnej materii i ciemnej energii.'},
+    image:WM('Bullet_cluster.jpg'),
+    imageAlt:'Gromada Kula (Bullet Cluster) — dowód na istnienie ciemnej materii, NASA/Chandra',
+    imageCredit:'NASA / CXC / M. Weiss · Bullet Cluster · Chandra X-ray Observatory',
+    field:{en:'Cosmology, Particle Physics',pl:'Kosmologia, Fizyka Cząstek'},
+    discoveries:{en:'Normal matter: 5% of universe. Dark matter: ~27% (Fritz Zwicky 1933, Vera Rubin 1970s) — inferred from gravitational effects. Dark energy: ~68% — drives accelerating expansion of universe (Nobel 2011: Perlmutter, Riess, Schmidt).',pl:'Zwykła materia: 5% wszechświata. Ciemna materia: ~27% (Zwicky 1933, Vera Rubin lata 70.) — wnioskowana z efektów grawitacyjnych. Ciemna energia: ~68% — napędza przyspieszone rozszerzanie wszechświata (Nobel 2011).'},
+    keywords:{en:['Dark Matter','Dark Energy','Expanding Universe','Vera Rubin'],pl:['Ciemna materia','Ciemna energia','Rozszerzanie wszechświata','Vera Rubin']}
+  },
+
+  {
+    id:'sci-23',
+    category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'Black Holes',pl:'Czarne Dziury'},
+    period:{en:'Theory 1916, first image 2019',pl:'Teoria 1916, pierwsze zdjęcie 2019'},
+    hint:{en:'The first-ever photograph of a black hole (M87*, 2019) required linking eight radio telescopes across four continents into a single Earth-sized dish.',pl:'Pierwsze w historii zdjęcie czarnej dziury (M87*, 2019) wymagało połączenia ośmiu radioteleskopów na czterech kontynentach w jeden teleskop wielkości Ziemi.'},
+    image:WM('Black_hole_-_Messier_87_crop_max_res.jpg'),
+    imageAlt:'Pierwsza fotografia czarnej dziury — M87*, Event Horizon Telescope, 2019',
+    imageCredit:'Event Horizon Telescope Collaboration · M87* · 2019 · CC BY 4.0',
+    field:{en:'Astrophysics, General Relativity',pl:'Astrofizyka, Ogólna Teoria Względności'},
+    discoveries:{en:'Predicted by Einstein\'s General Relativity (1916). First confirmed: Cygnus X-1 (1971). First imaged: M87* (2019, Event Horizon Telescope). Gravitational waves from merging black holes detected by LIGO (2015, Nobel 2017).',pl:'Przewidziane przez ogólną teorię względności Einsteina (1916). Pierwsze potwierdzone: Cygnus X-1 (1971). Pierwsze sfotografowane: M87* (2019, EHT). Fale grawitacyjne z łączących się czarnych dziur wykryte przez LIGO (2015, Nobel 2017).'},
+    keywords:{en:['Event Horizon','Singularity','Gravitational Waves','LIGO'],pl:['Horyzont zdarzeń','Osobliwość','Fale grawitacyjne','LIGO']}
+  },
+
+  {
+    id:'sci-24',
+    category:{en:'Physics Laws',pl:'Prawa Fizyki'},
+    title:{en:'Laws of Thermodynamics',pl:'Prawa Termodynamiki'},
+    period:{en:'Formulated 1824–1850',pl:'Sformułowane 1824–1850'},
+    hint:{en:'The three laws of thermodynamics have a famous joke summary: 1. You can\'t win. 2. You can\'t break even. 3. You can\'t quit the game.',pl:'Trzy prawa termodynamiki mają żartobliwe podsumowanie: 1. Nie możesz wygrać. 2. Nie możesz wyjść na zero. 3. Nie możesz opuścić gry.'},
+    image:WM('Carnot_heat_engine_2.svg'),
+    imageAlt:'Schemat silnika cieplnego Carnota ilustrujący II zasadę termodynamiki',
+    imageCredit:'Silnik Carnota · diagram · domena publiczna',
+    field:{en:'Thermodynamics, Physics',pl:'Termodynamika, Fizyka'},
+    discoveries:{en:'0th Law: thermal equilibrium is transitive. 1st Law: energy is conserved — you cannot create or destroy it. 2nd Law: entropy always increases — disorder grows (Clausius 1850). 3rd Law: absolute zero (−273.15°C) is unreachable.',pl:'0. zasada: równowaga termiczna jest przechodnia. 1. zasada: energia jest zachowana — nie można jej stworzyć ani zniszczyć. 2. zasada: entropia zawsze rośnie — nieporządek wzrasta (Clausius 1850). 3. zasada: zero absolutne (−273,15°C) jest nieosiągalne.'},
+    keywords:{en:['Entropy','Conservation of Energy','Absolute Zero','Carnot'],pl:['Entropia','Zachowanie energii','Zero absolutne','Carnot']}
+  },
+
+  {
+    id:'sci-25',
+    category:{en:'Physics Laws',pl:'Prawa Fizyki'},
+    title:{en:'Quantum Mechanics',pl:'Mechanika Kwantowa'},
+    period:{en:'Developed 1900–1930s',pl:'Rozwijana 1900–1930'},
+    hint:{en:'An electron passes through two slits and interferes with itself — until you try to observe which slit it used, whereupon it stops interfering.',pl:'Elektron przechodzi przez dwie szczeliny i interferuje sam ze sobą — dopóki nie spróbujesz obserwować, przez którą szczelę przeszedł, po czym przestaje interferować.'},
+    image:WM('Wave_function_of_a_particle_in_a_1D_box.png'),
+    imageAlt:'Funkcja falowa cząstki w studni potencjału — wizualizacja mechaniki kwantowej',
+    imageCredit:'Funkcja falowa w 1D · domena publiczna',
+    field:{en:'Quantum Physics, Atomic Physics',pl:'Fizyka Kwantowa, Fizyka Atomowa'},
+    discoveries:{en:'Planck (1900): energy is quantised (E=hf). Heisenberg Uncertainty Principle (1927): position and momentum cannot both be known precisely. Schrödinger\'s equation (1926): wave function describes probability of particle states. Wave-particle duality.',pl:'Planck (1900): energia jest skwantowana (E=hf). Zasada nieoznaczoności Heisenberga (1927): pozycji i pędu nie można jednocześnie dokładnie znać. Równanie Schrödingera (1926): funkcja falowa opisuje prawdopodobieństwo stanów. Dualizm korpuskularno-falowy.'},
+    keywords:{en:['Wave-Particle Duality','Uncertainty Principle','Superposition','Quantisation'],pl:['Dualizm falowo-korpuskularny','Zasada nieoznaczoności','Superpozycja','Kwantowanie']}
+  },
+
+  {
+    id:'sci-26',
+    category:{en:'Physics Laws',pl:'Prawa Fizyki'},
+    title:{en:'Speed of Light & Relativity',pl:'Prędkość Światła i Względność'},
+    period:{en:'c measured 1676; SR 1905',pl:'c zmierzona 1676; SR 1905'},
+    hint:{en:'A clock on the ISS runs 0.007 seconds per day slower than on Earth — GPS satellites must correct for this relativistic effect or navigation would drift 10 km per day.',pl:'Zegar na ISS tyka 0,007 s dziennie wolniej niż na Ziemi — satelity GPS muszą korygować ten efekt relatywistyczny, inaczej nawigacja dryfowałaby 10 km na dobę.'},
+    image:WM('World_line.svg'),
+    imageAlt:'Stożek świetlny — diagram czasoprzestrzeni w szczególnej teorii względności',
+    imageCredit:'Light cone diagram · domena publiczna',
+    field:{en:'Special Relativity, Optics',pl:'Szczególna Teoria Względności, Optyka'},
+    discoveries:{en:'Speed of light c = 299,792,458 m/s (exact, by definition since 1983). Special Relativity (Einstein 1905): nothing with mass can reach c; time dilates and length contracts at relativistic speeds. E=mc² — mass and energy are equivalent.',pl:'Prędkość światła c = 299 792 458 m/s (dokładna, z definicji od 1983). Szczególna teoria względności (Einstein 1905): żaden obiekt z masą nie może osiągnąć c; czas zwalnia, a długość kurczy przy prędkościach relatywistycznych. E=mc².'},
+    keywords:{en:['Speed of Light','Time Dilation','E=mc²','Spacetime'],pl:['Prędkość światła','Dylatacja czasu','E=mc²','Czasoprzestrzeń']}
+  },
+
+  {
+    id:'sci-27',
+    category:{en:'Earth Science',pl:'Nauki o Ziemi'},
+    title:{en:'Plate Tectonics',pl:'Tektonika Płyt'},
+    period:{en:'Theory confirmed 1960s',pl:'Teoria potwierdzona lata 60. XX w.'},
+    hint:{en:'The continents move at roughly the speed your fingernails grow — but over millions of years that\'s enough to open and close entire oceans.',pl:'Kontynenty przemieszczają się mniej więcej z prędkością, z jaką rosną paznokcie — ale w ciągu milionów lat to wystarczy, by otwierać i zamykać całe oceany.'},
+    image:WM('Tectonic_plates.png'),
+    imageAlt:'Mapa płyt tektonicznych Ziemi',
+    imageCredit:'United States Geological Survey (USGS) · Tectonic Plates · domena publiczna',
+    field:{en:'Geophysics, Geology',pl:'Geofizyka, Geologia'},
+    discoveries:{en:'Alfred Wegener\'s continental drift hypothesis (1912) confirmed by seafloor spreading (Harry Hess, 1960). Earth\'s lithosphere is divided into ~15 major tectonic plates moving 2–15 cm/yr. Drives earthquakes, volcanoes, and mountain formation.',pl:'Hipoteza dryftu kontynentalnego Wegenera (1912) potwierdzona przez spreading dna oceanicznego (Harry Hess, 1960). Litosfera Ziemi podzielona na ~15 głównych płyt, poruszających się 2–15 cm/rok. Napędza trzęsienia ziemi, wulkany i górotwórczość.'},
+    keywords:{en:['Continental Drift','Seafloor Spreading','Wegener','Lithosphere'],pl:['Dryfowanie kontynentów','Spreading','Wegener','Litosfera']}
+  },
+
+  {
+    id:'sci-28',
+    category:{en:'Earth Science',pl:'Nauki o Ziemi'},
+    title:{en:'Earth\'s Age & Formation',pl:'Wiek i Powstanie Ziemi'},
+    period:{en:'4.54 billion years ago',pl:'4,54 mld lat temu'},
+    hint:{en:'We know Earth\'s age not from Earth itself (its rocks get recycled), but from meteorites that fell from the same cloud of dust that formed the Solar System.',pl:'Wiek Ziemi znamy nie z samej Ziemi (jej skały się recyklingują), lecz z meteorytów, które spadły z tej samej chmury pyłu, z której powstał Układ Słoneczny.'},
+    image:WM('Protoplanetary-disk.jpg'),
+    imageAlt:'Dysk protoplanetarny — wizja artystyczna formowania się planety',
+    imageCredit:'NASA/JPL-Caltech · Protoplanetary disk · public domain',
+    field:{en:'Geophysics, Planetary Science',pl:'Geofizyka, Nauki Planetarne'},
+    discoveries:{en:'Earth is 4.54 ± 0.05 billion years old (radiometric dating, Claire Patterson 1956). Formed by accretion from the solar nebula. The Moon formed ~4.5 Gya when a Mars-sized body (Theia) collided with early Earth.',pl:'Ziemia ma 4,54 ± 0,05 mld lat (datowanie radiometryczne, Claire Patterson 1956). Powstała przez akrecję z mgławicy słonecznej. Księżyc uformował się ~4,5 mld lat temu po zderzeniu z ciałem wielkości Marsa (Theia).'},
+    keywords:{en:['Radiometric Dating','Solar Nebula','Theia Impact','4.54 Billion Years'],pl:['Datowanie radiometryczne','Mgławica słoneczna','Zderzenie z Theią','4,54 mld lat']}
+  },
+
+  {
+    id:'sci-29',
+    category:{en:'Earth Science',pl:'Nauki o Ziemi'},
+    title:{en:'Earth\'s Magnetic Field',pl:'Pole Magnetyczne Ziemi'},
+    period:{en:'Generated continuously',pl:'Generowane nieprzerwanie'},
+    hint:{en:'Earth\'s magnetic poles wander over time and have reversed completely ~170 times in the past 76 million years — north becomes south and vice versa.',pl:'Bieguny magnetyczne Ziemi wędrują z czasem i całkowicie się odwróciły ~170 razy w ciągu ostatnich 76 mln lat — północ staje się południem i odwrotnie.'},
+    image:WM('Van_allen_belts.svg'),
+    imageAlt:'Pasy Van Allena — struktura magnetosfery Ziemi',
+    imageCredit:'NASA · Van Allen Belts · public domain',
+    field:{en:'Geophysics, Magnetism',pl:'Geofizyka, Magnetyzm'},
+    discoveries:{en:'Generated by convection of liquid iron in Earth\'s outer core (geodynamo). Shields Earth from solar wind and cosmic radiation. Extends ~65,000 km into space (magnetosphere). Van Allen radiation belts trap energetic particles.',pl:'Generowane przez konwekcję płynnego żelaza w zewnętrznym jądrze Ziemi (geodynamo). Chroni Ziemię przed wiatrem słonecznym i promieniowaniem kosmicznym. Sięga ~65 000 km w przestrzeń kosmiczną (magnetosfera). Pasy Van Allena pułapkują energetyczne cząstki.'},
+    keywords:{en:['Geodynamo','Magnetic Reversal','Magnetosphere','Van Allen Belts'],pl:['Geodynamo','Odwrócenie biegunów','Magnetosfera','Pasy Van Allena']}
+  },
+
+  {
+    id:'sci-30',
+    category:{en:'Physics Laws',pl:'Prawa Fizyki'},
+    title:{en:'Entropy & the Arrow of Time',pl:'Entropia i Strzałka Czasu'},
+    period:{en:'2nd Law — Clausius 1850',pl:'2. zasada — Clausius 1850'},
+    hint:{en:'You can easily crack an egg — but you\'ve never seen a broken egg reassemble itself. That asymmetry is why time has a direction.',pl:'Możesz łatwo rozbić jajko — ale nigdy nie widziałeś, żeby rozbite jajko się ponownie złożyło. Ta asymetria sprawia, że czas ma kierunek.'},
+    image:WM('Entropy_illustration.svg'),
+    imageAlt:'Ilustracja entropii — wzrost nieporządku w układzie izolowanym',
+    imageCredit:'Entropy illustration · domena publiczna',
+    field:{en:'Thermodynamics, Statistical Mechanics',pl:'Termodynamika, Mechanika Statystyczna'},
+    discoveries:{en:'Entropy (S) always increases in isolated systems (2nd Law). Boltzmann (1877): entropy is related to the number of microstates — S = k·ln(W). The "arrow of time" flows in the direction of increasing entropy. Near the Big Bang, entropy was extremely low.',pl:'Entropia (S) zawsze rośnie w układach izolowanych (2. zasada). Boltzmann (1877): entropia zależy od liczby mikrostanów — S = k·ln(W). „Strzałka czasu" płynie w kierunku wzrostu entropii. Tuż po Wielkim Wybuchu entropia była ekstremalnie niska.'},
+    keywords:{en:['Entropy','Arrow of Time','Boltzmann','Disorder'],pl:['Entropia','Strzałka czasu','Boltzmann','Nieporządek']}
+  }
+
+);
+sciDeck = shuffle(SCIENCE_CARDS);
+
+/* ══════════════════════════════════════════════════════
+   QUIZ SYSTEM
+   Questions auto-generated from SCIENCE_CARDS + CARDS
+   ══════════════════════════════════════════════════════ */
+
+/* All quiz categories (value = filter key used in cards) */
+const QUIZ_CATS = [
+  { key:'Eras',        label:{en:'Art Eras',          pl:'Epoki Sztuki'},    src:'art' },
+  { key:'Styles',      label:{en:'Art Styles',         pl:'Style Artystyczne'},src:'art' },
+  { key:'Techniques',  label:{en:'Art Techniques',     pl:'Techniki Artystyczne'},src:'art'},
+  { key:'Physics',     label:{en:'Physics',            pl:'Fizyka'},          src:'sci' },
+  { key:'Chemistry',   label:{en:'Chemistry',          pl:'Chemia'},          src:'sci' },
+  { key:'Technology',  label:{en:'Technology',         pl:'Technologia'},     src:'sci' },
+  { key:'Universe',    label:{en:'Universe',           pl:'Wszechświat'},     src:'sci' },
+  { key:'Earth Science',label:{en:'Earth Science',     pl:'Nauki o Ziemi'},  src:'sci' },
+  { key:'Physics Laws',label:{en:'Physics Laws',       pl:'Prawa Fizyki'},    src:'sci' },
+  { key:'Biology',     label:{en:'Biology',            pl:'Biologia'},        src:'sci' },
+  { key:'Mathematics', label:{en:'Mathematics',        pl:'Matematyka'},      src:'sci' },
+  { key:'Astronomy',   label:{en:'Astronomy',          pl:'Astronomia'},      src:'sci' },
+  { key:'Computer Science',label:{en:'Computer Science',pl:'Informatyka'},    src:'sci' },
+];
+
+/* Build a question from a card */
+function cardToQuestion(card, isArt) {
+  const L = lang;
+  const c = isArt ? card : card;
+  const title    = isArt ? card.title[L]    : card.title[L];
+  const category = isArt ? card.category[L] : card.category[L];
+  const hint     = isArt ? card.hint[L]     : card.hint[L];
+  const period   = isArt ? card.period[L]   : card.period[L];
+
+  // Pick one of multiple question templates randomly
+  const templates = isArt ? [
+    { q: L==='pl'
+        ? `Do której epoki / stylu należy: "${title}"?`
+        : `Which era / style does "${title}" belong to?`,
+      answer: category,
+      pool: 'art-cat' },
+    { q: L==='pl'
+        ? `"${hint}" — o czym mowa?`
+        : `"${hint}" — what is being described?`,
+      answer: title,
+      pool: 'art-title' },
+    { q: L==='pl'
+        ? `Kiedy rozwijał się / kiedy żył: ${title}?`
+        : `When did ${title} flourish / live?`,
+      answer: period,
+      pool: 'art-period' },
+  ] : [
+    { q: L==='pl'
+        ? `"${hint}" — o kim lub o czym mowa?`
+        : `"${hint}" — who or what is described?`,
+      answer: title,
+      pool: 'sci-title' },
+    { q: L==='pl'
+        ? `Do jakiej dziedziny należy: ${title}?`
+        : `What field does ${title} belong to?`,
+      answer: category,
+      pool: 'sci-cat' },
+    { q: L==='pl'
+        ? `Kiedy żył / kiedy odkryto: ${title}?`
+        : `When did ${title} live / was discovered?`,
+      answer: period,
+      pool: 'sci-period' },
+  ];
+  return templates[Math.floor(Math.random() * templates.length)];
+}
+
+/* Generate wrong options from a pool list */
+function makeOptions(correct, pool) {
+  const distractors = pool.filter(x => x !== correct);
+  const picked = shuffle(distractors).slice(0, 3);
+  const opts = shuffle([correct, ...picked]);
+  return { options: opts, answerIndex: opts.indexOf(correct) };
+}
+
+/* Build full quiz from selected category keys */
+function buildQuiz(selectedKeys) {
+  const artKeys = selectedKeys.filter(k => QUIZ_CATS.find(c=>c.key===k&&c.src==='art'));
+  const sciKeys = selectedKeys.filter(k => QUIZ_CATS.find(c=>c.key===k&&c.src==='sci'));
+
+  const artPool  = artKeys.length ? CARDS.filter(c => artKeys.includes(c.category.en)) : [];
+  const sciPool  = sciKeys.length ? SCIENCE_CARDS.filter(c => sciKeys.includes(c.category.en)) : [];
+
+  const allCards = shuffle([...artPool, ...sciPool]);
+  const sample   = allCards.slice(0, Math.min(15, allCards.length));
+
+  // Build title pools for wrong options
+  const artTitles = CARDS.map(c=>c.title[lang]);
+  const sciTitles = SCIENCE_CARDS.map(c=>c.title[lang]);
+  const artCats   = [...new Set(CARDS.map(c=>c.category[lang]))];
+  const sciCats   = [...new Set(SCIENCE_CARDS.map(c=>c.category[lang]))];
+  const artPeriods= [...new Set(CARDS.map(c=>c.period[lang]))];
+  const sciPeriods= [...new Set(SCIENCE_CARDS.map(c=>c.period[lang]))];
+
+  const poolMap = {
+    'art-title':  artTitles,
+    'art-cat':    artCats,
+    'art-period': artPeriods,
+    'sci-title':  sciTitles,
+    'sci-cat':    sciCats,
+    'sci-period': sciPeriods,
+  };
+
+  return sample.map(card => {
+    const isArt = !!artPool.find(a=>a.id===card.id);
+    const tpl   = cardToQuestion(card, isArt);
+    const pool  = poolMap[tpl.pool] || [...artTitles, ...sciTitles];
+    const { options, answerIndex } = makeOptions(tpl.answer, pool);
+    return {
+      question: tpl.q,
+      options,
+      answer: answerIndex,
+      cat: isArt ? card.category[lang] : card.category[lang],
+    };
+  });
+}
+
+/* ── Quiz state ────────────────────────────────────── */
+let quizQuestions  = [];
+let quizQIndex     = 0;
+let quizScore      = 0;
+let quizSelected   = new Set();
+let quizAnswered   = false;
+
+/* ── Quiz DOM ──────────────────────────────────────── */
+const quizView       = document.getElementById('quizView');
+const quizSetup      = document.getElementById('quizSetup');
+const quizActive     = document.getElementById('quizActive');
+const quizResult     = document.getElementById('quizResult');
+const quizCatGrid    = document.getElementById('quizCatGrid');
+const quizStartBtn   = document.getElementById('quizStartBtn');
+const quizRestartBtn = document.getElementById('quizRestartBtn');
+const quizBackBtn    = document.getElementById('quizBackBtn');
+const qProgressFill  = document.getElementById('qProgressFill');
+const qCounter       = document.getElementById('qCounter');
+const qScore         = document.getElementById('qScore');
+const qCatBadge      = document.getElementById('qCatBadge');
+const qQuestion      = document.getElementById('qQuestion');
+const qOptions       = document.getElementById('qOptions');
+const qFeedback      = document.getElementById('qFeedback');
+const qNextBtn       = document.getElementById('qNextBtn');
+const qResultScore   = document.getElementById('qResultScore');
+const qResultPct     = document.getElementById('qResultPct');
+const qResultLabel   = document.getElementById('qResultLabel');
+const quizTabBtn     = document.getElementById('quizTabBtn');
+
+/* ── Build category picker ─────────────────────────── */
+function buildCatGrid() {
+  quizCatGrid.innerHTML = '';
+
+  // Only show cats that have cards
+  const available = QUIZ_CATS.filter(cat => {
+    if (cat.src === 'art') return CARDS.some(c=>c.category.en===cat.key);
+    return SCIENCE_CARDS.some(c=>c.category.en===cat.key);
+  });
+
+  available.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-cat-tile';
+    btn.textContent = cat.label[lang];
+    btn.dataset.key = cat.key;
+    if (quizSelected.has(cat.key)) btn.classList.add('selected');
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('selected');
+      if (quizSelected.has(cat.key)) quizSelected.delete(cat.key);
+      else quizSelected.add(cat.key);
+      quizStartBtn.disabled = (quizSelected.size === 0);
+    });
+    quizCatGrid.appendChild(btn);
+  });
+
+  quizStartBtn.disabled = (quizSelected.size === 0);
+  const ui = UI[lang];
+  document.getElementById('quizSetupTitle').textContent = lang==='pl' ? 'Wybierz kategorie quizu' : 'Choose quiz categories';
+  document.getElementById('quizSetupSub').textContent   = lang==='pl' ? 'Możesz wybrać jedną lub więcej' : 'You can select one or more';
+  quizStartBtn.textContent  = lang==='pl' ? 'Rozpocznij Quiz →' : 'Start Quiz →';
+}
+
+/* ── Start quiz ────────────────────────────────────── */
+function startQuiz() {
+  quizQuestions = buildQuiz([...quizSelected]);
+  if (!quizQuestions.length) return;
+  quizQIndex  = 0;
+  quizScore   = 0;
+  quizAnswered= false;
+  quizSetup.classList.add('view-hidden');
+  quizResult.classList.add('view-hidden');
+  quizActive.classList.remove('view-hidden');
+  renderQuizQ();
+}
+
+/* ── Render question ───────────────────────────────── */
+function renderQuizQ() {
+  const q   = quizQuestions[quizQIndex];
+  const pct = (quizQIndex / quizQuestions.length) * 100;
+  qProgressFill.style.width = pct + '%';
+  qCounter.textContent  = `${quizQIndex + 1} / ${quizQuestions.length}`;
+  qScore.textContent    = `✓ ${quizScore}`;
+  qCatBadge.textContent = q.cat;
+  qQuestion.textContent = q.question;
+  qFeedback.textContent = '';
+  qFeedback.className   = 'quiz-feedback';
+  qNextBtn.classList.add('view-hidden');
+  quizAnswered = false;
+
+  qOptions.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className   = 'quiz-option';
+    btn.innerHTML   = `<span class="quiz-opt-letter">${'ABCD'[i]}.</span> ${opt}`;
+    btn.addEventListener('click', () => answerQuiz(i));
+    qOptions.appendChild(btn);
+  });
+}
+
+/* ── Answer ────────────────────────────────────────── */
+function answerQuiz(chosen) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const q       = quizQuestions[quizQIndex];
+  const correct = (chosen === q.answer);
+  if (correct) quizScore++;
+
+  qOptions.querySelectorAll('.quiz-option').forEach((btn, i) => {
+    if (i === q.answer) btn.classList.add('correct');
+    else if (i === chosen && !correct) btn.classList.add('wrong');
+    btn.disabled = true;
+  });
+
+  qFeedback.textContent = correct
+    ? (lang==='pl' ? '✓ Poprawnie!' : '✓ Correct!')
+    : (lang==='pl' ? `✗ Poprawna odpowiedź: ${q.options[q.answer]}` : `✗ Correct answer: ${q.options[q.answer]}`);
+  qFeedback.className = 'quiz-feedback ' + (correct ? 'ok' : 'err');
+  qNextBtn.textContent = (quizQIndex + 1 < quizQuestions.length)
+    ? (lang==='pl' ? 'Dalej →' : 'Next →')
+    : (lang==='pl' ? 'Zobacz wynik →' : 'See result →');
+  qNextBtn.classList.remove('view-hidden');
+}
+
+/* ── Next question / finish ────────────────────────── */
+qNextBtn.addEventListener('click', () => {
+  quizQIndex++;
+  if (quizQIndex >= quizQuestions.length) showQuizResult();
+  else renderQuizQ();
+});
+
+function showQuizResult() {
+  quizActive.classList.add('view-hidden');
+  quizResult.classList.remove('view-hidden');
+  const pct = Math.round((quizScore / quizQuestions.length) * 100);
+  qResultScore.textContent = `${quizScore} / ${quizQuestions.length}`;
+  qResultPct.textContent   = `${pct}%`;
+  qResultLabel.textContent = lang==='pl' ? 'Twój wynik' : 'Your score';
+  quizRestartBtn.textContent = lang==='pl' ? 'Zagraj ponownie' : 'Play again';
+  quizBackBtn.textContent    = lang==='pl' ? '← Zmień kategorie' : '← Change categories';
+  progressFill.style.width   = '100%';
+}
+
+quizStartBtn.addEventListener('click', startQuiz);
+quizRestartBtn.addEventListener('click', startQuiz);
+quizBackBtn.addEventListener('click', () => {
+  quizResult.classList.add('view-hidden');
+  quizActive.classList.add('view-hidden');
+  quizSetup.classList.remove('view-hidden');
+  buildCatGrid();
+});
+
+/* ── Patch showView to include quiz ──────────────────── */
+const _showViewWithQuiz = showView;
+showView = function(v) {
+  view = v;
+  document.getElementById('cardsView').classList.toggle('view-hidden', v !== 'cards');
+  document.getElementById('vocabView').classList.toggle('view-hidden',  v !== 'vocab');
+  document.getElementById('scienceView').classList.toggle('view-hidden',v !== 'science');
+  quizView.classList.toggle('view-hidden', v !== 'quiz');
+
+  document.getElementById('cardsTabBtn').classList.toggle('tab-active',   v === 'cards');
+  document.getElementById('scienceTabBtn').classList.toggle('tab-active', v === 'science');
+  document.getElementById('vocabTabBtn').classList.toggle('tab-active',   v === 'vocab');
+  quizTabBtn.classList.toggle('tab-active', v === 'quiz');
+
+  const catFilters = document.getElementById('catFilters');
+  if (catFilters) catFilters.style.display = (v === 'cards') ? '' : 'none';
+
+  progressFill.style.width = '0%';
+
+  if (v === 'quiz')    buildCatGrid();
+  else if (v === 'science') renderSci(false);
+  else if (v === 'vocab')   renderVocab(false);
+  else render(false);
+};
+
+quizTabBtn.addEventListener('click', () => showView('quiz'));
+
+/* Re-init */
+showView('cards');
