@@ -257,7 +257,7 @@ function setKws(containerId, kws) {
 
 /* ── State ───────────────────────────────────────────── */
 const S = {
-  lang:          'pl',
+  lang:          'en',
   view:          'cards',
   // art cards
   deck:          [],
