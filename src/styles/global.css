@@ -485,6 +485,44 @@ button { font:inherit; border:none; background:none; cursor:pointer; color:inher
 .chip--fav { color:rgba(232,96,96,0.75); border-color:rgba(232,96,96,0.25); }
 .chip--fav.active { color:#e86060; border-color:rgba(232,96,96,0.5); background:rgba(232,96,96,0.1); }
 
+/* ── Image gallery ───────────────────────────────────── */
+.gal-nav {
+  position:absolute;
+  bottom:0; left:0; right:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  background:linear-gradient(transparent, rgba(0,0,0,0.6));
+  opacity:0;
+  transition:opacity 0.22s;
+  pointer-events:none;
+}
+.card:hover .gal-nav,
+.card:focus-visible .gal-nav { opacity:1; pointer-events:auto; }
+.gal-arrow {
+  width:28px; height:28px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(6px);
+  color:rgba(255,255,255,0.9);
+  font-size:18px;
+  line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  transition:background 0.18s, transform 0.18s var(--spring);
+  flex-shrink:0;
+}
+.gal-arrow:hover { background:rgba(255,255,255,0.3); transform:scale(1.12); }
+.gal-dots { display:flex; gap:5px; align-items:center; }
+.gal-dot {
+  width:5px; height:5px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.35);
+  transition:background 0.18s, transform 0.18s;
+}
+.gal-dot.active { background:rgba(255,255,255,0.9); transform:scale(1.3); }
+
 /* ── Navigation animations ───────────────────────────── */
 @keyframes slideFromRight {
   from { opacity:0; transform:translateX(24px); }

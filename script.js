@@ -4,73 +4,85 @@ const WM = (file, w = 800) =>
 const CARDS = [
   { id:1, category:{en:'Eras',pl:'Epoki'}, title:{en:'The Renaissance',pl:'Renesans'}, period:{en:'14th – 17th Century',pl:'XIV – XVII wiek'},
     hint:{en:'Began in 14th-century Florence — a "rebirth" of classical Greek and Roman learning, beauty, and humanism',pl:'Zrodził się w XIV-wiecznej Florencji — „odrodzenie" klasycznej kultury greckiej i rzymskiej, piękna i humanizmu'},
-    image:WM('"The_School_of_Athens"_by_Raffaello_Sanzio_da_Urbino.jpg'), imageAlt:'Raphael — The School of Athens, c. 1509–11', imageCredit:'Raphael · The School of Athens · c. 1509–11 · Vatican',
+    images:[WM('"The_School_of_Athens"_by_Raffaello_Sanzio_da_Urbino.jpg'), WM('Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg'), WM('Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg')],
+    imageAlt:'Raphael — The School of Athens, c. 1509–11', imageCredit:'Raphael · The School of Athens · c. 1509–11 · Vatican / da Vinci · Mona Lisa / Botticelli · Birth of Venus',
     keyArtists:['Leonardo da Vinci','Michelangelo','Raphael','Sandro Botticelli','Donatello'],
     philosophy:{en:'Humanist revival of classical antiquity through mathematical linear perspective, anatomical precision, and the idealised human figure as the measure of all things.',pl:'Humanistyczne odrodzenie starożytności przez matematyczną perspektywę liniową, precyzję anatomiczną i wyidealizowaną postać ludzką jako miarę wszechrzeczy.'},
     keywords:{en:['Humanism','Linear Perspective','Naturalism','Florence'],pl:['Humanizm','Perspektywa liniowa','Naturalizm','Florencja']}},
   { id:2, category:{en:'Eras',pl:'Epoki'}, title:{en:'The Baroque',pl:'Barok'}, period:{en:'17th – Early 18th Century',pl:'XVII – pocz. XVIII w.'},
     hint:{en:'Counter-Reformation grandeur — extreme drama, dark shadows, and ornate excess meant to overwhelm the senses',pl:'Przepych kontrreformacji — skrajny dramatyzm, ciemne cienie i ornamentalna przesada mające przytłaczać zmysły'},
-    image:WM('1665_Girl_with_a_Pearl_Earring.jpg'), imageAlt:'Johannes Vermeer — Girl with a Pearl Earring, 1665', imageCredit:'Vermeer · Girl with a Pearl Earring · 1665 · Mauritshuis, The Hague',
+    images:[WM('1665_Girl_with_a_Pearl_Earring.jpg'), WM('Rembrandt_-_Self-Portrait_at_the_Age_of_34.jpg')],
+    imageAlt:'Johannes Vermeer — Girl with a Pearl Earring, 1665', imageCredit:'Vermeer · Girl with a Pearl Earring · 1665 / Rembrandt · Self-Portrait · 1640',
     keyArtists:['Caravaggio','Rembrandt van Rijn','Johannes Vermeer','Peter Paul Rubens','Gian Lorenzo Bernini'],
     philosophy:{en:'Theatricality, movement, and tenebrism used to produce emotional intensity and religious awe — art as drama.',pl:'Teatralność, ruch i tenebryzmizm stosowane do wywoływania emocjonalnego napięcia i religijnego lęku — sztuka jako dramat.'},
     keywords:{en:['Tenebrism','Counter-Reformation','Drama','Chiaroscuro'],pl:['Tenebryzmizm','Kontrreformacja','Dramatyzm','Chiaroscuro']}},
   { id:3, category:{en:'Eras',pl:'Epoki'}, title:{en:'Impressionism',pl:'Impresjonizm'}, period:{en:'c. 1860 – 1886',pl:'ok. 1860 – 1886'},
     hint:{en:'Named mockingly after Monet\'s painting "Impression, Sunrise" by a critic who meant to insult it',pl:'Nazwa pochodzi z kpiny krytyka po obrazie Moneta „Impresja, wschód słońca" — miała być obelgą'},
-    image:WM('Monet_-_Impression,_Sunrise.jpg'), imageAlt:'Claude Monet — Impression, Sunrise, 1872', imageCredit:'Claude Monet · Impression, Sunrise · 1872 · Musée Marmottan, Paris',
+    images:[WM('Monet_-_Impression,_Sunrise.jpg'), WM('Pierre-Auguste_Renoir_-_Dance_at_Le_moulin_de_la_Galette.jpg'), WM('Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg')],
+    imageAlt:'Claude Monet — Impression, Sunrise, 1872', imageCredit:'Monet · Impression, Sunrise · 1872 / Renoir · Moulin de la Galette · 1876 / Monet · Water Lilies · 1906',
     keyArtists:['Claude Monet','Pierre-Auguste Renoir','Edgar Degas','Camille Pissarro','Berthe Morisot'],
     philosophy:{en:'Capture the transient effects of light and atmosphere en plein air with loose brushwork — prioritising momentary sensation over academic polish.',pl:'Uchwycenie ulotnych efektów światła i atmosfery w plenerze swobodnym pociągnięciem pędzla — chwilowe wrażenie ponad akademicką perfekcją.'},
     keywords:{en:['En Plein Air','Broken Brushwork','Light','Everyday Life'],pl:['Plenery','Swobodny pędzel','Światło','Życie codzienne']}},
   { id:4, category:{en:'Eras',pl:'Epoki'}, title:{en:'Romanticism',pl:'Romantyzm'}, period:{en:'c. 1780 – 1850',pl:'ok. 1780 – 1850'},
     hint:{en:'A revolt against Enlightenment reason — wild nature, emotion, and the "sublime" terror of the infinite',pl:'Bunt przeciw rozumowi Oświecenia — dzika natura, emocje i „wzniosły" lęk wobec nieskończoności'},
-    image:WM('Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg'), imageAlt:'Caspar David Friedrich — Wanderer above the Sea of Fog, c. 1818', imageCredit:'C. D. Friedrich · Wanderer above the Sea of Fog · c. 1818 · Hamburger Kunsthalle',
+    images:[WM('Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg'), WM('Eugène_Delacroix_-_La_liberté_guidant_le_peuple.jpg')],
+    imageAlt:'Caspar David Friedrich — Wanderer above the Sea of Fog, c. 1818', imageCredit:'C. D. Friedrich · Wanderer · 1818 / Delacroix · Liberty Leading the People · 1830',
     keyArtists:['Caspar David Friedrich','J.M.W. Turner','Eugène Delacroix','Théodore Géricault','Francisco Goya'],
     philosophy:{en:'Privileged emotion, imagination, and the sublime over rationalism. The solitary individual confronting vast, indifferent nature became the defining Romantic image.',pl:'Emocja, wyobraźnia i wzniosłość ponad racjonalizmem. Samotna jednostka wobec rozległej, obojętnej natury stała się ikonicznym obrazem romantyzmu.'},
     keywords:{en:['The Sublime','Emotion','Nature','Individualism'],pl:['Wzniosłość','Emocja','Natura','Indywidualizm']}},
   { id:5, category:{en:'Styles',pl:'Style'}, title:{en:'Surrealism',pl:'Surrealizm'}, period:{en:'Founded 1924',pl:'od 1924'},
     hint:{en:'André Breton\'s Manifesto called for art from the unconscious — dreamlike imagery that defies waking logic',pl:'Manifest André Bretona wzywał do sztuki z nieświadomości — oniryczne obrazy przeczące logice jawy'},
-    image:WM('John_Henry_Fuseli_-_The_Nightmare.JPG'), imageAlt:'Henry Fuseli — The Nightmare, 1781', imageCredit:'Henry Fuseli · The Nightmare · 1781 · Detroit Institute of Arts',
+    images:[WM('John_Henry_Fuseli_-_The_Nightmare.JPG'), WM('The_Persistence_of_Memory.jpg')],
+    imageAlt:'Henry Fuseli — The Nightmare, 1781', imageCredit:'Fuseli · The Nightmare · 1781 / Dalí · The Persistence of Memory · 1931',
     keyArtists:['Salvador Dalí','René Magritte','Max Ernst','Joan Miró','Frida Kahlo'],
     philosophy:{en:'Liberate the unconscious through automatism and dream imagery. Juxtapose unrelated objects in impossible contexts to create uncanny, thought-provoking dissonance.',pl:'Wyzwolenie nieświadomości przez automatyzm i oniryczne obrazy. Zestawianie niepowiązanych obiektów w niemożliwych kontekstach — niesamowity, prowokujący dysonans.'},
     keywords:{en:['Automatism','The Uncanny','Freudian Dreams','Irrational'],pl:['Automatyzm','Niesamowitość','Sny freudowskie','Irracjonalizm']}},
   { id:6, category:{en:'Styles',pl:'Style'}, title:{en:'Abstract Expressionism',pl:'Ekspresjonizm Abstrakcyjny'}, period:{en:'1940s – 1950s',pl:'lata 40.–50. XX w.'},
     hint:{en:'America\'s first globally dominant art movement — New York overtook Paris as the world\'s art capital',pl:'Pierwszy globalnie dominujący ruch artystyczny Ameryki — Nowy Jork przejął od Paryża palmę pierwszeństwa'},
-    image:WM('Vassily_Kandinsky,_1911_-_Composition_No_4.jpg'), imageAlt:'Wassily Kandinsky — Composition No. 4, 1911', imageCredit:'Wassily Kandinsky · Composition No. 4 · 1911 · Kunstsammlung NRW, Düsseldorf',
+    images:[WM('Vassily_Kandinsky,_1911_-_Composition_No_4.jpg'), WM('Kandinsky_-_Composition_X.jpg')],
+    imageAlt:'Wassily Kandinsky — Composition No. 4, 1911', imageCredit:'Kandinsky · Composition IV · 1911 / Kandinsky · Composition X · 1939',
     keyArtists:['Jackson Pollock','Mark Rothko','Willem de Kooning','Franz Kline','Lee Krasner'],
     philosophy:{en:'Pure emotional expression through gesture, scale, and colour — the act of painting becomes the subject. Split into Action Painting (gestural) and Color Field (meditative).',pl:'Czysta ekspresja emocji przez gest, skalę i kolor — sam akt malowania staje się tematem. Podział na Action Painting (gestyczny) i Color Field (medytacyjny).'},
     keywords:{en:['Action Painting','Color Field','Gesture','New York School'],pl:['Action Painting','Color Field','Gest','Szkoła nowojorska']}},
   { id:7, category:{en:'Styles',pl:'Style'}, title:{en:'Cubism',pl:'Kubizm'}, period:{en:'c. 1907 – 1930s',pl:'ok. 1907 – lata 30.'},
     hint:{en:'Co-invented by Picasso and Braque after being inspired by Cézanne\'s geometric analysis and African masks',pl:'Współtworzony przez Picassa i Braque\'a pod wpływem geometrycznej analizy Cézanne\'a i afrykańskich masek'},
-    image:WM('Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg'), imageAlt:'Juan Gris — Portrait of Pablo Picasso, 1912', imageCredit:'Juan Gris · Portrait of Pablo Picasso · 1912 · Art Institute of Chicago',
+    images:[WM('Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg'), WM("Les_Demoiselles_d'Avignon.jpg")],
+    imageAlt:'Juan Gris — Portrait of Pablo Picasso, 1912', imageCredit:"Juan Gris · Portrait of Picasso · 1912 / Picasso · Les Demoiselles d'Avignon · 1907",
     keyArtists:['Pablo Picasso','Georges Braque','Juan Gris','Fernand Léger','Robert Delaunay'],
     philosophy:{en:'Shatter the single-viewpoint illusion of the Renaissance by depicting objects from multiple simultaneous perspectives, flattened into fragmented geometric facets.',pl:'Rozbicie renesansowej iluzji jednego punktu widzenia — obiekty z wielu perspektyw jednocześnie, spłaszczone w geometryczne fragmenty.'},
     keywords:{en:['Facets','Multiple Viewpoints','Collage','Analytic & Synthetic'],pl:['Fasety','Wielość perspektyw','Kolaż','Analityczny i syntetyczny']}},
   { id:8, category:{en:'Styles',pl:'Style'}, title:{en:'Art Nouveau',pl:'Secesja'}, period:{en:'c. 1890 – 1910',pl:'ok. 1890 – 1910'},
     hint:{en:'Sinuous lines drawn from nature — flowing hair, plant stems, and peacock feathers translated into architecture and design',pl:'Faliste linie z natury — płynące włosy, łodygi roślin i pawie pióra przetłumaczone na architekturę i design'},
-    image:WM('The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg'), imageAlt:'Gustav Klimt — The Kiss, 1907–08', imageCredit:'Gustav Klimt · The Kiss · 1907–08 · Österreichische Galerie Belvedere, Vienna',
+    images:[WM('The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg'), WM('Alphonse_Mucha_-_1895_-_Gismonda.jpg')],
+    imageAlt:'Gustav Klimt — The Kiss, 1907–08', imageCredit:'Klimt · The Kiss · 1907–08 · Belvedere, Vienna / Mucha · Gismonda · 1895',
     keyArtists:['Gustav Klimt','Alphonse Mucha','Antoni Gaudí','Hector Guimard','Louis Comfort Tiffany'],
     philosophy:{en:'Unify fine and decorative arts through organic, sinuous forms. Elevate craft, reject industrial mass production, and embrace the total artwork (Gesamtkunstwerk).',pl:'Unifikacja sztuk pięknych i użytkowych przez organiczne, faliste formy natury. Rehabilitacja rzemiosła i idea dzieła totalnego (Gesamtkunstwerk).'},
     keywords:{en:['Organic Form','Total Artwork','Decorative Arts','Symbolism'],pl:['Forma organiczna','Dzieło totalne','Sztuka użytkowa','Symbolizm']}},
   { id:9, category:{en:'Techniques',pl:'Techniki'}, title:{en:'Chiaroscuro',pl:'Chiaroscuro'}, period:{en:'Renaissance onward',pl:'od Renesansu'},
     hint:{en:'Italian: chiaro (light) + scuro (dark) — modelling solid form through gradations of shadow',pl:'Wł.: chiaro (jasny) + scuro (ciemny) — modelowanie bryły przez stopniowanie cienia'},
-    image:WM('Caravaggio_-_Giuditta_e_Oloferne_(ca._1599).jpg'), imageAlt:'Caravaggio — Judith Beheading Holofernes, c. 1598–99', imageCredit:"Caravaggio · Judith Beheading Holofernes · c. 1598–99 · Galleria Nazionale d'Arte Antica, Rome",
+    images:[WM('Caravaggio_-_Giuditta_e_Oloferne_(ca._1599).jpg'), WM('Rembrandt_-_The_Night_Watch.jpg')],
+    imageAlt:'Caravaggio — Judith Beheading Holofernes, c. 1598–99', imageCredit:"Caravaggio · Judith · c. 1598–99 / Rembrandt · The Night Watch · 1642",
     keyArtists:['Caravaggio (tenebrism)','Rembrandt van Rijn','Leonardo da Vinci (sfumato)','Vermeer','Georges de La Tour'],
     philosophy:{en:'Create three-dimensionality and psychological drama through the radical opposition of light and dark. In tenebrism, figures emerge from pitch-black voids lit by a single raking source.',pl:'Trójwymiarowość i dramatyzm psychologiczny przez radykalną opozycję światła i ciemności. W tenebryzmie postaci wyłaniają się z czerni oświetlone jednym bocznym źródłem.'},
     keywords:{en:['Tenebrism','Sfumato','Modelling','Volume'],pl:['Tenebryzmizm','Sfumato','Modelunek','Bryła']}},
   { id:10, category:{en:'Techniques',pl:'Techniki'}, title:{en:'Pointillism',pl:'Pointylizm'}, period:{en:'c. 1886 onward',pl:'od ok. 1886'},
     hint:{en:'Pure-colour dots placed side-by-side — the viewer\'s eye optically mixes them at a distance rather than the palette',pl:'Czyste barwne kropki obok siebie — oko widza miesza je optycznie z odległości, a nie paleta malarska'},
-    image:WM('A_Sunday_on_La_Grande_Jatte,_Georges_Seurat,_1884.jpg'), imageAlt:'Georges Seurat — A Sunday on La Grande Jatte, 1884–86', imageCredit:'Georges Seurat · A Sunday on La Grande Jatte · 1884–86 · Art Institute of Chicago',
+    images:[WM('A_Sunday_on_La_Grande_Jatte,_Georges_Seurat,_1884.jpg'), WM('Paul_Signac_-_Portrait_of_Felix_Feneon.jpg')],
+    imageAlt:'Georges Seurat — A Sunday on La Grande Jatte, 1884–86', imageCredit:'Seurat · La Grande Jatte · 1884–86 · Art Institute of Chicago / Signac · Portrait of Fénéon · 1890',
     keyArtists:['Georges Seurat','Paul Signac','Camille Pissarro','Maximilien Luce'],
     philosophy:{en:'Apply unmixed colour in systematic dots (Divisionism), exploiting simultaneous-contrast theory to produce greater luminosity than blended pigments.',pl:'Nakładanie niemieszanego koloru systematycznymi kropkami (dywizjonizm), wykorzystując teorię kontrastu równoczesnego dla większej luminancji niż przy mieszaniu pigmentów.'},
     keywords:{en:['Divisionism','Optical Mixing','Colour Theory','Neo-Impressionism'],pl:['Dywizjonizm','Mieszanie optyczne','Teoria koloru','Neoimpresjonizm']}},
   { id:11, category:{en:'Techniques',pl:'Techniki'}, title:{en:'Fresco',pl:'Fresk'}, period:{en:'Ancient Greece – Renaissance',pl:'Starożytna Grecja – Renesans'},
     hint:{en:'Italian for "fresh" — pigment dissolved in water is applied to still-wet lime plaster and becomes part of the wall',pl:'Wł. „świeży" — pigment w wodzie nakłada się na mokry wapiennik i trwale zespala ze ścianą'},
-    image:WM('Michelangelo_-_Creation_of_Adam_(cropped).jpg'), imageAlt:'Michelangelo — The Creation of Adam, Sistine Chapel, 1508–12', imageCredit:'Michelangelo · The Creation of Adam · 1508–12 · Sistine Chapel, Vatican',
+    images:[WM('Michelangelo_-_Creation_of_Adam_(cropped).jpg'), WM('Raphael_-_The_Transfiguration.jpg')],
+    imageAlt:'Michelangelo — The Creation of Adam, Sistine Chapel, 1508–12', imageCredit:'Michelangelo · Creation of Adam · 1508–12 · Sistine Chapel / Raphael · The Transfiguration · 1520',
     keyArtists:['Michelangelo','Raphael','Giotto di Bondone','Masaccio','Diego Rivera'],
     philosophy:{en:'Paint chemically bonded to the wall — permanent and impossible to touch up once dry. Each section (giornata) must be completed in a single day before the plaster sets.',pl:'Farba chemicznie związana ze ścianą — trwała i niemożliwa do poprawienia po wyschnięciu. Każda sekcja (giornata) musi zostać ukończona jednego dnia.'},
     keywords:{en:['Buon Fresco','Giornata','Lime Plaster','Permanent Bond'],pl:['Buon Fresco','Giornata','Wapiennik','Trwałe związanie']}},
   { id:12, category:{en:'Techniques',pl:'Techniki'}, title:{en:'Encaustic',pl:'Enkaustyka'}, period:{en:'Ancient Egypt – Present',pl:'Starożytny Egipt – dziś'},
     hint:{en:'From Greek enkaiein, "to burn in" — hot beeswax mixed with pigment, fused to the surface with heat',pl:'Z gr. enkaiein, „wypalać" — gorący wosk pszczeli z pigmentem, łączony z podłożem za pomocą ciepła'},
-    image:WM('Fayum-34.jpg'), imageAlt:'Fayum Mummy Portrait — encaustic on wood, c. 100–150 AD', imageCredit:'Fayum Mummy Portrait · encaustic on wood · c. 100–150 AD · Roman Egypt',
+    images:[WM('Fayum-34.jpg'), WM('Egyptian_mummy_portrait_of_a_young_woman.jpg')],
+    imageAlt:'Fayum Mummy Portrait — encaustic on wood, c. 100–150 AD', imageCredit:'Fayum Mummy Portraits · encaustic on wood · c. 100–150 AD · Roman Egypt',
     keyArtists:['Fayum portrait artists (1st–3rd c. AD)','Jasper Johns','Diego Rivera','Brice Marden'],
     philosophy:{en:'Build translucent, luminous layers of beeswax and pigment, fusing each with heat. The wax\'s depth and warm glow produces a presence impossible to achieve with oil or tempera.',pl:'Budowanie przezroczystych, świetlistych warstw wosku i pigmentu łączonych ciepłem. Głębia i ciepły blask wosku daje obecność nieosiągalną olejem ani temperą.'},
     keywords:{en:['Beeswax','Translucency','Fayum Portraits','Encaustic Wax'],pl:['Wosk pszczeli','Przezroczystość','Portrety fajumskie','Wosk enkaustyczny']}}
@@ -98,136 +110,207 @@ const VOCAB = [
   {term:{en:'Linear Perspective',pl:'Perspektywa liniowa'},def:{en:'A geometric system depicting 3D space on a flat surface, with parallel lines converging at a vanishing point on the horizon.',pl:'Geometryczny system odwzorowania przestrzeni trójwymiarowej: linie równoległe zbiegają się w punkcie zbiegu na horyzoncie.'}},
   {term:{en:'The Sublime',pl:'Wzniosłość'},def:{en:'An aesthetic quality of awe-inspiring vastness — in Romantic art, the terrifying beauty of wild nature that overwhelms human comprehension.',pl:'Estetyczna jakość budzącego trwogę ogromu — w romantyzmie: przerażające piękno dzikiej natury przytłaczające ludzki rozum.'}}
 ];
+
 const SCIENCE_CARDS = [
   {
-    id:'sci-1',
-    category:{en:'Physics',pl:'Fizyka'},
-    title:{en:'Marie Curie',pl:'Maria Curie-Skłodowska'},
-    period:{en:'1867 – 1934',pl:'1867 – 1934'},
-    hint:{en:'First person to win two Nobel Prizes — in Physics and Chemistry. Born in Warsaw.',pl:'Pierwsza osoba z dwoma Nagrodami Nobla — z fizyki i chemii. Urodzona w Warszawie.'},
-    image:WM('Marie_Curie_c1920.jpg'),
-    imageAlt:'Marie Curie, c. 1920',
-    imageCredit:'Marie Curie · fotografia ok. 1920 · domena publiczna',
+    id:'sci-1', category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Marie Curie',pl:'Maria Curie-Skłodowska'}, period:{en:'1867 – 1934',pl:'1867 – 1934'},
+    hint:{en:'First person to win two Nobel Prizes — in Physics (1903) and Chemistry (1911). Born in Warsaw, Poland.',pl:'Pierwsza osoba z dwoma Nagrodami Nobla — z fizyki (1903) i chemii (1911). Urodzona w Warszawie.'},
+    images:[WM('Marie_Curie_c1920.jpg'), WM('Pierre_and_Marie_Curie.jpg')],
+    imageAlt:'Marie Curie, c. 1920', imageCredit:'Marie Curie · c. 1920 / Pierre & Marie Curie · domena publiczna',
     field:{en:'Radioactivity, Nuclear Chemistry',pl:'Radioaktywność, Chemia Jądrowa'},
-    discoveries:{en:'Discovered polonium and radium; coined the term "radioactivity"; first woman to win a Nobel Prize (Physics 1903, Chemistry 1911).',pl:'Odkryła polon i rad; ukuła termin „radioaktywność"; pierwsza kobieta z Noblem (fizyka 1903, chemia 1911).'},
+    discoveries:{en:'Discovered polonium and radium; coined the term "radioactivity"; first woman to win a Nobel Prize; first person to win in two different sciences. Her research directly contributed to cancer radiotherapy. She died of aplastic anaemia caused by decades of radiation exposure.',pl:'Odkryła polon i rad; ukuła termin „radioaktywność"; pierwsza kobieta z Noblem; pierwsza osoba z nagrodami w dwóch dziedzinach nauki. Jej badania bezpośrednio przyczyniły się do radioterapii nowotworów. Zmarła na anemię aplastyczną spowodowaną dekadami narażenia na promieniowanie.'},
     keywords:{en:['Radioactivity','Polonium','Radium','Nobel Prize'],pl:['Radioaktywność','Polon','Rad','Nagroda Nobla']}
   },
   {
-    id:'sci-2',
-    category:{en:'Physics',pl:'Fizyka'},
-    title:{en:'Albert Einstein',pl:'Albert Einstein'},
-    period:{en:'1879 – 1955',pl:'1879 – 1955'},
-    hint:{en:'His 1905 "miracle year" produced four papers that each transformed a field of physics.',pl:'W swoim „cudownym roku" 1905 opublikował cztery artykuły, z których każdy odmienił dziedzinę fizyki.'},
-    image:WM('Einstein_1921_by_F_Schmutzer_-_restoration.jpg'),
-    imageAlt:'Albert Einstein, 1921',
-    imageCredit:'Albert Einstein · 1921 · F. Schmutzer · domena publiczna',
+    id:'sci-2', category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Albert Einstein',pl:'Albert Einstein'}, period:{en:'1879 – 1955',pl:'1879 – 1955'},
+    hint:{en:'His 1905 "miracle year" produced four papers that each individually transformed physics — and he was working as a patent clerk at the time.',pl:'W swoim „cudownym roku" 1905 opublikował cztery artykuły, z których każdy odmienił fizykę — pracował wtedy jako urzędnik patentowy.'},
+    images:[WM('Einstein_1921_by_F_Schmutzer_-_restoration.jpg'), WM('Einstein_blackboard_1931.jpg')],
+    imageAlt:'Albert Einstein, 1921', imageCredit:'Albert Einstein · 1921 · F. Schmutzer · domena publiczna',
     field:{en:'Theoretical Physics',pl:'Fizyka Teoretyczna'},
-    discoveries:{en:'Special and General Relativity (E=mc²); photoelectric effect (Nobel 1921); Brownian motion; laid foundations for quantum mechanics.',pl:'Szczególna i ogólna teoria względności (E=mc²); efekt fotoelektryczny (Nobel 1921); ruch Browna; podstawy mechaniki kwantowej.'},
+    discoveries:{en:'Special Relativity (1905): time slows and mass increases at high velocities; E=mc² shows mass and energy are equivalent. General Relativity (1915): gravity is the curvature of spacetime. Predicted black holes, gravitational waves (confirmed 2015), and gravitational lensing. Nobel Prize 1921 for the photoelectric effect, not relativity.',pl:'Szczególna teoria względności (1905): czas zwalnia, masa rośnie przy dużych prędkościach; E=mc² — masa i energia są równoważne. Ogólna teoria względności (1915): grawitacja to krzywizna czasoprzestrzeni. Przewidział czarne dziury, fale grawitacyjne (potwierdzone 2015) i soczewkowanie grawitacyjne. Nobel 1921 za efekt fotoelektryczny, nie za względność.'},
     keywords:{en:['Relativity','E=mc²','Spacetime','Photoelectric Effect'],pl:['Względność','E=mc²','Czasoprzestrzeń','Efekt fotoelektryczny']}
   },
   {
-    id:'sci-3',
-    category:{en:'Biology',pl:'Biologia'},
-    title:{en:'Charles Darwin',pl:'Karol Darwin'},
-    period:{en:'1809 – 1882',pl:'1809 – 1882'},
-    hint:{en:'His five-year voyage on HMS Beagle collecting specimens from the Galápagos changed our understanding of life.',pl:'Pięcioletnia podróż na HMS Beagle i okazy z Galapagos zmieniły nasze rozumienie życia.'},
-    image:WM('Charles_Darwin_by_Julia_Margaret_Cameron,_1868.jpg'),
-    imageAlt:'Charles Darwin, 1868',
-    imageCredit:'Charles Darwin · 1868 · Julia Margaret Cameron · domena publiczna',
+    id:'sci-3', category:{en:'Biology',pl:'Biologia'},
+    title:{en:'Charles Darwin',pl:'Karol Darwin'}, period:{en:'1809 – 1882',pl:'1809 – 1882'},
+    hint:{en:'His five-year voyage on HMS Beagle and specimens from the Galápagos changed our understanding of life on Earth.',pl:'Pięcioletnia podróż na HMS Beagle i okazy z Galapagos zmieniły nasze rozumienie życia na Ziemi.'},
+    images:[WM('Charles_Darwin_by_Julia_Margaret_Cameron,_1868.jpg'), WM("Darwin's_finches_by_Gould.jpg")],
+    imageAlt:'Charles Darwin, 1868', imageCredit:"Darwin · 1868 · Julia Margaret Cameron / Darwin's Finches · J. Gould · 1845",
     field:{en:'Evolutionary Biology, Natural History',pl:'Biologia Ewolucyjna, Historia Naturalna'},
-    discoveries:{en:'"On the Origin of Species" (1859): natural selection drives evolution; common ancestry of all life on Earth.',pl:'„O powstawaniu gatunków" (1859): dobór naturalny napędza ewolucję; wspólne pochodzenie całego życia na Ziemi.'},
+    discoveries:{en:'"On the Origin of Species" (1859): natural selection drives evolution — organisms with beneficial traits survive and reproduce more. All life on Earth shares a common ancestor. Darwin also explained sexual selection and studied coral reefs, barnacles, and the formation of soil by earthworms.',pl:'„O powstawaniu gatunków" (1859): dobór naturalny napędza ewolucję — organizmy z korzystnymi cechami przeżywają i rozmnażają się częściej. Całe życie na Ziemi ma wspólnego przodka. Darwin badał też dobór płciowy, rafy koralowe i tworzenie gleby przez dżdżownice.'},
     keywords:{en:['Natural Selection','Evolution','Adaptation','Galapagos'],pl:['Dobór naturalny','Ewolucja','Adaptacja','Galapagos']}
   },
   {
-    id:'sci-4',
-    category:{en:'Physics',pl:'Fizyka'},
-    title:{en:'Isaac Newton',pl:'Izaak Newton'},
-    period:{en:'1643 – 1727',pl:'1643 – 1727'},
-    hint:{en:'Developed calculus independently from Leibniz and wrote his three laws of motion during a plague lockdown.',pl:'Opracował rachunek różniczkowy niezależnie od Leibniza i sformułował trzy prawa ruchu podczas lockdownu z powodu dżumy.'},
-    image:WM('GodfreyKneller-IsaacNewton-1689.jpg'),
-    imageAlt:'Isaac Newton, 1689, by Godfrey Kneller',
-    imageCredit:'Isaac Newton · 1689 · Godfrey Kneller · domena publiczna',
+    id:'sci-4', category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Isaac Newton',pl:'Izaak Newton'}, period:{en:'1643 – 1727',pl:'1643 – 1727'},
+    hint:{en:'Developed calculus independently from Leibniz and wrote his three laws of motion during a plague lockdown in 1666.',pl:'Opracował rachunek różniczkowy niezależnie od Leibniza i sformułował trzy prawa ruchu podczas lockdownu dżumowego w 1666 roku.'},
+    images:[WM('GodfreyKneller-IsaacNewton-1689.jpg'), WM('NewtonsPrincipia.jpg')],
+    imageAlt:'Isaac Newton, 1689, by Godfrey Kneller', imageCredit:"Newton · 1689 · Godfrey Kneller / Newton's Principia · 1687",
     field:{en:'Classical Mechanics, Optics, Mathematics',pl:'Mechanika Klasyczna, Optyka, Matematyka'},
-    discoveries:{en:'Three laws of motion; universal gravitation; calculus; decomposed white light into spectrum with a prism.',pl:'Trzy prawa ruchu; grawitacja powszechna; rachunek różniczkowy; rozkład białego światła na widmo za pomocą pryzmatu.'},
-    keywords:{en:['Gravity','Laws of Motion','Calculus','Optics'],pl:['Grawitacja','Prawa ruchu','Rachunek różniczkowy','Optyka']}
+    discoveries:{en:'Three Laws of Motion (inertia, F=ma, action-reaction); Universal Law of Gravitation: F=Gm₁m₂/r². Mathematica Principia Naturalis (1687) unified terrestrial and celestial mechanics — the same gravity that pulls apples also governs planetary orbits. Developed calculus, decomposed white light into a spectrum.',pl:'Trzy prawa ruchu (bezwładność, F=ma, akcja-reakcja); powszechne prawo grawitacji: F=Gm₁m₂/r². Principia (1687) zunifikowały mechanikę ziemską i niebieską — ta sama grawitacja przyciąga jabłka i rządzi orbitami planet. Rozwinął rachunek różniczkowy, rozkład białego światła na widmo.'},
+    keywords:{en:['Gravity','Laws of Motion','Calculus','Principia'],pl:['Grawitacja','Prawa ruchu','Rachunek różniczkowy','Principia']}
   },
   {
-    id:'sci-5',
-    category:{en:'Astronomy',pl:'Astronomia'},
-    title:{en:'Nicolaus Copernicus',pl:'Mikołaj Kopernik'},
-    period:{en:'1473 – 1543',pl:'1473 – 1543'},
-    hint:{en:'A Polish canon who quietly revolutionised astronomy — his heliocentric model dethroned Earth from the centre of the universe.',pl:'Polski kanonik, który po cichu zrewolucjonizował astronomię — jego model heliocentryczny obalił Ziemię z centrum wszechświata.'},
-    image:WM('Nikolaus_Kopernikus.jpg'),
-    imageAlt:'Mikołaj Kopernik, portret ok. 1530',
-    imageCredit:'Mikołaj Kopernik · portret ok. 1530 · domena publiczna',
+    id:'sci-5', category:{en:'Astronomy',pl:'Astronomia'},
+    title:{en:'Nicolaus Copernicus',pl:'Mikołaj Kopernik'}, period:{en:'1473 – 1543',pl:'1473 – 1543'},
+    hint:{en:'A Polish canon who quietly revolutionised astronomy — he delayed publishing his heliocentric model for decades, fearing the Church\'s reaction.',pl:'Polski kanonik, który po cichu zrewolucjonizował astronomię — przez dekady zwlekał z publikacją modelu heliocentrycznego, obawiając się reakcji Kościoła.'},
+    images:[WM('Nikolaus_Kopernikus.jpg'), WM('Copernican_heliocentrism_diagram-2.jpg')],
+    imageAlt:'Mikołaj Kopernik, portret ok. 1530', imageCredit:'Kopernik · ok. 1530 / Diagram heliocentryczny · domena publiczna',
     field:{en:'Astronomy, Mathematics',pl:'Astronomia, Matematyka'},
-    discoveries:{en:'"De revolutionibus orbium coelestium" (1543): Sun — not Earth — is at the centre of the solar system. Launched the Copernican Revolution.',pl:'„De revolutionibus orbium coelestium" (1543): Słońce — nie Ziemia — jest centrum układu słonecznego. Zapoczątkował rewolucję kopernikańską.'},
-    keywords:{en:['Heliocentrism','Solar System','Copernican Revolution','Astronomy'],pl:['Heliocentryzm','Układ słoneczny','Rewolucja kopernikańska','Astronomia']}
+    discoveries:{en:'"De revolutionibus orbium coelestium" (1543): Sun — not Earth — is at the centre of the solar system. Earth completes one orbit per year and rotates daily. This "Copernican Revolution" overturned 1,400 years of Ptolemaic geocentrism and laid the foundation for Galileo, Kepler, and Newton.',pl:'„De revolutionibus orbium coelestium" (1543): Słońce — nie Ziemia — jest centrum układu słonecznego. Ziemia okrąża Słońce raz do roku i obraca się wokół własnej osi każdego dnia. Rewolucja kopernikańska obaliła 1400 lat geocentryzmu Ptolemeusza i dała podstawy Galileuszowi, Keplerowi i Newtonowi.'},
+    keywords:{en:['Heliocentrism','Solar System','Copernican Revolution','De Revolutionibus'],pl:['Heliocentryzm','Układ słoneczny','Rewolucja kopernikańska','De Revolutionibus']}
   },
   {
-    id:'sci-6',
-    category:{en:'Mathematics',pl:'Matematyka'},
-    title:{en:'Leonhard Euler',pl:'Leonhard Euler'},
-    period:{en:'1707 – 1783',pl:'1707 – 1783'},
-    hint:{en:'Produced mathematical papers even after going completely blind — he dictated them from memory.',pl:'Tworzył prace matematyczne nawet po całkowitej utracie wzroku — dyktował je z pamięci.'},
-    image:WM('Leonhard_Euler_-_edit1.jpg'),
-    imageAlt:'Leonhard Euler, portret ok. 1753',
-    imageCredit:'Leonhard Euler · ok. 1753 · domena publiczna',
+    id:'sci-6', category:{en:'Mathematics',pl:'Matematyka'},
+    title:{en:'Leonhard Euler',pl:'Leonhard Euler'}, period:{en:'1707 – 1783',pl:'1707 – 1783'},
+    hint:{en:'Produced mathematical papers even after going completely blind — he dictated them from memory, averaging one paper per week.',pl:'Tworzył prace matematyczne nawet po całkowitej utracie wzroku — dyktował je z pamięci, średnio jedną tygodniowo.'},
+    images:[WM('Leonhard_Euler_-_edit1.jpg')],
+    imageAlt:'Leonhard Euler, portret ok. 1753', imageCredit:'Leonhard Euler · ok. 1753 · domena publiczna',
     field:{en:'Mathematics, Physics, Astronomy',pl:'Matematyka, Fizyka, Astronomia'},
-    discoveries:{en:"Euler's identity (e^iπ + 1 = 0); graph theory (Königsberg bridges); notation f(x), Σ, i, e, π; prolific author of ~92 volumes.",pl:'Wzór Eulera (e^iπ + 1 = 0); teoria grafów (mosty królewieckie); notacje f(x), Σ, i, e, π; ok. 92 tomy prac.'},
-    keywords:{en:["Euler's Identity",'Graph Theory','Number Theory','Mathematical Notation'],pl:['Wzór Eulera','Teoria grafów','Teoria liczb','Notacja matematyczna']}
+    discoveries:{en:"Euler's Identity: e^(iπ) + 1 = 0 — considered the most beautiful equation in mathematics, linking five fundamental constants. Founded graph theory (Königsberg Bridge Problem, 1736). Introduced standard notation: f(x), Σ, i (imaginary unit), e (Euler's number), π. Author of ~92 volumes — the most prolific mathematician in history.",pl:'Wzór Eulera: e^(iπ) + 1 = 0 — uznawany za najpiękniejsze równanie w matematyce, łączące pięć fundamentalnych stałych. Założyciel teorii grafów (problem mostów królewieckich, 1736). Wprowadził standardowe notacje: f(x), Σ, i (jednostka urojona), e, π. Autor ok. 92 tomów — najplodniejszy matematyk w historii.'},
+    keywords:{en:["Euler's Identity",'Graph Theory','Number Theory','e^iπ+1=0'],pl:['Wzór Eulera','Teoria grafów','Teoria liczb','e^iπ+1=0']}
   },
   {
-    id:'sci-7',
-    category:{en:'Chemistry',pl:'Chemia'},
-    title:{en:'Dmitri Mendeleev',pl:'Dmitrij Mendelejew'},
-    period:{en:'1834 – 1907',pl:'1834 – 1907'},
-    hint:{en:'He dreamed of the complete periodic table and was able to predict the properties of elements not yet discovered.',pl:'Przyśniła mu się kompletna tablica układu okresowego — był w stanie przewidzieć właściwości jeszcze nieodkrytych pierwiastków.'},
-    image:WM('Mendeleev_by_repin.jpg'),
-    imageAlt:'Dmitri Mendeleev, portret Ilji Repina, 1885',
-    imageCredit:'Dmitrij Mendelejew · 1885 · Ilja Repin · domena publiczna',
+    id:'sci-7', category:{en:'Chemistry',pl:'Chemia'},
+    title:{en:'Dmitri Mendeleev',pl:'Dmitrij Mendelejew'}, period:{en:'1834 – 1907',pl:'1834 – 1907'},
+    hint:{en:'He organised the Periodic Table while writing a chemistry textbook — and predicted the properties of undiscovered elements with remarkable accuracy.',pl:'Stworzył układ okresowy, pisząc podręcznik chemii — i z niezwykłą dokładnością przewidział właściwości jeszcze nieodkrytych pierwiastków.'},
+    images:[WM('Mendeleev_by_repin.jpg'), WM("Mendeleev's_1871_periodic_table.png")],
+    imageAlt:'Dmitri Mendeleev, portret Ilji Repina, 1885', imageCredit:'Mendelejew · 1885 · Ilja Repin / Układ okresowy Mendelejewa · 1871',
     field:{en:'Chemistry',pl:'Chemia'},
-    discoveries:{en:'Created the Periodic Table of Elements (1869), organising 63 known elements by atomic weight and predicting undiscovered ones (gallium, germanium, scandium).',pl:'Stworzył układ okresowy pierwiastków (1869), porządkując 63 znane pierwiastki według masy atomowej i przewidując nieodkryte (gal, german, skandium).'},
-    keywords:{en:['Periodic Table','Elements','Atomic Mass','Prediction'],pl:['Układ okresowy','Pierwiastki','Masa atomowa','Przepowiednia']}
+    discoveries:{en:'Periodic Table of Elements (1869): organised 63 known elements by atomic weight and valence. Left deliberate gaps for undiscovered elements and predicted their properties. Gallium (1875), scandium (1879), and germanium (1886) were later found matching his predictions almost exactly.',pl:'Układ okresowy pierwiastków (1869): uporządkował 63 znane pierwiastki według masy atomowej i wartościowości. Pozostawił celowe luki dla nieodkrytych pierwiastków i przewidział ich właściwości. Gal (1875), skandium (1879) i german (1886) odkryto niemal dokładnie zgodnie z jego przewidywaniami.'},
+    keywords:{en:['Periodic Table','Elements','Atomic Weight','Prediction'],pl:['Układ okresowy','Pierwiastki','Masa atomowa','Przepowiednia']}
   },
   {
-    id:'sci-8',
-    category:{en:'Biology',pl:'Biologia'},
-    title:{en:'Gregor Mendel',pl:'Gregor Mendel'},
-    period:{en:'1822 – 1884',pl:'1822 – 1884'},
-    hint:{en:'An Augustinian friar who discovered the laws of inheritance by patiently crossbreeding 29,000 pea plants in his monastery garden.',pl:'Augustiański zakonnik, który odkrył prawa dziedziczenia, krzyżując cierpliwie 29 000 roślin grochu w klasztornym ogrodzie.'},
-    image:WM('Gregor_Mendel_2.jpg'),
-    imageAlt:'Gregor Mendel, ok. 1880',
-    imageCredit:'Gregor Mendel · ok. 1880 · domena publiczna',
+    id:'sci-8', category:{en:'Biology',pl:'Biologia'},
+    title:{en:'Gregor Mendel',pl:'Gregor Mendel'}, period:{en:'1822 – 1884',pl:'1822 – 1884'},
+    hint:{en:'An Augustinian friar who discovered the laws of inheritance by crossbreeding 29,000 pea plants — his work was ignored for 35 years.',pl:'Augustiański zakonnik, który odkrył prawa dziedziczenia, krzyżując 29 000 roślin grochu — jego praca była ignorowana przez 35 lat.'},
+    images:[WM('Gregor_Mendel_2.jpg'), WM('Mendel_peas.jpg')],
+    imageAlt:'Gregor Mendel, ok. 1880', imageCredit:'Gregor Mendel · ok. 1880 / Ilustracja grochu · domena publiczna',
     field:{en:'Genetics, Botany',pl:'Genetyka, Botanika'},
-    discoveries:{en:'Laws of Segregation and Independent Assortment (1866) — the foundation of classical genetics. Discovered dominant and recessive traits.',pl:'Prawa segregacji i niezależnego rozdziału (1866) — fundament klasycznej genetyki. Odkrył cechy dominujące i recesywne.'},
+    discoveries:{en:'Laws of Segregation and Independent Assortment (1866): each organism inherits two versions of each trait (one from each parent); traits are passed independently. Discovered dominant and recessive traits. His work was rediscovered in 1900 and became the foundation of genetics — later unified with Darwin\'s evolution in the Modern Synthesis.',pl:'Prawa segregacji i niezależnego rozdziału (1866): każdy organizm dziedziczy dwie wersje każdej cechy (po jednej od każdego rodzica); cechy przekazywane są niezależnie. Odkrył cechy dominujące i recesywne. Jego praca odkryta na nowo w 1900 roku stała się fundamentem genetyki — zjednoczonej z ewolucją Darwina w Nowoczesnej Syntezie.'},
     keywords:{en:['Genetics','Heredity','Dominant & Recessive','Pea Plants'],pl:['Genetyka','Dziedziczność','Dominujące i recesywne','Rośliny grochu']}
   },
   {
-    id:'sci-9',
-    category:{en:'Physics',pl:'Fizyka'},
-    title:{en:'Nikola Tesla',pl:'Nikola Tesla'},
-    period:{en:'1856 – 1943',pl:'1856 – 1943'},
-    hint:{en:'Held over 300 patents and envisioned wireless global communication in 1900 — over a century before Wi-Fi.',pl:'Posiadał ponad 300 patentów i w 1900 roku wyobraził sobie bezprzewodową komunikację globalną — na ponad wiek przed Wi-Fi.'},
-    image:WM('N.Tesla.JPG'),
-    imageAlt:'Nikola Tesla, ok. 1890',
-    imageCredit:'Nikola Tesla · ok. 1890 · domena publiczna',
+    id:'sci-9', category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Nikola Tesla',pl:'Nikola Tesla'}, period:{en:'1856 – 1943',pl:'1856 – 1943'},
+    hint:{en:'Held over 300 patents and in 1900 envisioned wireless global communication — over a century before Wi-Fi became reality.',pl:'Posiadał ponad 300 patentów i w 1900 roku wyobraził sobie bezprzewodową komunikację globalną — na ponad wiek przed Wi-Fi.'},
+    images:[WM('N.Tesla.JPG'), WM('Tesla_colorado.jpg')],
+    imageAlt:'Nikola Tesla, ok. 1890', imageCredit:'Nikola Tesla · ok. 1890 / Tesla w laboratorium Colorado Springs · 1899',
     field:{en:'Electrical Engineering, Physics',pl:'Inżynieria Elektryczna, Fizyka'},
-    discoveries:{en:'Alternating current (AC) electrical system; induction motor; Tesla coil; early radio patents; rotating magnetic field.',pl:'System prądu przemiennego (AC); silnik indukcyjny; cewka Tesli; wczesne patenty radiowe; wirujące pole magnetyczne.'},
-    keywords:{en:['Alternating Current','Induction Motor','Tesla Coil','AC Power'],pl:['Prąd przemienny','Silnik indukcyjny','Cewka Tesli','Energia AC']}
+    discoveries:{en:'Alternating current (AC) system — won the "War of Currents" against Edison\'s DC; AC powers the world today. Invented the induction motor, the Tesla coil, and polyphase power distribution. Pioneered radio (Marconi used his patents). Built Wardenclyffe Tower to transmit power wirelessly — the project was defunded by J.P. Morgan.',pl:'System prądu przemiennego (AC) — wygrał „wojnę prądów" z Edisonem; AC zasila świat do dziś. Wynalazł silnik indukcyjny, cewkę Tesli i wielofazowy system zasilania. Był pionierem radia (Marconi korzystał z jego patentów). Zbudował wieżę Wardenclyffe do bezprzewodowego przesyłu energii — projekt wycofał J.P. Morgan.'},
+    keywords:{en:['Alternating Current','Induction Motor','Tesla Coil','Wireless Power'],pl:['Prąd przemienny','Silnik indukcyjny','Cewka Tesli','Energia bezprzewodowa']}
   },
   {
-    id:'sci-10',
-    category:{en:'Computer Science',pl:'Informatyka'},
-    title:{en:'Ada Lovelace',pl:'Ada Lovelace'},
-    period:{en:'1815 – 1852',pl:'1815 – 1852'},
-    hint:{en:'Daughter of Lord Byron, she wrote the world\'s first computer algorithm — for a machine that was never built.',pl:'Córka Lorda Byrona — napisała pierwszy na świecie algorytm komputerowy dla maszyny, która nigdy nie powstała.'},
-    image:WM('Ada_Lovelace_portrait.jpg'),
-    imageAlt:'Ada Lovelace, ok. 1840',
-    imageCredit:'Ada Lovelace · ok. 1840 · domena publiczna',
+    id:'sci-10', category:{en:'Computer Science',pl:'Informatyka'},
+    title:{en:'Ada Lovelace',pl:'Ada Lovelace'}, period:{en:'1815 – 1852',pl:'1815 – 1852'},
+    hint:{en:'Daughter of Lord Byron, she wrote the world\'s first computer algorithm — for a machine that was never built in her lifetime.',pl:'Córka Lorda Byrona — napisała pierwszy na świecie algorytm komputerowy dla maszyny, która nie powstała za jej życia.'},
+    images:[WM('Ada_Lovelace_portrait.jpg'), WM('Analytical_engine_Babbage_London.jpg')],
+    imageAlt:'Ada Lovelace, ok. 1840', imageCredit:'Ada Lovelace · ok. 1840 / Maszyna Analityczna Babbage\'a · Science Museum London',
     field:{en:'Mathematics, Computer Science',pl:'Matematyka, Informatyka'},
-    discoveries:{en:"Wrote the first algorithm intended for Babbage's Analytical Engine (1843); foresaw computers as general-purpose machines far beyond mere calculation.",pl:'Napisała pierwszy algorytm dla Maszyny Analitycznej Babbage\'a (1843); przewidziała komputery jako maszyny ogólnego przeznaczenia, daleko poza zwykłymi obliczeniami.'},
-    keywords:{en:['First Algorithm','Analytical Engine','Programming','Visionary'],pl:['Pierwszy algorytm','Maszyna analityczna','Programowanie','Wizjonerka']}
+    discoveries:{en:"Wrote Algorithm #1 for Babbage's Analytical Engine (1843) — to calculate Bernoulli numbers. Crucially, she foresaw that the Engine could go beyond mere calculation to compose music or process any symbolic data — a vision of general-purpose computing 100 years before the digital age. The programming language Ada (1980) is named in her honour.",pl:'Napisała Algorytm nr 1 dla Maszyny Analitycznej Babbage\'a (1843) — obliczenie liczb Bernoulliego. Co kluczowe, przewidziała, że Maszyna może wyjść poza obliczenia i komponować muzykę lub przetwarzać dowolne dane symboliczne — wizja komputera ogólnego przeznaczenia 100 lat przed erą cyfrową. Język programowania Ada (1980) nosi jej imię.'},
+    keywords:{en:['First Algorithm','Analytical Engine','General Computing','Ada Language'],pl:['Pierwszy algorytm','Maszyna analityczna','Komputery ogólne','Język Ada']}
+  },
+  {
+    id:'sci-11', category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'The Big Bang',pl:'Wielki Wybuch'}, period:{en:'13.8 billion years ago',pl:'13,8 mld lat temu'},
+    hint:{en:'The universe did not begin as an explosion in space — space itself expanded from an incredibly hot, dense state about 13.8 billion years ago.',pl:'Wszechświat nie zaczął się jako eksplozja w przestrzeni — sama przestrzeń rozszerzyła się z niezwykle gorącego, gęstego stanu ok. 13,8 mld lat temu.'},
+    images:[WM('Ilc_9yr_moll4096.png'), WM('CMB_Timeline300_no_WMAP.jpg')],
+    imageAlt:'WMAP — Cosmic Microwave Background radiation map', imageCredit:'WMAP · CMB All-Sky Map · NASA/WMAP Science Team · 2012',
+    field:{en:'Cosmology, Astrophysics',pl:'Kosmologia, Astrofizyka'},
+    discoveries:{en:'Georges Lemaître (1927) proposed the universe expanded from a "primeval atom." Hubble (1929) confirmed galaxies are receding. The Cosmic Microwave Background (CMB) — discovered by Penzias & Wilson in 1965 (Nobel 1978) — is heat leftover from 380,000 years after the Big Bang. The Planck satellite (2013) measured the universe\'s age at 13.8 billion years with 0.3% precision.',pl:'Georges Lemaître (1927) zaproponował, że wszechświat rozszerzył się z „pierwotnego atomu". Hubble (1929) potwierdził ucieczkę galaktyk. Kosmiczne Mikrofalowe Tło (CMB) — odkryte przez Penziasa i Wilsona w 1965 (Nobel 1978) — to ciepło pozostałe z 380 000 lat po Wielkim Wybuchu. Satelita Planck (2013) zmierzył wiek wszechświata na 13,8 mld lat z dokładnością 0,3%.'},
+    keywords:{en:['CMB','Inflation','Cosmic Expansion','Lemaître'],pl:['CMB','Inflacja','Rozszerzanie kosmosu','Lemaître']}
+  },
+  {
+    id:'sci-12', category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'Black Holes',pl:'Czarne Dziury'}, period:{en:'Predicted 1916 · Imaged 2019',pl:'Przepowiedziane 1916 · Sfotografowane 2019'},
+    hint:{en:'So massive that not even light can escape — yet in 2019 a telescope the size of Earth captured the first image of one.',pl:'Tak masywne, że nawet światło nie może uciec — jednak w 2019 roku teleskop wielkości Ziemi uchwycił pierwsze zdjęcie czarnej dziury.'},
+    images:[WM('Messier_87_black_hole_EHT_image.jpg'), WM('Black_Hole_Milky_Way.jpg')],
+    imageAlt:'M87* — first image of a black hole, Event Horizon Telescope, 2019', imageCredit:'M87* · Event Horizon Telescope Collaboration · 2019 / Sgr A* · EHT · 2022',
+    field:{en:'Astrophysics, General Relativity',pl:'Astrofizyka, Ogólna Teoria Względności'},
+    discoveries:{en:'Karl Schwarzschild (1916) derived the first exact solution to Einstein\'s equations, predicting a gravitational singularity. Stephen Hawking (1974) showed black holes emit thermal radiation (Hawking radiation) and eventually evaporate. The Event Horizon Telescope (2019) imaged M87* — a black hole of 6.5 billion solar masses, 55 million light-years away. In 2022, EHT imaged Sagittarius A*, the 4-million-solar-mass black hole at our galaxy\'s centre.',pl:'Karl Schwarzschild (1916) wyprowadził pierwsze dokładne rozwiązanie równań Einsteina, przewidując osobliwość grawitacyjną. Stephen Hawking (1974) wykazał, że czarne dziury emitują promieniowanie termiczne (promieniowanie Hawkinga) i stopniowo odparowują. Teleskop EHT (2019) sfotografował M87* — czarną dziurę o masie 6,5 mld Słońc, 55 mln lat świetlnych stąd. W 2022 EHT sfotografował Sgr A*, czarną dziurę o masie 4 mln Słońc w centrum naszej galaktyki.'},
+    keywords:{en:['Event Horizon','Hawking Radiation','EHT','Singularity'],pl:['Horyzont zdarzeń','Promieniowanie Hawkinga','EHT','Osobliwość']}
+  },
+  {
+    id:'sci-13', category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'The Expanding Universe',pl:'Rozszerzający się Wszechświat'}, period:{en:'1929 – present',pl:'1929 – dziś'},
+    hint:{en:'Edwin Hubble proved galaxies are flying apart in all directions — the universe has no centre and no edge, only expansion.',pl:'Edwin Hubble dowiódł, że galaktyki odlatują we wszystkich kierunkach — wszechświat nie ma centrum ani krawędzi, tylko rozszerzanie.'},
+    images:[WM('Hubble_ultra_deep_field.jpg'), WM('Edwin_Hubble.jpg')],
+    imageAlt:'Hubble Ultra Deep Field — ~10,000 galaxies in a tiny patch of sky', imageCredit:'Hubble Ultra Deep Field · NASA/ESA · 2004 / Edwin Hubble · domena publiczna',
+    field:{en:'Cosmology, Observational Astronomy',pl:'Kosmologia, Astronomia Obserwacyjna'},
+    discoveries:{en:"Hubble's Law (1929): galaxy recession velocity ∝ distance (v = H₀·d). The Hubble constant H₀ ≈ 70 km/s/Mpc. Saul Perlmutter, Brian Schmidt & Adam Riess (Nobel 2011) discovered the expansion is accelerating — driven by dark energy, which makes up ~68% of the universe. The Hubble Ultra Deep Field (2004) revealed ~10,000 galaxies in a patch of sky smaller than 1/10 the Moon's diameter.",pl:'Prawo Hubble\'a (1929): prędkość ucieczki galaktyki ∝ odległość (v = H₀·d). Stała Hubble\'a H₀ ≈ 70 km/s/Mpc. Perlmutter, Schmidt i Riess (Nobel 2011) odkryli, że rozszerzanie przyspiesza — napędza je ciemna energia (~68% wszechświata). Hubble Ultra Deep Field (2004) ujawnił ~10 000 galaktyk w wycinku nieba mniejszym niż 1/10 tarczy Księżyca.'},
+    keywords:{en:["Hubble's Law",'Dark Energy','Redshift','Hubble Deep Field'],pl:['Prawo Hubble\'a','Ciemna energia','Przesunięcie ku czerwieni','Hubble Deep Field']}
+  },
+  {
+    id:'sci-14', category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'Gravitational Waves',pl:'Fale Grawitacyjne'}, period:{en:'Predicted 1916 · Detected 2015',pl:'Przepowiedziane 1916 · Wykryte 2015'},
+    hint:{en:'Einstein predicted ripples in spacetime in 1916. It took 100 years and a detector sensitive to 1/1000th the width of a proton to prove him right.',pl:'Einstein przewidział fale grawitacyjne w 1916 roku. Minęło 100 lat i trzeba było detektora czułego na 1/1000 szerokości protonu, by go potwierdzić.'},
+    images:[WM('LIGO_Hanford_aerial_05.jpg'), WM('GW150914_discovery_signals.png')],
+    imageAlt:'LIGO Hanford Observatory — detector for gravitational waves', imageCredit:'LIGO Hanford Observatory · aerial view · Caltech/MIT/LIGO Lab',
+    field:{en:'Astrophysics, Gravitational Physics',pl:'Astrofizyka, Fizyka Grawitacyjna'},
+    discoveries:{en:'LIGO (Laser Interferometer Gravitational-Wave Observatory) detected GW150914 on 14 September 2015 — a chirp lasting 0.2 seconds from two black holes of 29 and 36 solar masses merging 1.3 billion light-years away. The signal was 1/1000th the diameter of a proton. Nobel Prize 2017 (Rainer Weiss, Barry Barish, Kip Thorne). LIGO/Virgo have since detected neutron star mergers, confirming the origin of heavy elements like gold.',pl:'LIGO wykryło GW150914 14 września 2015 — ćwierkanie trwające 0,2 s od zlania dwóch czarnych dziur (29 i 36 mas Słońca) 1,3 mld lat świetlnych stąd. Sygnał odpowiadał przemieszczeniu 1/1000 średnicy protonu. Nobel 2017 (Rainer Weiss, Barry Barish, Kip Thorne). LIGO/Virgo wykryły też zderzenia gwiazd neutronowych, potwierdzając pochodzenie ciężkich pierwiastków jak złoto.'},
+    keywords:{en:['LIGO','Spacetime Ripples','Black Hole Merger','Nobel 2017'],pl:['LIGO','Fale w czasoprzestrzeni','Zlanie czarnych dziur','Nobel 2017']}
+  },
+  {
+    id:'sci-15', category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'Dark Matter & Dark Energy',pl:'Ciemna Materia i Ciemna Energia'}, period:{en:'Hypothesised 1933 · Confirmed 1990s',pl:'Hipoteza 1933 · Potwierdzone lata 90.'},
+    hint:{en:'96% of the universe is invisible — 27% is dark matter (detectable only by gravity) and 68% is dark energy causing accelerating expansion.',pl:'96% wszechświata jest niewidoczne — 27% to ciemna materia (wykrywalna tylko grawitacyjnie) i 68% to ciemna energia powodująca przyspieszające rozszerzanie.'},
+    images:[WM('Bullet_cluster_optical_full.jpg'), WM('DarkMatterPie.jpg')],
+    imageAlt:'Bullet Cluster — evidence for dark matter via gravitational lensing', imageCredit:'Bullet Cluster · NASA/CXC/CfA · X-ray + optical composite',
+    field:{en:'Cosmology, Particle Physics',pl:'Kosmologia, Fizyka Cząstek'},
+    discoveries:{en:'Fritz Zwicky (1933) found galaxies in the Coma Cluster moved too fast to be held by visible matter — coined "dark matter." Vera Rubin (1970s) confirmed: galaxy rotation curves don\'t match visible mass — dark matter forms invisible halos around galaxies. The Bullet Cluster (2006) provides direct evidence: dark matter passed through a galaxy collision unimpeded while hot gas slowed. Dark energy (discovered 1998) accelerates cosmic expansion and remains the greatest mystery in physics.',pl:'Fritz Zwicky (1933) odkrył, że galaktyki w gromadzie Coma poruszają się za szybko, by utrzymywała je widzialna materia — ukuł termin „ciemna materia". Vera Rubin (lata 70.) potwierdziła: krzywe rotacji galaktyk nie pasują do widzialnej masy. Gromada Pocisk (2006) daje bezpośredni dowód. Ciemna energia (odkryta 1998) przyspiesza rozszerzanie kosmosu i pozostaje największą zagadką fizyki.'},
+    keywords:{en:['Dark Matter','Dark Energy','Vera Rubin','Bullet Cluster'],pl:['Ciemna materia','Ciemna energia','Vera Rubin','Gromada Pocisk']}
+  },
+  {
+    id:'sci-16', category:{en:'Biology',pl:'Biologia'},
+    title:{en:'DNA Double Helix',pl:'Podwójna Helisa DNA'}, period:{en:'Structure solved 1953',pl:'Struktura ustalona 1953'},
+    hint:{en:'The molecule of life — its structure was solved in 1953 using X-ray crystallography data taken by a scientist who received no Nobel Prize.',pl:'Cząsteczka życia — jej strukturę ustalono w 1953 roku przy użyciu danych krystalograficznych wykonanych przez naukowca, który nie otrzymał Nagrody Nobla.'},
+    images:[WM('Photo_51_x-ray_diffraction_image.jpg'), WM('DNA_simple2.svg')],
+    imageAlt:'Photo 51 — Rosalind Franklin\'s X-ray diffraction image of DNA, 1952', imageCredit:"Photo 51 · Rosalind Franklin · 1952 / DNA structure diagram · domena publiczna",
+    field:{en:'Molecular Biology, Biochemistry',pl:'Biologia Molekularna, Biochemia'},
+    discoveries:{en:'Watson & Crick (1953) deduced the double helix structure of DNA using Rosalind Franklin\'s Photo 51 — without her knowledge. DNA: two strands of nucleotides wound in a helix, paired by complementary bases (A-T, G-C). The sequence of ~3 billion base pairs encodes all instructions for a human being. Watson, Crick & Wilkins won the Nobel Prize in 1962; Franklin had died of cancer in 1958 at age 37.',pl:'Watson i Crick (1953) ustalili strukturę podwójnej helisy DNA, korzystając z Zdjęcia 51 Rosalind Franklin — bez jej wiedzy. DNA: dwa łańcuchy nukleotydów skręcone w helisę, łączone przez komplementarne zasady (A-T, G-C). Sekwencja ~3 mld par zasad koduje wszystkie instrukcje człowieka. Watson, Crick i Wilkins dostali Nobla w 1962; Franklin zmarła na raka w 1958 w wieku 37 lat.'},
+    keywords:{en:['Double Helix','Base Pairs','Photo 51','Rosalind Franklin'],pl:['Podwójna helisa','Pary zasad','Zdjęcie 51','Rosalind Franklin']}
+  },
+  {
+    id:'sci-17', category:{en:'Physics',pl:'Fizyka'},
+    title:{en:'Quantum Mechanics',pl:'Mechanika Kwantowa'}, period:{en:'1900 – 1930s',pl:'1900 – lata 30.'},
+    hint:{en:'At the atomic scale, particles exist in multiple states simultaneously until measured — and the act of measuring changes the result.',pl:'W skali atomowej cząstki istnieją jednocześnie w wielu stanach, dopóki nie zostaną zmierzone — a sam akt pomiaru zmienia wynik.'},
+    images:[WM('Niels_Bohr.jpg'), WM('Schrodinger_cat.png')],
+    imageAlt:'Niels Bohr, physicist, founder of quantum mechanics framework', imageCredit:"Niels Bohr / Schrödinger's Cat — gedankenexperiment",
+    field:{en:'Theoretical Physics, Quantum Physics',pl:'Fizyka Teoretyczna, Fizyka Kwantowa'},
+    discoveries:{en:"Max Planck (1900): energy is quantised — E=hν. Einstein (1905): light comes in packets (photons). Bohr (1913): electrons occupy discrete energy levels. Heisenberg's Uncertainty Principle (1927): Δx·Δp ≥ ℏ/2 — position and momentum cannot both be known precisely. Schrödinger's equation describes how quantum states evolve. Entanglement: two particles can remain correlated across any distance — Einstein called it 'spooky action at a distance.' QM underlies all modern electronics, lasers, and MRI.",pl:'Planck (1900): energia jest skwantowana — E=hν. Einstein (1905): światło to fotony. Bohr (1913): elektrony zajmują dyskretne poziomy energetyczne. Zasada nieoznaczoności Heisenberga (1927): Δx·Δp ≥ ℏ/2 — położenia i pędu nie można znać jednocześnie z dowolną dokładnością. Równanie Schrödingera opisuje ewolucję stanów kwantowych. Splątanie: dwie cząstki mogą być skorelowane przez dowolną odległość. Mechanika kwantowa leży u podstaw całej elektroniki, laserów i rezonansu magnetycznego.'},
+    keywords:{en:['Superposition','Uncertainty Principle','Wave-Particle Duality','Entanglement'],pl:['Superpozycja','Zasada nieoznaczoności','Dualizm falowo-cząstkowy','Splątanie']}
+  },
+  {
+    id:'sci-18', category:{en:'Earth Science',pl:'Nauki o Ziemi'},
+    title:{en:'Plate Tectonics',pl:'Tektonika Płyt'}, period:{en:'Hypothesis 1912 · Confirmed 1960s',pl:'Hipoteza 1912 · Potwierdzone lata 60.'},
+    hint:{en:'The continents were once one supercontinent — Pangaea — and they are still moving today at the speed your fingernails grow.',pl:'Kontynenty były kiedyś jednym superkontyntentem — Pangea — i nadal się poruszają z prędkością wzrostu paznokci.'},
+    images:[WM('Pangaea_continents.svg'), WM('Alfred_Wegener.jpg')],
+    imageAlt:'Pangaea — supercontinent 250 million years ago', imageCredit:'Pangaea reconstruction / Alfred Wegener · domena publiczna',
+    field:{en:'Geology, Earth Science',pl:'Geologia, Nauki o Ziemi'},
+    discoveries:{en:'Alfred Wegener (1912) proposed continental drift — ridiculed by geologists for 50 years. Seafloor spreading (Harry Hess, 1960) and magnetic stripes on the ocean floor confirmed the theory. Earth\'s lithosphere is divided into ~15 major plates moving 2–15 cm/year. Plate collisions create mountain ranges (Himalayas), ocean trenches (Mariana), and trigger 90% of earthquakes. The theory also explains why identical fossils appear on separate continents.',pl:'Alfred Wegener (1912) zaproponował dryfowanie kontynentów — wyśmiewano go przez 50 lat. Rozchylanie się dna oceanicznego (Harry Hess, 1960) i magnetyczne pasy na dnie oceanów potwierdziły teorię. Litosfera Ziemi dzieli się na ~15 głównych płyt poruszających się 2–15 cm rocznie. Kolizje płyt tworzą góry (Himalaje), rowy oceaniczne (Mariana) i wywołują 90% trzęsień ziemi.'},
+    keywords:{en:['Continental Drift','Pangaea','Seafloor Spreading','Wegener'],pl:['Dryf kontynentalny','Pangea','Rozchylanie dna','Wegener']}
+  },
+  {
+    id:'sci-19', category:{en:'Universe',pl:'Wszechświat'},
+    title:{en:'The Standard Model',pl:'Model Standardowy'}, period:{en:'Developed 1970s · Completed 2012',pl:'Opracowany lata 70. · Ukończony 2012'},
+    hint:{en:'The most precisely tested theory in science — it describes all known fundamental particles and three of the four forces, accurate to one part in ten billion.',pl:'Najdokładniej przetestowana teoria w nauce — opisuje wszystkie znane cząstki fundamentalne i trzy z czterech sił, z dokładnością do jednej na dziesięć miliardów.'},
+    images:[WM('Standard_Model_of_Elementary_Particles.svg'), WM('CMS_Higgs-event.jpg')],
+    imageAlt:'Standard Model of Elementary Particles diagram', imageCredit:'Standard Model diagram / CMS Higgs boson event · CERN · 2012',
+    field:{en:'Particle Physics, Quantum Field Theory',pl:'Fizyka Cząstek, Kwantowa Teoria Pola'},
+    discoveries:{en:"The Standard Model classifies 17 fundamental particles: 6 quarks, 6 leptons, 4 force-carrying bosons, and the Higgs boson. Quarks combine into protons and neutrons; electrons orbit nuclei. The model describes electromagnetism, the weak force (radioactive decay), and the strong force (holding nuclei together). The Higgs boson — 'God particle' — was discovered at CERN's LHC on 4 July 2012 (Nobel 2013). Gravity is not yet included.",pl:'Model Standardowy klasyfikuje 17 cząstek fundamentalnych: 6 kwarków, 6 leptonów, 4 bozony sił i bozon Higgsa. Kwarki tworzą protony i neutrony; elektrony krążą wokół jąder. Model opisuje elektromagnetyzm, oddziaływanie słabe (rozpad promieniotwórczy) i silne (spójność jąder). Bozon Higgsa — „cząstka Boga" — odkryty w CERN 4 lipca 2012 (Nobel 2013). Grawitacja nie jest jeszcze uwzględniona.'},
+    keywords:{en:['Quarks','Higgs Boson','CERN LHC','Fundamental Forces'],pl:['Kwarki','Bozon Higgsa','CERN LHC','Siły fundamentalne']}
+  },
+  {
+    id:'sci-20', category:{en:'Computer Science',pl:'Informatyka'},
+    title:{en:'Alan Turing',pl:'Alan Turing'}, period:{en:'1912 – 1954',pl:'1912 – 1954'},
+    hint:{en:'Invented the theoretical basis of all modern computing — and in WWII broke the Nazi Enigma cipher, a feat kept secret for 50 years.',pl:'Wymyślił teoretyczne podstawy całego nowoczesnego komputerstwa — i podczas II WŚ złamał szyfr Enigmy, czego przez 50 lat nie ujawniano.'},
+    images:[WM('Alan_Turing_Aged_16.jpg'), WM('Bombe-rebuild.jpg')],
+    imageAlt:'Alan Turing, aged 16', imageCredit:"Alan Turing · ok. 1928 / Odbudowa bomby kryptoanalitycznej · Bletchley Park",
+    field:{en:'Mathematics, Computer Science, Cryptography',pl:'Matematyka, Informatyka, Kryptografia'},
+    discoveries:{en:'Turing Machine (1936): a theoretical model of computation that defines what any algorithm can or cannot compute — the foundation of computer science. Broke the Nazi Enigma cipher at Bletchley Park (1940), credited with shortening WWII by 2–4 years and saving ~14 million lives. Proposed the Turing Test (1950) for machine intelligence. Prosecuted for homosexuality in 1952 and chemically castrated; died in 1954, officially suicide. Received a posthumous royal pardon in 2013.',pl:'Maszyna Turinga (1936): teoretyczny model obliczeń definiujący, co algorytm może i czego nie może obliczyć — fundament informatyki. Złamał szyfr Enigmy w Bletchley Park (1940), skracając II WŚ o 2–4 lata i ratując ~14 mln istnień. Zaproponował Test Turinga (1950) dla inteligencji maszynowej. W 1952 r. skazany za homoseksualność i poddany kastracji chemicznej; zmarł w 1954. Pośmiertne ułaskawienie królewskie w 2013.'},
+    keywords:{en:['Turing Machine','Enigma','Artificial Intelligence','Bletchley Park'],pl:['Maszyna Turinga','Enigma','Sztuczna inteligencja','Bletchley Park']}
   }
 ];
 
@@ -281,6 +364,9 @@ const S = {
   quizAnswered:  false,
   // favourites
   favs:          new Set(JSON.parse(localStorage.getItem('luma_favs') || '[]')),
+  // gallery (image index per deck)
+  artGalIdx:     0,
+  sciGalIdx:     0,
 };
 
 /* ── Favourites helpers ──────────────────────────────── */
@@ -405,6 +491,9 @@ const DOM = {
   // fav buttons
   favBtn:        $('favBtn'),      sciFavBtn:     $('sciFavBtn'),
   vocabFavBtn:   $('vocabFavBtn'),
+  // gallery
+  artGalDots:    $('artGalDots'), artGalPrev:    $('artGalPrev'), artGalNext:    $('artGalNext'),
+  sciGalDots:    $('sciGalDots'), sciGalPrev:    $('sciGalPrev'), sciGalNext:    $('sciGalNext'),
 };
 
 /* ── Generic card flip ───────────────────────────────── */
@@ -436,6 +525,25 @@ function setProgress(current, total) {
   DOM.progressRole.setAttribute('aria-valuenow', Math.round(pct));
 }
 
+/* ── Gallery helper ──────────────────────────────────── */
+function renderGallery(images, idx, imgEl, dotsEl, prevEl, nextEl) {
+  if (!images || !images.length) return;
+  const i = Math.max(0, Math.min(idx, images.length - 1));
+  imgEl.src = images[i];
+  const multi = images.length > 1;
+  if (prevEl) prevEl.style.display = multi ? '' : 'none';
+  if (nextEl) nextEl.style.display = multi ? '' : 'none';
+  if (!dotsEl) return;
+  dotsEl.innerHTML = '';
+  if (multi) {
+    images.forEach((_, di) => {
+      const d = document.createElement('span');
+      d.className = 'gal-dot' + (di === i ? ' active' : '');
+      dotsEl.appendChild(d);
+    });
+  }
+}
+
 /* ── Render: art cards ───────────────────────────────── */
 function render(animate = false) {
   if (!S.deck.length) {
@@ -452,7 +560,8 @@ function render(animate = false) {
   const u = ui(); const l = L();
   if (animate) animateCard(DOM.flashcard);
 
-  DOM.cardImg.src              = card.image;
+  S.artGalIdx = 0;
+  renderGallery(card.images, 0, DOM.cardImg, DOM.artGalDots, DOM.artGalPrev, DOM.artGalNext);
   DOM.cardImg.alt              = card.imageAlt;
   DOM.frontCatPill.textContent = card.category[l];
   DOM.hintEyebrow.textContent  = u.hint;
@@ -486,7 +595,8 @@ function renderSci(animate = false) {
   const u = ui(); const l = L();
   if (animate) animateCard(DOM.sciCard);
 
-  DOM.sciImg.src               = card.image;
+  S.sciGalIdx = 0;
+  renderGallery(card.images, 0, DOM.sciImg, DOM.sciGalDots, DOM.sciGalPrev, DOM.sciGalNext);
   DOM.sciImg.alt               = card.imageAlt;
   DOM.sciPill.textContent      = card.category[l];
   DOM.sciHint.textContent      = card.hint[l];
@@ -838,6 +948,40 @@ DOM.qNextBtn.addEventListener('click', () => {
   S.quizIdx++;
   if (S.quizIdx >= S.quizQs.length) finishQuiz();
   else renderQ();
+});
+
+// Gallery navigation
+if (DOM.artGalPrev) DOM.artGalPrev.addEventListener('click', e => {
+  e.stopPropagation();
+  const imgs = S.deck[S.idx]?.images;
+  if (imgs && S.artGalIdx > 0) {
+    S.artGalIdx--;
+    renderGallery(imgs, S.artGalIdx, DOM.cardImg, DOM.artGalDots, DOM.artGalPrev, DOM.artGalNext);
+  }
+});
+if (DOM.artGalNext) DOM.artGalNext.addEventListener('click', e => {
+  e.stopPropagation();
+  const imgs = S.deck[S.idx]?.images;
+  if (imgs && S.artGalIdx < imgs.length - 1) {
+    S.artGalIdx++;
+    renderGallery(imgs, S.artGalIdx, DOM.cardImg, DOM.artGalDots, DOM.artGalPrev, DOM.artGalNext);
+  }
+});
+if (DOM.sciGalPrev) DOM.sciGalPrev.addEventListener('click', e => {
+  e.stopPropagation();
+  const imgs = S.sciDeck[S.sciIdx]?.images;
+  if (imgs && S.sciGalIdx > 0) {
+    S.sciGalIdx--;
+    renderGallery(imgs, S.sciGalIdx, DOM.sciImg, DOM.sciGalDots, DOM.sciGalPrev, DOM.sciGalNext);
+  }
+});
+if (DOM.sciGalNext) DOM.sciGalNext.addEventListener('click', e => {
+  e.stopPropagation();
+  const imgs = S.sciDeck[S.sciIdx]?.images;
+  if (imgs && S.sciGalIdx < imgs.length - 1) {
+    S.sciGalIdx++;
+    renderGallery(imgs, S.sciGalIdx, DOM.sciImg, DOM.sciGalDots, DOM.sciGalPrev, DOM.sciGalNext);
+  }
 });
 
 // Keyboard navigation
