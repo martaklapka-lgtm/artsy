@@ -126,7 +126,7 @@ const SCIENCE_CARDS = [
     id:'sci-2', category:{en:'Physics',pl:'Fizyka'},
     title:{en:'Albert Einstein',pl:'Albert Einstein'}, period:{en:'1879 – 1955',pl:'1879 – 1955'},
     hint:{en:'His 1905 "miracle year" produced four papers that each individually transformed physics — and he was working as a patent clerk at the time.',pl:'W swoim „cudownym roku" 1905 opublikował cztery artykuły, z których każdy odmienił fizykę — pracował wtedy jako urzędnik patentowy.'},
-    images:[WM('Einstein_1921_by_F_Schmutzer_-_restoration.jpg'), WM('Einstein_blackboard_1931.jpg')],
+    images:[WM('Einstein_1921_by_F_Schmutzer_-_restoration.jpg'), WM('Einstein_blackboard.jpg')],
     imageAlt:'Albert Einstein, 1921', imageCredit:'Albert Einstein · 1921 · F. Schmutzer · domena publiczna',
     field:{en:'Theoretical Physics',pl:'Fizyka Teoretyczna'},
     discoveries:{en:'Special Relativity (1905): time slows and mass increases at high velocities; E=mc² shows mass and energy are equivalent. General Relativity (1915): gravity is the curvature of spacetime. Predicted black holes, gravitational waves (confirmed 2015), and gravitational lensing. Nobel Prize 1921 for the photoelectric effect, not relativity.',pl:'Szczególna teoria względności (1905): czas zwalnia, masa rośnie przy dużych prędkościach; E=mc² — masa i energia są równoważne. Ogólna teoria względności (1915): grawitacja to krzywizna czasoprzestrzeni. Przewidział czarne dziury, fale grawitacyjne (potwierdzone 2015) i soczewkowanie grawitacyjne. Nobel 1921 za efekt fotoelektryczny, nie za względność.'},
@@ -176,7 +176,7 @@ const SCIENCE_CARDS = [
     id:'sci-7', category:{en:'Chemistry',pl:'Chemia'},
     title:{en:'Dmitri Mendeleev',pl:'Dmitrij Mendelejew'}, period:{en:'1834 – 1907',pl:'1834 – 1907'},
     hint:{en:'He organised the Periodic Table while writing a chemistry textbook — and predicted the properties of undiscovered elements with remarkable accuracy.',pl:'Stworzył układ okresowy, pisząc podręcznik chemii — i z niezwykłą dokładnością przewidział właściwości jeszcze nieodkrytych pierwiastków.'},
-    images:[WM('Mendeleev_by_repin.jpg'), WM("Mendeleev's_1871_periodic_table.png")],
+    images:[WM('Mendeleev_by_repin.jpg'), WM('Periodic_table_of_elements.svg')],
     imageAlt:'Dmitri Mendeleev, portret Ilji Repina, 1885', imageCredit:'Mendelejew · 1885 · Ilja Repin / Układ okresowy Mendelejewa · 1871',
     field:{en:'Chemistry',pl:'Chemia'},
     discoveries:{en:'Periodic Table of Elements (1869): organised 63 known elements by atomic weight and valence. Left deliberate gaps for undiscovered elements and predicted their properties. Gallium (1875), scandium (1879), and germanium (1886) were later found matching his predictions almost exactly.',pl:'Układ okresowy pierwiastków (1869): uporządkował 63 znane pierwiastki według masy atomowej i wartościowości. Pozostawił celowe luki dla nieodkrytych pierwiastków i przewidział ich właściwości. Gal (1875), skandium (1879) i german (1886) odkryto niemal dokładnie zgodnie z jego przewidywaniami.'},
@@ -226,7 +226,7 @@ const SCIENCE_CARDS = [
     id:'sci-12', category:{en:'Universe',pl:'Wszechświat'},
     title:{en:'Black Holes',pl:'Czarne Dziury'}, period:{en:'Predicted 1916 · Imaged 2019',pl:'Przepowiedziane 1916 · Sfotografowane 2019'},
     hint:{en:'So massive that not even light can escape — yet in 2019 a telescope the size of Earth captured the first image of one.',pl:'Tak masywne, że nawet światło nie może uciec — jednak w 2019 roku teleskop wielkości Ziemi uchwycił pierwsze zdjęcie czarnej dziury.'},
-    images:[WM('Messier_87_black_hole_EHT_image.jpg'), WM('Black_Hole_Milky_Way.jpg')],
+    images:[WM('M87.jpg'), WM('Sagittarius_A*.jpg')],
     imageAlt:'M87* — first image of a black hole, Event Horizon Telescope, 2019', imageCredit:'M87* · Event Horizon Telescope Collaboration · 2019 / Sgr A* · EHT · 2022',
     field:{en:'Astrophysics, General Relativity',pl:'Astrofizyka, Ogólna Teoria Względności'},
     discoveries:{en:'Karl Schwarzschild (1916) derived the first exact solution to Einstein\'s equations, predicting a gravitational singularity. Stephen Hawking (1974) showed black holes emit thermal radiation (Hawking radiation) and eventually evaporate. The Event Horizon Telescope (2019) imaged M87* — a black hole of 6.5 billion solar masses, 55 million light-years away. In 2022, EHT imaged Sagittarius A*, the 4-million-solar-mass black hole at our galaxy\'s centre.',pl:'Karl Schwarzschild (1916) wyprowadził pierwsze dokładne rozwiązanie równań Einsteina, przewidując osobliwość grawitacyjną. Stephen Hawking (1974) wykazał, że czarne dziury emitują promieniowanie termiczne (promieniowanie Hawkinga) i stopniowo odparowują. Teleskop EHT (2019) sfotografował M87* — czarną dziurę o masie 6,5 mld Słońc, 55 mln lat świetlnych stąd. W 2022 EHT sfotografował Sgr A*, czarną dziurę o masie 4 mln Słońc w centrum naszej galaktyki.'},
@@ -246,7 +246,7 @@ const SCIENCE_CARDS = [
     id:'sci-14', category:{en:'Universe',pl:'Wszechświat'},
     title:{en:'Gravitational Waves',pl:'Fale Grawitacyjne'}, period:{en:'Predicted 1916 · Detected 2015',pl:'Przepowiedziane 1916 · Wykryte 2015'},
     hint:{en:'Einstein predicted ripples in spacetime in 1916. It took 100 years and a detector sensitive to 1/1000th the width of a proton to prove him right.',pl:'Einstein przewidział fale grawitacyjne w 1916 roku. Minęło 100 lat i trzeba było detektora czułego na 1/1000 szerokości protonu, by go potwierdzić.'},
-    images:[WM('LIGO_Hanford_aerial_05.jpg'), WM('GW150914_discovery_signals.png')],
+    images:[WM('LIGO_Hanford_aerial_05.jpg'), WM('LIGO_measurement_of_gravitational_waves.svg')],
     imageAlt:'LIGO Hanford Observatory — detector for gravitational waves', imageCredit:'LIGO Hanford Observatory · aerial view · Caltech/MIT/LIGO Lab',
     field:{en:'Astrophysics, Gravitational Physics',pl:'Astrofizyka, Fizyka Grawitacyjna'},
     discoveries:{en:'LIGO (Laser Interferometer Gravitational-Wave Observatory) detected GW150914 on 14 September 2015 — a chirp lasting 0.2 seconds from two black holes of 29 and 36 solar masses merging 1.3 billion light-years away. The signal was 1/1000th the diameter of a proton. Nobel Prize 2017 (Rainer Weiss, Barry Barish, Kip Thorne). LIGO/Virgo have since detected neutron star mergers, confirming the origin of heavy elements like gold.',pl:'LIGO wykryło GW150914 14 września 2015 — ćwierkanie trwające 0,2 s od zlania dwóch czarnych dziur (29 i 36 mas Słońca) 1,3 mld lat świetlnych stąd. Sygnał odpowiadał przemieszczeniu 1/1000 średnicy protonu. Nobel 2017 (Rainer Weiss, Barry Barish, Kip Thorne). LIGO/Virgo wykryły też zderzenia gwiazd neutronowych, potwierdzając pochodzenie ciężkich pierwiastków jak złoto.'},
@@ -256,7 +256,7 @@ const SCIENCE_CARDS = [
     id:'sci-15', category:{en:'Universe',pl:'Wszechświat'},
     title:{en:'Dark Matter & Dark Energy',pl:'Ciemna Materia i Ciemna Energia'}, period:{en:'Hypothesised 1933 · Confirmed 1990s',pl:'Hipoteza 1933 · Potwierdzone lata 90.'},
     hint:{en:'96% of the universe is invisible — 27% is dark matter (detectable only by gravity) and 68% is dark energy causing accelerating expansion.',pl:'96% wszechświata jest niewidoczne — 27% to ciemna materia (wykrywalna tylko grawitacyjnie) i 68% to ciemna energia powodująca przyspieszające rozszerzanie.'},
-    images:[WM('Bullet_cluster_optical_full.jpg'), WM('DarkMatterPie.jpg')],
+    images:[WM('Bullet_cluster.jpg'), WM('DarkMatterPie.jpg')],
     imageAlt:'Bullet Cluster — evidence for dark matter via gravitational lensing', imageCredit:'Bullet Cluster · NASA/CXC/CfA · X-ray + optical composite',
     field:{en:'Cosmology, Particle Physics',pl:'Kosmologia, Fizyka Cząstek'},
     discoveries:{en:'Fritz Zwicky (1933) found galaxies in the Coma Cluster moved too fast to be held by visible matter — coined "dark matter." Vera Rubin (1970s) confirmed: galaxy rotation curves don\'t match visible mass — dark matter forms invisible halos around galaxies. The Bullet Cluster (2006) provides direct evidence: dark matter passed through a galaxy collision unimpeded while hot gas slowed. Dark energy (discovered 1998) accelerates cosmic expansion and remains the greatest mystery in physics.',pl:'Fritz Zwicky (1933) odkrył, że galaktyki w gromadzie Coma poruszają się za szybko, by utrzymywała je widzialna materia — ukuł termin „ciemna materia". Vera Rubin (lata 70.) potwierdziła: krzywe rotacji galaktyk nie pasują do widzialnej masy. Gromada Pocisk (2006) daje bezpośredni dowód. Ciemna energia (odkryta 1998) przyspiesza rozszerzanie kosmosu i pozostaje największą zagadką fizyki.'},
@@ -266,7 +266,7 @@ const SCIENCE_CARDS = [
     id:'sci-16', category:{en:'Biology',pl:'Biologia'},
     title:{en:'DNA Double Helix',pl:'Podwójna Helisa DNA'}, period:{en:'Structure solved 1953',pl:'Struktura ustalona 1953'},
     hint:{en:'The molecule of life — its structure was solved in 1953 using X-ray crystallography data taken by a scientist who received no Nobel Prize.',pl:'Cząsteczka życia — jej strukturę ustalono w 1953 roku przy użyciu danych krystalograficznych wykonanych przez naukowca, który nie otrzymał Nagrody Nobla.'},
-    images:[WM('Photo_51_x-ray_diffraction_image.jpg'), WM('DNA_simple2.svg')],
+    images:[WM('Rosalind_Franklin.jpg'), WM('DNA_simple2.svg')],
     imageAlt:'Photo 51 — Rosalind Franklin\'s X-ray diffraction image of DNA, 1952', imageCredit:"Photo 51 · Rosalind Franklin · 1952 / DNA structure diagram · domena publiczna",
     field:{en:'Molecular Biology, Biochemistry',pl:'Biologia Molekularna, Biochemia'},
     discoveries:{en:'Watson & Crick (1953) deduced the double helix structure of DNA using Rosalind Franklin\'s Photo 51 — without her knowledge. DNA: two strands of nucleotides wound in a helix, paired by complementary bases (A-T, G-C). The sequence of ~3 billion base pairs encodes all instructions for a human being. Watson, Crick & Wilkins won the Nobel Prize in 1962; Franklin had died of cancer in 1958 at age 37.',pl:'Watson i Crick (1953) ustalili strukturę podwójnej helisy DNA, korzystając z Zdjęcia 51 Rosalind Franklin — bez jej wiedzy. DNA: dwa łańcuchy nukleotydów skręcone w helisę, łączone przez komplementarne zasady (A-T, G-C). Sekwencja ~3 mld par zasad koduje wszystkie instrukcje człowieka. Watson, Crick i Wilkins dostali Nobla w 1962; Franklin zmarła na raka w 1958 w wieku 37 lat.'},
@@ -679,6 +679,17 @@ function updateCatChips() {
     const k = btn.dataset.cat;
     if (map[k]) btn.textContent = map[k][S.lang];
   });
+  // nav tabs
+  document.querySelectorAll('.nav-tab[data-label-en]').forEach(btn => {
+    btn.textContent = btn.dataset['label' + S.lang.charAt(0).toUpperCase() + S.lang.slice(1)];
+  });
+  // footer
+  const fl = $('footerFlip'); const fn = $('footerNav');
+  if (fl) fl.textContent = S.lang === 'pl' ? 'obróć' : 'flip';
+  if (fn) fn.textContent = S.lang === 'pl' ? 'nawiguj' : 'navigate';
+  // Space key label
+  const kbds = document.querySelectorAll('.footer kbd');
+  if (kbds[0]) kbds[0].textContent = S.lang === 'pl' ? 'Spacja' : 'Space';
 }
 
 function toggleLang() {

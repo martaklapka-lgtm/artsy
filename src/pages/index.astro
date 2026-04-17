@@ -6,7 +6,7 @@ import '../styles/global.css';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luma — Nauka i Sztuka</title>
+  <title>Luma — Art & Science</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
@@ -23,11 +23,11 @@ import '../styles/global.css';
         <span class="brand-name">Luma</span>
       </div>
 
-      <nav class="nav" role="navigation" aria-label="Główna nawigacja">
-        <button class="nav-tab active" data-view="cards">Sztuka</button>
-        <button class="nav-tab" data-view="science">Nauka</button>
-        <button class="nav-tab" data-view="vocab">Słownik</button>
-        <button class="nav-tab" data-view="quiz">Quiz</button>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <button class="nav-tab active" data-view="cards" data-label-en="Art" data-label-pl="Sztuka">Art</button>
+        <button class="nav-tab" data-view="science" data-label-en="Science" data-label-pl="Nauka">Science</button>
+        <button class="nav-tab" data-view="vocab" data-label-en="Vocab" data-label-pl="Słownik">Vocab</button>
+        <button class="nav-tab" data-view="quiz" data-label-en="Quiz" data-label-pl="Quiz">Quiz</button>
       </nav>
 
       <div class="header-actions">
@@ -246,9 +246,9 @@ import '../styles/global.css';
   </main>
 
   <footer class="footer">
-    <span><kbd>Spacja</kbd> obróć</span>
+    <span><kbd>Space</kbd> <span id="footerFlip">flip</span></span>
     <span class="footer-dot">·</span>
-    <span><kbd>←</kbd><kbd>→</kbd> nawiguj</span>
+    <span><kbd>←</kbd><kbd>→</kbd> <span id="footerNav">navigate</span></span>
   </footer>
 
   <script src="/artsy/script.js" is:inline></script>
